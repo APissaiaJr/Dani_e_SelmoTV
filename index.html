@@ -1,190 +1,476 @@
-!DOCTYPE html
-html lang=pt-BR
-head
-meta charset=UTF-8
-meta name=viewport content=width=device-width, initial-scale=1.0
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dani e Selmo TV ❤️ | Feliz Dia dos Namorados</title>
+    <style>
+        /* Importando uma fonte mais elegante e romântica */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Great+Vibes&display=swap');
 
-titleDani e Selmo TV ❤️title
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
 
-style
+        :root {
+            --primary: #ff2a6d;
+            --primary-glow: #ff0055;
+            --accent: #ffd700;
+            --bg-dark: #0a0508;
+            --bg-card: #160d13;
+            --text-light: #fff5f7;
+        }
 
-{
-    margin0;
-    padding0;
-    box-sizingborder-box;
-    font-family Arial, sans-serif;
-}
+        body {
+            background: linear-gradient(135deg, #0a0508 0%, #1a0b14 100%);
+            color: var(--text-light);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            position: relative;
+        }
 
-body{
-    background#0f0f0f;
-    colorwhite;
-}
+        /* Efeito de corações flutuantes ao fundo */
+        body::before {
+            content: "❤️";
+            position: fixed;
+            font-size: 20px;
+            opacity: 0.04;
+            top: 10%; left: 5%;
+            animation: float 6s ease-in-out infinite alternate;
+        }
+        body::after {
+            content: "💖";
+            position: fixed;
+            font-size: 30px;
+            opacity: 0.03;
+            bottom: 15%; right: 8%;
+            animation: float 8s ease-in-out infinite alternate-reverse;
+        }
 
-header{
-    background#202020;
-    padding20px;
-    text-aligncenter;
-    border-bottom3px solid #ff0000;
-}
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-30px) rotate(15deg); }
+        }
 
-header h1{
-    color#ff0000;
-    font-size40px;
-}
+        /* HEADER PREMIUM */
+        header {
+            background: linear-gradient(to bottom, rgba(22, 13, 19, 0.95), rgba(10, 5, 8, 0.8));
+            backdrop-filter: blur(10px);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            box-shadow: 0 4px 30px rgba(255, 42, 109, 0.15);
+        }
 
-header p{
-    margin-top10px;
-    color#ccc;
-}
+        header h1 {
+            font-family: 'Great Vibes', cursive;
+            color: var(--primary);
+            font-size: 3.5rem;
+            text-shadow: 0 0 15px rgba(255, 42, 109, 0.6);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
 
-.hero{
-    max-width1200px;
-    marginauto;
-    padding20px;
-}
+        header p {
+            font-size: 1.1rem;
+            color: #bfaab5;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
 
-video{
-    width100%;
-    border-radius12px;
-}
+        /* CONTAINER PRINCIPAL */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 30px 20px;
+        }
 
-.section-title{
-    margin-top40px;
-    margin-bottom20px;
-    font-size28px;
-}
+        /* SEÇÃO DESTAQUE (A TV) */
+        .section-title {
+            margin-top: 50px;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-light);
+        }
 
-.grid{
-    displaygrid;
-    grid-template-columnsrepeat(auto-fit,minmax(280px,1fr));
-    gap20px;
-}
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--primary), transparent);
+            margin-left: 10px;
+        }
 
-.card{
-    background#202020;
-    border-radius10px;
-    overflowhidden;
-    transition.3s;
-}
+        .cinema-box {
+            background: var(--bg-card);
+            padding: 15px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 42, 109, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 42, 109, 0.1);
+            transition: border-color 0.3s;
+        }
 
-.cardhover{
-    transformscale(1.03);
-}
+        .cinema-box:hover {
+            border-color: var(--primary);
+        }
 
-.card video{
-    width100%;
-}
+        video {
+            width: 100%;
+            border-radius: 12px;
+            display: block;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
 
-.card img{
-    width100%;
-    height250px;
-    object-fitcover;
-}
+        /* GRIDS RESPONSIVOS (Mobile First / Auto-fit adaptável) */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
 
-.card p{
-    padding10px;
-}
+        /* CARDS ESTILO STREAMING */
+        .card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: pointer;
+            position: relative;
+        }
 
-.mensagem{
-    background#202020;
-    margin-top50px;
-    padding30px;
-    border-radius12px;
-    text-aligncenter;
-}
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border-radius: 16px;
+            box-shadow: inset 0 0 0 2px transparent;
+            transition: box-shadow 0.3s;
+            z-index: 2;
+            pointer-events: none;
+        }
 
-footer{
-    text-aligncenter;
-    padding30px;
-    color#888;
-}
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(255, 42, 109, 0.25);
+        }
 
-style
-head
+        .card:hover::before {
+            box-shadow: inset 0 0 0 2px var(--primary);
+        }
 
-body
+        .card-media {
+            position: relative;
+            overflow: hidden;
+        }
 
-header
-    h1❤️ Dani e Selmo TV ❤️h1
-    pOs melhores momentos da nossa históriap
-header
+        /* Ícone de Play nos vídeos da galeria */
+        .card-media::after {
+            content: '▶';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background: rgba(255, 42, 109, 0.9);
+            color: white;
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            opacity: 0; transition: all 0.3s;
+            font-size: 18px; padding-left: 3px;
+        }
 
-div class=hero
+        .card:hover .card-media::after {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
 
-    h2 class=section-title🎬 Vídeo em Destaqueh2
+        .card.photo-card .card-media::after {
+            content: '🔍';
+            padding-left: 0;
+        }
 
-    video controls autoplay muted
-        source src=videosvideo1.mp4 type=videomp4
-    video
+        .card video {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 16px 16px 0 0;
+        }
 
-    h2 class=section-title📹 Nossos Vídeosh2
+        .card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
 
-    div class=grid
+        .card:hover img {
+            transform: scale(1.08);
+        }
 
-        div class=card
-            video controls
-                source src=videosvideo1.mp4 type=videomp4
-            video
-            pNosso primeiro vídeo ❤️p
-        div
+        .card p {
+            padding: 20px;
+            font-size: 1rem;
+            font-weight: 500;
+            text-align: center;
+            color: #e5d5df;
+            border-top: 1px solid rgba(255,255,255,0.02);
+        }
 
-        div class=card
-            video controls
-                source src=videosvideo2.mp4 type=videomp4
-            video
-            pMomento especial ❤️p
-        div
+        /* QUADRO DE MENSAGEM EMOCIONANTE */
+        .mensagem {
+            background: linear-gradient(145deg, #23121e, #160d13);
+            margin-top: 70px;
+            padding: 50px 30px;
+            border-radius: 24px;
+            text-align: center;
+            border: 1px solid rgba(255, 42, 109, 0.4);
+            box-shadow: 0 15px 40px rgba(255, 42, 109, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
 
-        div class=card
-            video controls
-                source src=videosvideo3.mp4 type=videomp4
-            video
-            pMais uma lembrança ❤️p
-        div
+        .mensagem::before {
+            content: '💝';
+            font-size: 80px;
+            position: absolute;
+            right: -20px; bottom: -20px;
+            opacity: 0.05;
+        }
 
-    div
+        .mensagem h2 {
+            font-family: 'Great Vibes', cursive;
+            color: var(--accent);
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+        }
 
-    h2 class=section-title📸 Nossas Fotosh2
+        .mensagem p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: auto;
+            color: #dfced9;
+            font-weight: 300;
+        }
 
-    div class=grid
+        .mensagem .te-amo {
+            font-size: 1.6rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-top: 25px;
+            display: block;
+            text-shadow: 0 0 10px rgba(255, 42, 109, 0.4);
+            animation: pulse 2s infinite;
+        }
 
-        div class=card
-            img src=fotosfoto1.jpg
-        div
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
 
-        div class=card
-            img src=fotosfoto2.jpg
-        div
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            color: #735c6a;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 50px;
+        }
 
-        div class=card
-            img src=fotosfoto3.jpg
-        div
+        /* MODAL DE FOTOS (LIGHTBOX AUTOMÁTICO) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(6, 3, 5, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            backdrop-filter: blur(8px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
 
-        div class=card
-            img src=fotosfoto4.jpg
-        div
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
 
-        div class=card
-            img src=fotosfoto5.jpg
-        div
+        .modal img {
+            max-width: 95%;
+            max-height: 85vh;
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(255, 42, 109, 0.3);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
 
-        div class=card
-            img src=fotosfoto6.jpg
-        div
+        .modal.active img {
+            transform: scale(1);
+        }
 
-    div
+        .modal-close {
+            position: absolute;
+            top: 20px; right: 25px;
+            color: var(--text-light);
+            font-size: 45px;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
 
-    div class=mensagem
+        .modal-close:hover {
+            color: var(--primary);
+        }
 
-        h2💌 Para você, Danieleh2
+        /* AJUSTES DE RESPONSIVIDADE (TABLETS E CELULARES) */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.8rem; }
+            header p { font-size: 0.95rem; }
+            .section-title { font-size: 1.5rem; }
+            .mensagem h2 { font-size: 2.4rem; }
+            .mensagem p { font-size: 1rem; }
+            .card img { height: 200px; }
+        }
 
-        br
+        @media (max-width: 480px) {
+            header h1 { font-size: 2.3rem; }
+            .container { padding: 15px 10px; }
+            .cinema-box { padding: 8px; border-radius: 12px; }
+            .mensagem { padding: 35px 15px; }
+        }
+    </style>
+</head>
+<body>
 
-        p
-            Este site foi criado especialmente para guardar
-            alguns dos momentos mais importantes da nossa história.
-            Cada foto e cada vídeo representam um pedaço da nossa caminhada.
-            Te amo ❤️
-        p
+    <header>
+        <h1>❤️ Dani e Selmo TV ❤️</h1>
+        <p>Os melhores momentos da nossa história construída juntos</p>
+    </header>
 
-    div
+    <div class="container">
+
+        <h2 class="section-title">🎬 Assistindo Agora</h2>
+        <div class="cinema-box">
+            <video id="mainPlayer" controls autoplay muted>
+                <source src="videos/video1.mp4" type="video/mp4">
+                Seu navegador não suporta a reprodução de vídeos.
+            </video>
+        </div>
+
+        <h2 class="section-title">📹 Nossa Playlist Especial</h2>
+        <div class="grid">
+            
+            <div class="card js-video-card">
+                <div class="card-media">
+                    <video muted preload="metadata">
+                        <source src="videos/video1.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <p>Nosso primeiro vídeo ❤️</p>
+            </div>
+
+            <div class="card js-video-card">
+                <div class="card-media">
+                    <video muted preload="metadata">
+                        <source src="videos/video2.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <p>Momento especial ❤️</p>
+            </div>
+
+            <div class="card js-video-card">
+                <div class="card-media">
+                    <video muted preload="metadata">
+                        <source src="videos/video3.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <p>Mais uma lembrança ❤️</p>
+            </div>
+            
+        </div>
+
+        <h2 class="section-title">📸 Galeria de Retratos</h2>
+        <div class="grid">
+            <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto1.jpg" alt="Nossos momentos"></div></div>
+            <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto2.jpg" alt="Nossos momentos"></div></div>
+            <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto3.jpg" alt="Nossos momentos"></div></div>
+            <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto4.jpg" alt="Nossos momentos"></div></div>
+            <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto5.jpg" alt="Nossos momentos"></div></div>
+            <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto6.jpg" alt="Nossos momentos"></div></div>
+        </div>
+
+        <div class="mensagem">
+            <h2>💌 Para você, Daniele</h2>
+            <p>
+                Este site foi criado especialmente para guardar alguns dos momentos mais importantes da nossa história. 
+                Cada foto e cada vídeo representam um pedaço insubstituível da nossa caminhada. Obrigado por ser minha parceira.
+            </p>
+            <span class="te-amo">Feliz Dia dos Namorados! Te amo ❤️</span>
+        </div>
+
+    </div>
+
+    <div id="photoModal" class="modal">
+        <span class="modal-close" id="closeModal">&times;</span>
+        <img id="modalImg" src="" alt="Zoom">
+    </div>
+
+    <footer>
+        <p>Desenvolvido com todo o amor do mundo por Selmo para Dani | &copy; 2026</p>
+    </footer>
+
+    <script>
+        // Lógica de controle do Player Principal (Mudar de vídeo ao clicar)
+        const mainPlayer = document.getElementById('mainPlayer');
+        const videoCards = document.querySelectorAll('.js-video-card');
+
+        videoCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const sourcePath = card.querySelector('source').getAttribute('src');
+                
+                mainPlayer.src = sourcePath;
+                mainPlayer.load();
+                mainPlayer.muted = false; // Ativa o áudio ao trocar
+                mainPlayer.play();
+
+                // Scroll suave focado no player de vídeo principal
+                document.querySelector('.cinema-box').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        });
+
+        // Lógica do Modal de Fotos com efeitos suaves
+        const photoModal = document.getElementById('photoModal');
+        const modalImg = document.getElementById('modalImg');
+        const closeModal = document.getElementById('closeModal');
+        const photoCards = document.querySelectorAll('.js-photo-card img');
+
+        photoCards.forEach(img => {
+            img.addEventListener('click', (e) => {
+                e.stopPropagation();
+                modalImg.src = img.src;
+                photoModal.classList.add('active');
+            });
+        });
+
+        function fecharModal() {
+            photoModal.classList.remove('active');
+        }
+
+        closeModal.addEventListener('click', fecharModal);
+        photoModal.addEventListener('click', fecharModal);
+    </script>
+</body>
+</html>
