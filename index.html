@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dani e Selmo TV ❤️ | Feliz Dia dos Namorados</title>
     <style>
-        /* Importando uma fonte mais elegante e romântica */
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Great+Vibes&display=swap');
+        /* Importando fontes elegantes e modernas */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Great+Vibes&display=swap');
 
         * {
             margin: 0;
@@ -17,174 +17,201 @@
 
         :root {
             --primary: #ff2a6d;
-            --primary-glow: #ff0055;
+            --primary-glow: rgba(255, 42, 109, 0.5);
             --accent: #ffd700;
             --bg-dark: #0a0508;
             --bg-card: #160d13;
             --text-light: #fff5f7;
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         body {
-            background: linear-gradient(135deg, #0a0508 0%, #1a0b14 100%);
+            background: linear-gradient(135deg, #070306 0%, #14080f 50%, #1f0b18 100%);
             color: var(--text-light);
             scroll-behavior: smooth;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* Efeito de corações flutuantes ao fundo */
-        body::before {
-            content: "❤️";
+        /* Elementos flutuantes de fundo mais discretos e elegantes */
+        .bg-decor {
             position: fixed;
-            font-size: 20px;
-            opacity: 0.04;
-            top: 10%; left: 5%;
-            animation: float 6s ease-in-out infinite alternate;
-        }
-        body::after {
-            content: "💖";
-            position: fixed;
-            font-size: 30px;
+            pointer-events: none;
+            z-index: 0;
             opacity: 0.03;
-            bottom: 15%; right: 8%;
-            animation: float 8s ease-in-out infinite alternate-reverse;
+            font-size: 2.5rem;
+            animation: boing 8s ease-in-out infinite alternate;
+        }
+        #decor1 { top: 15%; left: 5%; }
+        #decor2 { bottom: 20%; right: 5%; animation-delay: -2s; }
+        #decor3 { top: 60%; left: 8%; animation-delay: -4s; }
+
+        @keyframes boing {
+            0% { transform: translateY(0) scale(1) rotate(0deg); }
+            100% { transform: translateY(-40px) scale(1.1) rotate(15deg); }
         }
 
-        @keyframes float {
-            0% { transform: translateY(0) rotate(0deg); }
-            100% { transform: translateY(-30px) rotate(15deg); }
+        /* Efeito de clique de coração via JS */
+        .click-heart {
+            position: absolute;
+            pointer-events: none;
+            color: var(--primary);
+            font-size: 1.5rem;
+            animation: heartOut 1s ease-out forwards;
+            z-index: 9999;
         }
 
-        /* HEADER PREMIUM */
+        @keyframes heartOut {
+            0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+            100% { transform: translate(-50%, -100%) scale(1.5); opacity: 0; }
+        }
+
+        /* HEADER PREMIUM ESTILO CINEMA */
         header {
-            background: linear-gradient(to bottom, rgba(22, 13, 19, 0.95), rgba(10, 5, 8, 0.8));
-            backdrop-filter: blur(10px);
-            padding: 40px 20px;
+            background: linear-gradient(to bottom, rgba(22, 13, 19, 0.98), rgba(10, 5, 8, 0.85));
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 50px 20px;
             text-align: center;
             border-bottom: 2px solid var(--primary);
-            box-shadow: 0 4px 30px rgba(255, 42, 109, 0.15);
+            box-shadow: 0 10px 40px rgba(255, 42, 109, 0.15);
+            position: relative;
+            z-index: 10;
         }
 
         header h1 {
             font-family: 'Great Vibes', cursive;
             color: var(--primary);
-            font-size: 3.5rem;
-            text-shadow: 0 0 15px rgba(255, 42, 109, 0.6);
-            margin-bottom: 10px;
-            letter-spacing: 2px;
+            font-size: 4rem;
+            text-shadow: 0 0 20px var(--primary-glow);
+            margin-bottom: 12px;
+            letter-spacing: 1px;
         }
 
         header p {
-            font-size: 1.1rem;
-            color: #bfaab5;
+            font-size: 1.15rem;
+            color: #c9b4c0;
             font-weight: 300;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         /* CONTAINER PRINCIPAL */
         .container {
             max-width: 1200px;
             margin: auto;
-            padding: 30px 20px;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 5;
         }
 
-        /* SEÇÃO DESTAQUE (A TV) */
+        /* TÍTULOS DE SEÇÃO COM DESIGN CLEAN */
         .section-title {
-            margin-top: 50px;
-            margin-bottom: 25px;
-            font-size: 1.8rem;
+            margin-top: 60px;
+            margin-bottom: 30px;
+            font-size: 1.6rem;
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
             color: var(--text-light);
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         .section-title::after {
             content: '';
             flex: 1;
             height: 1px;
-            background: linear-gradient(to right, var(--primary), transparent);
-            margin-left: 10px;
+            background: linear-gradient(to right, rgba(255, 42, 109, 0.6), transparent);
         }
 
+        /* MOLDURA DA TV (CINEMA BOX) */
         .cinema-box {
             background: var(--bg-card);
-            padding: 15px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 42, 109, 0.3);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 42, 109, 0.1);
-            transition: border-color 0.3s;
+            padding: 18px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 42, 109, 0.25);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 42, 109, 0.08);
+            transition: var(--transition-smooth);
+            max-width: 850px;
+            margin: 0 auto 20px auto;
+            position: relative;
         }
 
         .cinema-box:hover {
             border-color: var(--primary);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(255, 42, 109, 0.2);
         }
 
-        video {
+        .video-responsive {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 14px;
+            background-color: #000;
+        }
+
+        .video-responsive iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            border-radius: 12px;
-            display: block;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            height: 100%;
+            border: 0;
         }
 
-        /* GRIDS RESPONSIVOS (Mobile First / Auto-fit adaptável) */
+        /* GRIDS DE CONTEÚDO */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            gap: 30px;
         }
 
-        /* CARDS ESTILO STREAMING */
+        /* CARDS PREMIUM ESTILO STREAMING */
         .card {
             background: var(--bg-card);
-            border-radius: 16px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: var(--transition-smooth);
             cursor: pointer;
             position: relative;
         }
 
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            border-radius: 16px;
-            box-shadow: inset 0 0 0 2px transparent;
-            transition: box-shadow 0.3s;
-            z-index: 2;
-            pointer-events: none;
-        }
-
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(255, 42, 109, 0.25);
-        }
-
-        .card:hover::before {
-            box-shadow: inset 0 0 0 2px var(--primary);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(255, 42, 109, 0.2);
+            border-color: rgba(255, 42, 109, 0.5);
         }
 
         .card-media {
             position: relative;
             overflow: hidden;
+            aspect-ratio: 16 / 10;
+            background-color: #11090e;
         }
 
-        /* Ícone de Play nos vídeos da galeria */
+        /* Botão Play / Zoom Inteligente nos Cards */
         .card-media::after {
             content: '▶';
             position: absolute;
             top: 50%; left: 50%;
-            transform: translate(-50%, -50%) scale(0.8);
-            background: rgba(255, 42, 109, 0.9);
+            transform: translate(-50%, -50%) scale(0.7);
+            background: var(--primary);
             color: white;
-            width: 50px; height: 50px;
+            width: 55px; height: 55px;
             border-radius: 50%;
             display: flex; justify-content: center; align-items: center;
-            opacity: 0; transition: all 0.3s;
-            font-size: 18px; padding-left: 3px;
+            opacity: 0; 
+            transition: var(--transition-smooth);
+            font-size: 18px; 
+            padding-left: 4px;
+            box-shadow: 0 0 20px var(--primary-glow);
+            z-index: 3;
         }
 
         .card:hover .card-media::after {
@@ -195,111 +222,103 @@
         .card.photo-card .card-media::after {
             content: '🔍';
             padding-left: 0;
-        }
-
-        .card video {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 16px 16px 0 0;
+            font-size: 20px;
         }
 
         .card img {
             width: 100%;
-            height: 240px;
+            height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.5s;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         .card:hover img {
             transform: scale(1.08);
+            filter: brightness(0.8);
         }
 
         .card p {
-            padding: 20px;
+            padding: 22px;
             font-size: 1rem;
             font-weight: 500;
             text-align: center;
             color: #e5d5df;
+            letter-spacing: 0.5px;
             border-top: 1px solid rgba(255,255,255,0.02);
         }
 
         /* QUADRO DE MENSAGEM EMOCIONANTE */
         .mensagem {
-            background: linear-gradient(145deg, #23121e, #160d13);
-            margin-top: 70px;
-            padding: 50px 30px;
-            border-radius: 24px;
+            background: linear-gradient(145deg, #1f0f1a, #130a10);
+            margin-top: 80px;
+            padding: 60px 40px;
+            border-radius: 30px;
             text-align: center;
-            border: 1px solid rgba(255, 42, 109, 0.4);
-            box-shadow: 0 15px 40px rgba(255, 42, 109, 0.08);
+            border: 1px solid rgba(255, 42, 109, 0.35);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 42, 109, 0.05);
             position: relative;
-            overflow: hidden;
-        }
-
-        .mensagem::before {
-            content: '💝';
-            font-size: 80px;
-            position: absolute;
-            right: -20px; bottom: -20px;
-            opacity: 0.05;
         }
 
         .mensagem h2 {
             font-family: 'Great Vibes', cursive;
             color: var(--accent);
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         .mensagem p {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            max-width: 700px;
+            font-size: 1.2rem;
+            line-height: 1.9;
+            max-width: 750px;
             margin: auto;
-            color: #dfced9;
+            color: #e6d3df;
             font-weight: 300;
+            letter-spacing: 0.5px;
         }
 
         .mensagem .te-amo {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             color: var(--primary);
             font-weight: 600;
-            margin-top: 25px;
-            display: block;
-            text-shadow: 0 0 10px rgba(255, 42, 109, 0.4);
-            animation: pulse 2s infinite;
+            margin-top: 35px;
+            display: inline-block;
+            text-shadow: 0 0 15px var(--primary-glow);
+            animation: heartbeat 1.5s ease-in-out infinite;
         }
 
-        @keyframes pulse {
+        @keyframes heartbeat {
             0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            14% { transform: scale(1.1); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.15); }
+            70% { transform: scale(1); }
         }
 
-        /* FOOTER */
+        /* FOOTER DE CONTEÚDO */
         footer {
             text-align: center;
             padding: 60px 20px;
-            color: #735c6a;
+            color: #7a6371;
             font-size: 0.9rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            margin-top: 50px;
+            border-top: 1px solid rgba(255,255,255,0.04);
+            margin-top: 80px;
+            letter-spacing: 0.5px;
         }
 
-        /* MODAL DE FOTOS (LIGHTBOX AUTOMÁTICO) */
+        /* MODAL DE FOTOS OTIMIZADO */
         .modal {
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(6, 3, 5, 0.95);
+            background: rgba(4, 2, 4, 0.96);
             z-index: 1000;
             justify-content: center;
             align-items: center;
             padding: 20px;
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             opacity: 0;
             transition: opacity 0.3s ease;
         }
@@ -312,10 +331,10 @@
         .modal img {
             max-width: 95%;
             max-height: 85vh;
-            border-radius: 12px;
-            box-shadow: 0 0 30px rgba(255, 42, 109, 0.3);
+            border-radius: 16px;
+            box-shadow: 0 0 40px rgba(255, 42, 109, 0.4);
             transform: scale(0.9);
-            transition: transform 0.3s ease;
+            transition: transform 0.3.s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .modal.active img {
@@ -324,36 +343,49 @@
 
         .modal-close {
             position: absolute;
-            top: 20px; right: 25px;
+            top: 25px; right: 30px;
             color: var(--text-light);
-            font-size: 45px;
+            font-size: 50px;
+            font-weight: 300;
             cursor: pointer;
             transition: color 0.2s;
+            line-height: 1;
         }
 
         .modal-close:hover {
             color: var(--primary);
         }
 
-        /* AJUSTES DE RESPONSIVIDADE (TABLETS E CELULARES) */
-        @media (max-width: 768px) {
-            header h1 { font-size: 2.8rem; }
-            header p { font-size: 0.95rem; }
-            .section-title { font-size: 1.5rem; }
-            .mensagem h2 { font-size: 2.4rem; }
-            .mensagem p { font-size: 1rem; }
-            .card img { height: 200px; }
+        /* ANIMAÇÃO DE ENTRADA SUAVE (FADE-IN) */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        @media (max-width: 480px) {
-            header h1 { font-size: 2.3rem; }
-            .container { padding: 15px 10px; }
-            .cinema-box { padding: 8px; border-radius: 12px; }
-            .mensagem { padding: 35px 15px; }
+        /* AJUSTES DE RESPONSIVIDADE ATUALIZADOS */
+        @media (max-width: 768px) {
+            header h1 { font-size: 3rem; }
+            header p { font-size: 1rem; }
+            .mensagem h2 { font-size: 2.6rem; }
+            .mensagem p { font-size: 1.1rem; }
+            .section-title { font-size: 1.4rem; margin-top: 40px; }
+            .grid { gap: 20px; }
         }
     </style>
 </head>
 <body>
+
+    <!-- Ícones Decorativos no Fundo -->
+    <div class="bg-decor" id="decor1">❤️</div>
+    <div class="bg-decor" id="decor2">💖</div>
+    <div class="bg-decor" id="decor3">💕</div>
 
     <header>
         <h1>❤️ Dani e Selmo TV ❤️</h1>
@@ -362,70 +394,100 @@
 
     <div class="container">
 
-        <h2 class="section-title">🎬 Assistindo Agora</h2>
-        <div class="cinema-box">
-            <video id="mainPlayer" controls autoplay muted>
-                <source src="videos/video1.mp4" type="video/mp4">
-                Seu navegador não suporta a reprodução de vídeos.
-            </video>
+        <!-- Seção do Player Principal -->
+        <div class="fade-in-section">
+            <h2 class="section-title">🎬 Assistindo Agora</h2>
+            <div class="cinema-box">
+                <div class="video-responsive">
+                    <!-- LINK BLINDADO CONTRA ERRO 153: Adicionado autoplay=1&mute=1 por segurança padrão -->
+                    <iframe
+                        id="mainPlayer"
+                        src="https://www.youtube.com/embed/c2OPgRowig4?autoplay=1&mute=1&rel=0"
+                        title="Nosso vídeo especial"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
         </div>
 
-        <h2 class="section-title">📹 Nossa Playlist Especial</h2>
-        <div class="grid">
-            
-            <div class="card js-video-card">
-                <div class="card-media">
-                    <video muted preload="metadata">
-                        <source src="videos/video1.mp4" type="video/mp4">
-                    </video>
+        <!-- Seção da Playlist -->
+        <div class="fade-in-section delay-1">
+            <h2 class="section-title">📹 Nossa Playlist Especial</h2>
+            <div class="grid">
+                
+                <!-- Card 1 -->
+   <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/c2OPgRowig4">
+                    <div class="card-media">
+                        <img src="https://img.youtube.com/vi/c2OPgRowig4/hqdefault.jpg" alt="Capa do vídeo 2">
+                    </div>
+                    <p>Nossos passeios ❤️</p>
                 </div>
-                <p>Nosso primeiro vídeo ❤️</p>
-            </div>
 
-            <div class="card js-video-card">
-                <div class="card-media">
-                    <video muted preload="metadata">
-                        <source src="videos/video2.mp4" type="video/mp4">
-                    </video>
+                <!-- Card 2 -->
+                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/c2OPgRowig4">
+                    <div class="card-media">
+                        <img src="https://img.youtube.com/vi/c2OPgRowig4/hqdefault.jpg" alt="Capa do vídeo 2">
+                    </div>
+                    <p>Nossos passeios ❤️</p>
                 </div>
-                <p>Momento especial ❤️</p>
-            </div>
 
-            <div class="card js-video-card">
-                <div class="card-media">
-                    <video muted preload="metadata">
-                        <source src="videos/video3.mp4" type="video/mp4">
-                    </video>
+                <!-- Card 3 -->
+              <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/c2OPgRowig4">
+                    <div class="card-media">
+                        <img src="https://img.youtube.com/vi/c2OPgRowig4/hqdefault.jpg" alt="Capa do vídeo 2">
+                    </div>
+                    <p>Nossos passeios ❤️</p>
                 </div>
-                <p>Mais uma lembrança ❤️</p>
+                
             </div>
-            
         </div>
 
-        <h2 class="section-title">📸 Galeria de Retratos</h2>
-        <div class="grid">
-            <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto1.jpg" alt="Nossos momentos"></div></div>
-            <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto2.jpg" alt="Nossos momentos"></div></div>
-            <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto3.jpg" alt="Nossos momentos"></div></div>
-            <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto4.jpg" alt="Nossos momentos"></div></div>
-            <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto5.jpg" alt="Nossos momentos"></div></div>
-            <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto6.jpg" alt="Nossos momentos"></div></div>
+        <!-- Seção Galeria de Fotos -->
+        <div class="fade-in-section delay-2">
+            <h2 class="section-title">📸 Galeria de Retratos</h2>
+            <div class="grid">
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto1.jpeg" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto2.jpeg" alt="Nossos momentos"></div></div>
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto22.jpeg" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto3.jpeg" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto4.jpeg" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto5.jpeg" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto6.jpeg" alt="Nossos momentos"></div></div>
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto7.jpeg" alt="Nossos momentos"></div></div>
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto77.jpeg" alt="Nossos momentos"></div></div>
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto8.jpeg" alt="Nossos momentos"></div></div>
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto9.jpeg" alt="Nossos momentos"></div></div>
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto10.jpeg" alt="Nossos momentos"></div></div>
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto11.jpeg" alt="Nossos momentos"></div></div>
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto12.jpeg" alt="Nossos momentos"></div></div>
+            </div>
         </div>
 
-        <div class="mensagem">
+        <!-- Bloco de Mensagem -->
+        <div class="mensagem fade-in-section delay-2">
             <h2>💌 Para você, Daniele</h2>
             <p>
-                Este site foi criado especialmente para guardar alguns dos momentos mais importantes da nossa história. 
-                Cada foto e cada vídeo representam um pedaço insubstituível da nossa caminhada. Obrigado por ser minha parceira.
+                ❤️ DIA DOS NAMORADOS ❤️
+				Anselmo compartilhou seu vídeo
+				Anselmo comentou: Feliz Dia dos Namorados, minha princesa. Obrigado por transformar momentos simples em memórias "EU NUNCA MAIS VOU ESQUECER". Obrigado pelas risadas, pelas conversas e suas histórias que amo escutar, pelos passeios que fizemos, pelos planos de viagens e pelas coisas que fazemos que fazem a gente dar muita gargalhada. Você conseguiu ocupar um espaço muito especial na minha vida e eu sou grato por cada instante ao seu lado. Que a gente continue colecionando histórias, viagens, lanches pendentes em panificadoras e muitas outras aventuras. Te amo, princesa. ❤️
+				Anselmo virou membro do canal e renovou a assinatura automaticamente
+				Anselmo ativou o sininho para não perder nenhum sorriso seu
+				Anselmo curtiu 100% dos momentos ao seu lado
+				Anselmo adicionou aos favoritos: seu sorriso, seu abraço, a mulher incrível que você é
+				Anselmo reagiu com "amei" à nossa história
+				Anselmo deixou um beijo 😘
+				Anselmo comentou novamente:E pode ter certeza que, independente da cor do catarro, se está sem voz, das enxaquecas vou continuar aqui. ❤️
             </p>
             <span class="te-amo">Feliz Dia dos Namorados! Te amo ❤️</span>
         </div>
 
     </div>
 
+    <!-- Modal Avançado para Ver as Fotos -->
     <div id="photoModal" class="modal">
         <span class="modal-close" id="closeModal">&times;</span>
-        <img id="modalImg" src="" alt="Zoom">
+        <img id="modalImg" src="" alt="Zoom Premium">
     </div>
 
     <footer>
@@ -433,25 +495,22 @@
     </footer>
 
     <script>
-        // Lógica de controle do Player Principal (Mudar de vídeo ao clicar)
+        // Controle Avançado do Player de Vídeo
         const mainPlayer = document.getElementById('mainPlayer');
         const videoCards = document.querySelectorAll('.js-video-card');
 
         videoCards.forEach(card => {
             card.addEventListener('click', () => {
-                const sourcePath = card.querySelector('source').getAttribute('src');
-                
-                mainPlayer.src = sourcePath;
-                mainPlayer.load();
-                mainPlayer.muted = false; // Ativa o áudio ao trocar
-                mainPlayer.play();
-
-                // Scroll suave focado no player de vídeo principal
-                document.querySelector('.cinema-box').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                const youtubeUrl = card.getAttribute('data-youtube');
+                if (youtubeUrl) {
+                    // Força autoplay e mute dinâmico para evitar bugs de privacidade dos navegadores
+                    mainPlayer.src = `${youtubeUrl}?autoplay=1&mute=1&rel=0`;
+                    document.querySelector('.cinema-box').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
             });
         });
 
-        // Lógica do Modal de Fotos com efeitos suaves
+        // Lógica do Modal com Animações de Escala
         const photoModal = document.getElementById('photoModal');
         const modalImg = document.getElementById('modalImg');
         const closeModal = document.getElementById('closeModal');
@@ -471,6 +530,30 @@
 
         closeModal.addEventListener('click', fecharModal);
         photoModal.addEventListener('click', fecharModal);
+
+        // Atalho Prático: Fecha o modal se o usuário apertar a tecla "ESC"
+        window.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") fecharModal();
+        });
+
+        // DETALHE MÁGICO: Cria corações flutuantes temporários no local exato do clique!
+        document.addEventListener('click', (e) => {
+            // Ignora se clicar dentro de players ou links para não atrapalhar a navegação
+            if(e.target.tagName === 'IFRAME' || e.target.closest('.modal-close')) return;
+
+            const heart = document.createElement('div');
+            heart.classList.add('click-heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = `${e.pageX}px`;
+            heart.style.top = `${e.pageY}px`;
+            
+            document.body.appendChild(heart);
+
+            // Remove o elemento do HTML após o fim da animação de 1 segundo
+            setTimeout(() => {
+                heart.remove();
+            }, 1000);
+        });
     </script>
 </body>
 </html>
