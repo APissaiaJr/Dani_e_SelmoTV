@@ -12,7 +12,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial',sans-serif;
+            font-family: 'Arial', sans-serif;
         }
 
         :root {
@@ -296,6 +296,58 @@
             70% { transform: scale(1); }
         }
 
+        /* ÁREA E ESTILO DO BOTÃO DE TARTARUGA */
+        .turtle-section {
+            text-align: center;
+            margin-top: 60px;
+            margin-bottom: 20px;
+        }
+
+        .turtle-btn {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-card);
+            border: 2px solid rgba(255, 42, 109, 0.4);
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            transition: var(--transition-smooth);
+            animation: floatTurtle 3s ease-in-out infinite;
+        }
+
+        .turtle-btn .turtle-emoji {
+            font-size: 2.8rem;
+            transition: var(--transition-smooth);
+        }
+
+        .turtle-btn .turtle-text {
+            font-size: 0.75rem;
+            color: #c9b4c0;
+            margin-top: 2px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .turtle-btn:hover {
+            transform: scale(1.1);
+            border-color: var(--primary);
+            box-shadow: 0 0 30px var(--primary-glow);
+        }
+
+        .turtle-btn:hover .turtle-emoji {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        @keyframes floatTurtle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
         /* FOOTER DE CONTEÚDO */
         footer {
             text-align: center;
@@ -303,11 +355,11 @@
             color: #7a6371;
             font-size: 0.9rem;
             border-top: 1px solid rgba(255,255,255,0.04);
-            margin-top: 80px;
+            margin-top: 40px;
             letter-spacing: 0.5px;
         }
 
-        /* MODAL DE FOTOS OTIMIZADO */
+        /* MODAIS OTIMIZADOS (FOTOS E SENHA) */
         .modal {
             display: none;
             position: fixed;
@@ -334,7 +386,7 @@
             border-radius: 16px;
             box-shadow: 0 0 40px rgba(255, 42, 109, 0.4);
             transform: scale(0.9);
-            transition: transform 0.3.s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .modal.active img {
@@ -354,6 +406,85 @@
 
         .modal-close:hover {
             color: var(--primary);
+        }
+
+        /* DESIGN DO BOX DE SENHA DENTRO DO MODAL */
+        .password-box {
+            background: #1a0f17;
+            padding: 40px 30px;
+            border-radius: 24px;
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 35px rgba(255, 42, 109, 0.3);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .modal.active .password-box {
+            transform: scale(1);
+        }
+
+        .password-box h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .password-box p {
+            font-size: 0.95rem;
+            color: #a38f9b;
+            margin-bottom: 25px;
+        }
+
+        .password-box input {
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 42, 109, 0.3);
+            background: #0d060b;
+            color: #white;
+            font-size: 1.2rem;
+            text-align: center;
+            outline: none;
+            transition: var(--transition-smooth);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .password-box input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(255, 42, 109, 0.4);
+        }
+
+        .password-box button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            box-shadow: 0 5px 15px rgba(255, 42, 109, 0.3);
+            width: 100%;
+        }
+
+        .password-box button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px var(--primary-glow);
+            background: #ff4781;
+        }
+
+        .password-box .error-message {
+            color: #ff4a4a;
+            font-size: 0.85rem;
+            margin-top: 12px;
+            display: none;
+            font-weight: 500;
         }
 
         /* ANIMAÇÃO DE ENTRADA SUAVE (FADE-IN) */
@@ -382,7 +513,6 @@
 </head>
 <body>
 
-    <!-- Ícones Decorativos no Fundo -->
     <div class="bg-decor" id="decor1">❤️</div>
     <div class="bg-decor" id="decor2">💖</div>
     <div class="bg-decor" id="decor3">💕</div>
@@ -394,12 +524,10 @@
 
     <div class="container">
 
-        <!-- Seção do Player Principal -->
         <div class="fade-in-section">
             <h2 class="section-title">🎬 Assistindo Agora</h2>
             <div class="cinema-box">
                 <div class="video-responsive">
-                    <!-- LINK BLINDADO CONTRA ERRO 153: Adicionado autoplay=1&mute=1 por segurança padrão -->
                     <iframe
                         id="mainPlayer"
                         src="https://www.youtube.com/embed/c2OPgRowig4?autoplay=1&mute=1&rel=0"
@@ -411,194 +539,149 @@
             </div>
         </div>
 
-        <!-- Seção da Playlist -->
         <div class="fade-in-section delay-1">
             <h2 class="section-title">📹 Nossa Playlist Especial</h2>
             <div class="grid">
                 
-                <!-- Card 1 -->
-              <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/c2OPgRowig4">
+                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/c2OPgRowig4">
                     <div class="card-media">
-                        <img src="https://img.youtube.com/vi/c2OPgRowig4/hqdefault.jpg" alt="Capa do vídeo 2">
+                        <img src="https://img.youtube.com/vi/c2OPgRowig4/hqdefault.jpg" alt="Capa do vídeo 1">
                     </div>
                     <p>Sandero Possante 🏎️</p>
                 </div>
 
-                <!-- Card 2 -->
-              <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/0ibNowxrIk8">
+                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/0ibNowxrIk8">
                     <div class="card-media">
                         <img src="https://img.youtube.com/vi/0ibNowxrIk8/hqdefault.jpg" alt="Capa do vídeo 2">
                     </div>
-                    <p>Shishando com Anselmo ❤️</p>
+                    <p>Shishando com Anselmo ❤️💨</p>
                 </div>
 
-                <!-- Card 3 -->
-              <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/jIhJwoYUGWg">
+                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/jIhJwoYUGWg">
                     <div class="card-media">
-                        <img src="https://img.youtube.com/vi/jIhJwoYUGWg/hqdefault.jpg" alt="Capa do vídeo 2">
+                        <img src="https://img.youtube.com/vi/jIhJwoYUGWg/hqdefault.jpg" alt="Capa do vídeo 3">
                     </div>
                     <p>Papo da Madruga ❤️</p>
                 </div>   
 				
-			    <!-- Card 4 -->
-              <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/iTodi8Eqn48">
+			    <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/iTodi8Eqn48">
                     <div class="card-media">
-                         <img src="https://img.youtube.com/vi/iTodi8Eqn48/hqdefault.jpg" alt="Capa do vídeo 2">
+                         <img src="https://img.youtube.com/vi/iTodi8Eqn48/hqdefault.jpg" alt="Capa do vídeo 4">
                     </div>
-                    <p>Shisha time Anselmo ❤️</p>
+                    <p>Shisha time Anselmo ❤️💨</p>
                 </div>    
 				
-				<!-- Card 5 -->
-              <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/-yzUDkyxQ0M">
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/-yzUDkyxQ0M">
 					<div class="card-media">
-						<img src="https://img.youtube.com/vi/-yzUDkyxQ0M/hqdefault.jpg" alt="Capa do vídeo 2">
+						<img src="https://img.youtube.com/vi/-yzUDkyxQ0M/hqdefault.jpg" alt="Capa do vídeo 5">
 					</div>
-					<p>Muita fome pelo jeito ❤️</p>
+					<p>Muita fome pelo jeito ❤🍖</p>
 				</div>
 					
-				<!-- Card 6 -->
-              <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/r2DzUDhSP1E">
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/r2DzUDhSP1E">
 					<div class="card-media">
-						<img src="https://img.youtube.com/vi/r2DzUDhSP1E/hqdefault.jpg" alt="Capa do vídeo 2">
+						<img src="https://img.youtube.com/vi/r2DzUDhSP1E/hqdefault.jpg" alt="Capa do vídeo 6">
 					</div>
 					<p>Gata muda ❤️</p>
 				</div>
  
-				<!-- Card 7 -->
-              <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/ilnPlYvzoxc">
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/ilnPlYvzoxc">
 					<div class="card-media">
-						<img src="https://img.youtube.com/vi/ilnPlYvzoxc/hqdefault.jpg" alt="Capa do vídeo 2">
+						<img src="https://img.youtube.com/vi/ilnPlYvzoxc/hqdefault.jpg" alt="Capa do vídeo 7">
 					</div>
 					<p>Veja o Vídeo de ontem ❤️</p>
-				</div>    
+				</div>  
+
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/K3mSctzulqA">
+					<div class="card-media">
+						<img src="https://img.youtube.com/vi/K3mSctzulqA/hqdefault.jpg" alt="Capa do vídeo 8">
+					</div>
+					<p>Shisha time Anselmo Parte 1 💨</p>
+				</div>
+				
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/TVmnSane_4c">
+					<div class="card-media">
+						<img src="https://img.youtube.com/vi/TVmnSane_4c/hqdefault.jpg" alt="Capa do vídeo 9">
+					</div>
+					<p>Morro do Tiuzão da Bike 🚵🏼‍♀️</p>
+				</div>
+				
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/NCiTey-9OH4">
+					<div class="card-media">
+						<img src="https://img.youtube.com/vi/NCiTey-9OH4/hqdefault.jpg" alt="Capa do vídeo 10">
+					</div>
+					<p>Tradutor da Daniele ❤🗣️ </p>
+				</div>
+				
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/dGAP3zaOLaE">
+					<div class="card-media">
+						<img src="https://img.youtube.com/vi/dGAP3zaOLaE/hqdefault.jpg" alt="Capa do vídeo 11">
+					</div>
+					<p> Passeio no morro e camisas❤️</p>
+				</div>
+			
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/H1yFz42qNrU">
+					<div class="card-media">
+						<img src="https://img.youtube.com/vi/H1yFz42qNrU/hqdefault.jpg" alt="Capa do vídeo 12">
+					</div>
+					<p>Ouvido Branco da Abelha Anselmo ❤️</p>
+				</div>	
+
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/PtFzUdtCHOU">
+					<div class="card-media">
+						<img src="https://img.youtube.com/vi/PtFzUdtCHOU/hqdefault.jpg" alt="Capa do vídeo 13">
+					</div>
+					<p>Aula de secador, vinada e adesivos ❤️</p>
+				</div>
+				
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/qfIQlKRLc6M">
+					<div class="card-media">
+						<img src="https://img.youtube.com/vi/qfIQlKRLc6M/hqdefault.jpg" alt="Capa do vídeo 14">
+					</div>
+					<p>Porta fechada com espelho ❤️</p>
+				</div>
+				
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/zbM4eLC6jMY">
+					<div class="card-media">
+						<img src="https://img.youtube.com/vi/zbM4eLC6jMY/hqdefault.jpg" alt="Capa do vídeo 15">
+					</div>
+					<p>Onibus sem cueca ❤️</p>
+				</div>
+				
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/5CsiLtIDZvI">
+					<div class="card-media">
+						<img src="https://img.youtube.com/vi/5CsiLtIDZvI/hqdefault.jpg" alt="Capa do vídeo 16">
+					</div>
+					<p>Patriota não planejada ❤️</p>
+				</div>	
+				
+			    <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/JtG-lyScBCI">
+					<div class="card-media">
+						<img src="https://img.youtube.com/vi/JtG-lyScBCI/hqdefault.jpg" alt="Capa do vídeo 17">
+					</div>
+					<p>❤SHISHANDO COM DANI - A SAGA DO ALUMINIO️❤️</p>
+				</div>
+				
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/8w-gseHvtNY">
+					<div class="card-media">
+						<img src="https://img.youtube.com/vi/8w-gseHvtNY/hqdefault.jpg" alt="Capa do vídeo 18">
+					</div>
+					<p>o Primeiro - DOIS MALUCOS EM GRAMADO</p>
+				</div>
+				
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/YpwAFnzjD7g">
+					<div class="card-media">
+						<img src="https://img.youtube.com/vi/YpwAFnzjD7g/hqdefault.jpg" alt="Capa do vídeo 19">
+					</div>
+					<p>DOIS MALUCOS EM GRAMADO 2 ❤️</p>
+				</div>
+				
             </div>
-		
         </div>
 
-        <!-- Seção Galeria de Fotos -->
         <div class="fade-in-section delay-2">
             <h2 class="section-title">📸 Galeria de Retratos</h2>
             <div class="grid">
                 <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto1.jpeg" alt="Nossos momentos"></div></div>
                 <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto2.jpeg" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto22.jpeg" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto3.jpeg" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto4.jpeg" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto5.jpeg" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto6.jpeg" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto7.jpeg" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto77.jpeg" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto8.jpeg" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto9.jpeg" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto10.jpeg" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto11.jpeg" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto12.jpeg" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto13.jpeg" alt="Nossos momentos"></div></div>
-            </div>
-        </div>
-
-        <!-- Bloco de Mensagem -->
-        <div class="mensagem fade-in-section delay-2">
-            <h2>💌 Para você, Daniele</h2>
-             <p>
-        ❤️ FELIZ DIA DOS NAMORADOS PRINCESA ❤️<br><br>
-
-        📤 Anselmo compartilhou seu vídeo<br><br>
-
-        💬 Anselmo comentou:<br>
-        Feliz Dia dos Namorados, minha princesa. Obrigado por transformar momentos simples em memórias que eu nunca mais vou esquecer. Obrigado pelas risadas, pelas conversas e suas histórias que amo escutar, pelos passeios que fizemos, pelos planos de viagens e pelas coisas que fazemos que fazem a gente dar muita gargalhada. Você conseguiu ocupar um espaço muito especial na minha vida e eu sou grato por cada instante ao seu lado. Que a gente continue colecionando histórias, viagens, lanches pendentes em panificadoras e muitas outras aventuras. Te amo, princesa. ❤️<br><br>
-
-        ⭐ Anselmo virou membro do canal e renovou a assinatura automaticamente<br><br>
-
-        🔔 Anselmo ativou o sininho para não perder nenhum sorriso seu<br><br>
-
-        ❤️ Anselmo curtiu 100% dos momentos ao seu lado<br><br>
-
-        📌 Anselmo adicionou aos favoritos: seu sorriso, seu abraço e a mulher incrível que você é<br><br>
-
-        😍 Anselmo reagiu com "amei" à nossa história<br><br>
-
-        😘 Anselmo deixou um beijo<br><br>
-
-        💬 Anselmo comentou novamente:<br>
-        E pode ter certeza que, independente da cor do catarro, se está sem voz ou das enxaquecas, vou continuar aqui. ❤️
-    </p>
-
-            <span class="te-amo">Feliz Dia dos Namorados! Te amo ❤️</span>
-        </div>
-
-    </div>
-
-    <!-- Modal Avançado para Ver as Fotos -->
-    <div id="photoModal" class="modal">
-        <span class="modal-close" id="closeModal">&times;</span>
-        <img id="modalImg" src="" alt="Zoom Premium">
-    </div>
-
-    <footer>
-        <p>Desenvolvido com todo o amor do mundo por Selmo para Dani | &copy; 2026</p>
-    </footer>
-
-    <script>
-        // Controle Avançado do Player de Vídeo
-        const mainPlayer = document.getElementById('mainPlayer');
-        const videoCards = document.querySelectorAll('.js-video-card');
-
-        videoCards.forEach(card => {
-            card.addEventListener('click', () => {
-                const youtubeUrl = card.getAttribute('data-youtube');
-                if (youtubeUrl) {
-                    // Força autoplay e mute dinâmico para evitar bugs de privacidade dos navegadores
-                    mainPlayer.src = `${youtubeUrl}?autoplay=1&mute=1&rel=0`;
-                    document.querySelector('.cinema-box').scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            });
-        });
-
-        // Lógica do Modal com Animações de Escala
-        const photoModal = document.getElementById('photoModal');
-        const modalImg = document.getElementById('modalImg');
-        const closeModal = document.getElementById('closeModal');
-        const photoCards = document.querySelectorAll('.js-photo-card img');
-
-        photoCards.forEach(img => {
-            img.addEventListener('click', (e) => {
-                e.stopPropagation();
-                modalImg.src = img.src;
-                photoModal.classList.add('active');
-            });
-        });
-
-        function fecharModal() {
-            photoModal.classList.remove('active');
-        }
-
-        closeModal.addEventListener('click', fecharModal);
-        photoModal.addEventListener('click', fecharModal);
-
-        // Atalho Prático: Fecha o modal se o usuário apertar a tecla "ESC"
-        window.addEventListener('keydown', (e) => {
-            if (e.key === "Escape") fecharModal();
-        });
-
-        // DETALHE MÁGICO: Cria corações flutuantes temporários no local exato do clique!
-        document.addEventListener('click', (e) => {
-            // Ignora se clicar dentro de players ou links para não atrapalhar a navegação
-            if(e.target.tagName === 'IFRAME' || e.target.closest('.modal-close')) return;
-
-            const heart = document.createElement('div');
-            heart.classList.add('click-heart');
-            heart.innerHTML = '❤️';
-            heart.style.left = `${e.pageX}px`;
-            heart.style.top = `${e.pageY}px`;
-            
-            document.body.appendChild(heart);
-
-            // Remove o elemento do HTML após o fim da animação de 1 segundo
-            setTimeout(() => {
-                heart.remove();
-            }, 1000);
-        });
-    </script>
-</body>
-</html>
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto22.jpeg" alt
