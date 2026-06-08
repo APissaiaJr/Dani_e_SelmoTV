@@ -684,4 +684,182 @@
             <div class="grid">
                 <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto1.jpeg" alt="Nossos momentos"></div></div>
                 <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto2.jpeg" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto22.jpeg" alt
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto22.jpeg" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto3.jpeg" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto4.jpeg" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto5.jpeg" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto6.jpeg" alt="Nossos momentos"></div></div>
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto7.jpeg" alt="Nossos momentos"></div></div>
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto77.jpeg" alt="Nossos momentos"></div></div>
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto8.jpeg" alt="Nossos momentos"></div></div>
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto9.jpeg" alt="Nossos momentos"></div></div>
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto10.jpeg" alt="Nossos momentos"></div></div>
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto11.jpeg" alt="Nossos momentos"></div></div>
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto12.jpeg" alt="Nossos momentos"></div></div>
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto13.jpeg" alt="Nossos momentos"></div></div>
+            </div>
+        </div>
+
+        <div class="mensagem fade-in-section delay-2">
+            <h2>💌 Para você, Daniele</h2>
+            <p>
+                ❤️ FELIZ DIA DOS NAMORADOS PRINCESA ❤️<br><br>
+                📤 Anselmo compartilhou seu vídeo<br><br>
+                💬 Anselmo comentou:<br>
+                Feliz Dia dos Namorados, minha princesa. Obrigado por transformar momentos simples em memórias que eu nunca mais vou escapulir. Obrigado pelas risadas, pelas conversas e suas histórias que amo escutar, pelos passeios que fizemos, pelos planos de viagens e pelas coisas que fazemos que fazem a gente dar muita gargalhada. Você conseguiu ocupar um espaço muito especial na minha vida e eu sou grato por cada instante ao seu lado. Que a gente continue colecionando histórias, viagens, lanches pendentes em panificadoras e muitas outras aventuras. Te amo, princesa. ❤️<br><br>
+                ⭐ Anselmo virou membro do canal e renovou a assinatura automaticamente<br><br>
+                🔔 Anselmo ativou o sininho para não perder nenhum sorriso seu<br><br>
+                ❤️ Anselmo curtiu 100% dos momentos ao seu lado<br><br>
+                📌 Anselmo adicionou aos favoritos: seu sorriso, seu abraço e a mulher incrível que você é<br><br>
+                😍 Anselmo reagiu com "amei" à nossa história<br><br>
+                😘 Anselmo deixou um beijo<br><br>
+                💬 Anselmo comentou novamente:<br>
+                E pode ter certeza que, independente da cor do catarro, se está sem voz ou das enxaquecas, vou continuar aqui. ❤️
+            </p>
+            <span class="te-amo">Feliz Dia dos Namorados! Te amo ❤️</span>
+        </div>
+
+        <div class="turtle-section fade-in-section delay-2">
+            <div class="turtle-btn" id="jsTurtleBtn" title="Apenas para quem sabe o segredo...">
+                <span class="turtle-emoji">🐢</span>
+                <span class="turtle-text">Segredo!</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="photoModal" class="modal">
+        <span class="modal-close" id="closeModal">&times;</span>
+        <img id="modalImg" src="" alt="Zoom Premium">
+    </div>
+
+    <div id="passwordModal" class="modal">
+        <span class="modal-close" id="closePasswordModal">&times;</span>
+        <div class="password-box">
+            <h3>🔒 Área Secreta</h3>
+            <p>Digite a senha para desbloquear a surpresa:</p>
+            <input type="password" id="secretPasswordInput" placeholder="••••••" maxlength="10">
+            <button id="submitPasswordBtn">Desbloquear</button>
+            <div class="error-message" id="passwordError">Senha incorreta! Tente de novo ❤️</div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Desenvolvido com todo o amor do mundo por Selmo para Dani | &copy; 2026</p>
+    </footer>
+
+    <script>
+        // Controle Avançado do Player de Vídeo
+        const mainPlayer = document.getElementById('mainPlayer');
+        const videoCards = document.querySelectorAll('.js-video-card');
+
+        videoCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const youtubeUrl = card.getAttribute('data-youtube');
+                if (youtubeUrl) {
+                    mainPlayer.src = `${youtubeUrl}?autoplay=1&mute=1&rel=0`;
+                    document.querySelector('.cinema-box').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        });
+
+        // Lógica do Modal das Fotos
+        const photoModal = document.getElementById('photoModal');
+        const modalImg = document.getElementById('modalImg');
+        const closeModal = document.getElementById('closeModal');
+        const photoCards = document.querySelectorAll('.js-photo-card img');
+
+        photoCards.forEach(img => {
+            img.addEventListener('click', (e) => {
+                e.stopPropagation();
+                modalImg.src = img.src;
+                photoModal.classList.add('active');
+            });
+        });
+
+        function fecharModalFotos() {
+            photoModal.classList.remove('active');
+        }
+        closeModal.addEventListener('click', fecharModalFotos);
+        photoModal.addEventListener('click', fecharModalFotos);
+
+
+        // LÓGICA DO MODAL DE SENHA DA TARTARUGA
+        const turtleBtn = document.getElementById('jsTurtleBtn');
+        const passwordModal = document.getElementById('passwordModal');
+        const closePasswordModal = document.getElementById('closePasswordModal');
+        const passwordInput = document.getElementById('secretPasswordInput');
+        const submitPasswordBtn = document.getElementById('submitPasswordBtn');
+        const passwordError = document.getElementById('passwordError');
+
+        // Abre o modal de senha ao clicar na tartaruga
+        turtleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            passwordInput.value = '';
+            passwordError.style.display = 'none';
+            passwordModal.classList.add('active');
+            setTimeout(() => passwordInput.focus(), 100); // Dá foco automático no campo de texto
+        });
+
+        function fecharModalSenha() {
+            passwordModal.classList.remove('active');
+        }
+        closePasswordModal.addEventListener('click', fecharModalSenha);
+        passwordModal.addEventListener('click', fecharModalSenha);
+
+        // Impede que o clique dentro da caixinha de senha feche o modal
+        document.querySelector('.password-box').addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        // Função de verificação da senha
+        function verificarSenha() {
+            if (passwordInput.value === '100226') {
+                fecharModalSenha();
+                // Abre o link do YouTube Shorts numa aba nova
+                window.open('https://youtube.com/shorts/ibhyKgpeqxw?feature=share', '_blank', 'noopener,noreferrer');
+            } else {
+                passwordError.style.display = 'block';
+                passwordInput.value = '';
+                passwordInput.focus();
+            }
+        }
+
+        submitPasswordBtn.addEventListener('click', verificarSenha);
+
+        // Permite enviar a senha apertando "Enter" no teclado
+        passwordInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') verificarSenha();
+        });
+
+
+        // Atalho Geral: Fecha qualquer modal aberto ao apertar "ESC"
+        window.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") {
+                fecharModalFotos();
+                fecharModalSenha();
+            }
+        });
+
+        // Cria corações flutuantes temporários no local exato do clique
+        document.addEventListener('click', (e) => {
+            if(e.target.tagName === 'IFRAME' || 
+               e.target.closest('.modal-close') || 
+               e.target.closest('#jsTurtleBtn') || 
+               e.target.closest('.password-box')) return;
+
+            const heart = document.createElement('div');
+            heart.classList.add('click-heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = `${e.pageX}px`;
+            heart.style.top = `${e.pageY}px`;
+            
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
