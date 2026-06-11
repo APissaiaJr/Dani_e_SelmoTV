@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dani & Selmo tv 🧡 | Feliz Dia dos Namorados</title>
     <style>
-        /* Importando fontes elegantes, incluindo a Roboto (estilo YouTube) */
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Great+Vibes&family=Roboto:wght@700;900&display=swap');
+        /* Importando fontes elegantes e modernas */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Great+Vibes&display=swap');
 
         * {
             margin: 0;
@@ -16,6 +16,7 @@
         }
 
         :root {
+            /* MUDADO PARA LARANJA PREMIUM E ELEGANTE */
             --primary: #ff6a00;
             --primary-glow: rgba(255, 106, 0, 0.5);
             --accent: #ffd700;
@@ -23,9 +24,6 @@
             --bg-card: #16100d;
             --text-light: #fff8f5;
             --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-            
-            /* Cor oficial do bloco do YouTube */
-            --youtube-red: #ff0000; 
         }
 
         body {
@@ -36,7 +34,7 @@
             position: relative;
         }
 
-        /* Elementos flutuantes de fundo */
+        /* Elementos flutuantes de fundo mais discretos e elegantes */
         .bg-decor {
             position: fixed;
             pointer-events: none;
@@ -54,7 +52,7 @@
             100% { transform: translateY(-40px) scale(1.1) rotate(15deg); }
         }
 
-        /* Efeito de clique de coração */
+        /* Efeito de clique de coração via JS */
         .click-heart {
             position: absolute;
             pointer-events: none;
@@ -69,7 +67,7 @@
             100% { transform: translate(-50%, -100%) scale(1.5); opacity: 0; }
         }
 
-        /* HEADER ESTILO YOUTUBE PREMIUM */
+        /* HEADER PREMIUM ESTILO CINEMA */
         header {
             background: linear-gradient(to bottom, rgba(22, 16, 13, 0.98), rgba(10, 6, 4, 0.85));
             backdrop-filter: blur(15px);
@@ -82,33 +80,13 @@
             z-index: 10;
         }
 
-        /* Título principal estilizado como a logo do YouTube */
         header h1 {
-            font-family: 'Roboto', sans-serif;
-            font-weight: 900;
-            color: #ffffff;
-            font-size: 3.2rem;
-            margin-bottom: 15px;
-            letter-spacing: -1px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        /* O Bloco "TV" idêntico ao botão do YouTube */
-        header h1 .youtube-badge {
-            background-color: var(--youtube-red);
-            color: #ffffff;
-            padding: 2px 14px;
-            border-radius: 12px;
-            font-family: 'Roboto', sans-serif;
-            font-weight: 900;
-            letter-spacing: -0.5px;
-            font-size: 2.8rem;
-            display: inline-block;
-            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+            font-family: 'Great Vibes', cursive;
+            color: var(--primary);
+            font-size: 4rem;
+            text-shadow: 0 0 20px var(--primary-glow);
+            margin-bottom: 12px;
+            letter-spacing: 1px;
         }
 
         header p {
@@ -129,7 +107,7 @@
             z-index: 5;
         }
 
-        /* TÍTULOS DE SEÇÃO */
+        /* TÍTULOS DE SEÇÃO COM DESIGN CLEAN */
         .section-title {
             margin-top: 60px;
             margin-bottom: 30px;
@@ -218,6 +196,7 @@
             background-color: #110b09;
         }
 
+        /* Botão Play / Zoom Inteligente nos Cards */
         .card-media::after {
             content: '▶';
             position: absolute;
@@ -307,6 +286,7 @@
             align-items: center;
         }
 
+        /* Botão do Cupom */
         .btn-sortear {
             background: linear-gradient(135deg, #ff6a00 0%, #d25500 100%);
             border: none;
@@ -326,7 +306,7 @@
             box-shadow: 0 15px 35px rgba(255, 106, 0, 0.6);
         }
 
-        /* DESIGN DO BILHETE */
+        /* DESIGN DO BILHETE DE CINEMA PREMIADO */
         .ticket {
             display: none;
             background: #110905;
@@ -345,6 +325,7 @@
             100% { transform: scale(1); opacity: 1; }
         }
 
+        /* Entalhes do bilhete clássico de cinema lateral */
         .ticket::before, .ticket::after {
             content: '';
             position: absolute;
@@ -352,7 +333,7 @@
             transform: translateY(-50%);
             width: 24px;
             height: 24px;
-            background: #150d09;
+            background: #150d09; /* Cor idêntica ao fundo da seção */
             border-radius: 50%;
             border: 2px solid var(--primary);
             z-index: 2;
@@ -393,7 +374,7 @@
             font-style: italic;
         }
 
-        /* SEÇÃO DA TARTARUGA */
+        /* ÁREA E ESTILO DO BOTÃO DE TARTARUGA */
         .turtle-section {
             text-align: center;
             margin-top: 60px;
@@ -445,7 +426,7 @@
             50% { transform: translateY(-10px); }
         }
 
-        /* FOOTER */
+        /* FOOTER DE CONTEÚDO */
         footer {
             text-align: center;
             padding: 60px 20px;
@@ -456,7 +437,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* MODAIS */
+        /* MODAIS OTIMIZADOS (FOTOS E SENHA) */
         .modal {
             display: none;
             position: fixed;
@@ -505,6 +486,7 @@
             color: var(--primary);
         }
 
+        /* DESIGN DO BOX DE SENHA DENTRO DO MODAL */
         .password-box {
             background: #1a120f;
             padding: 40px 30px;
@@ -583,7 +565,7 @@
             font-weight: 500;
         }
 
-        /* ANIMAÇÃO DE ENTRADA SUAVE */
+        /* ANIMAÇÃO DE ENTRADA SUAVE (FADE-IN) */
         .fade-in-section {
             opacity: 0;
             transform: translateY(20px);
@@ -596,10 +578,9 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* AJUSTES DE RESPONSIVIDADE */
+        /* AJUSTES DE RESPONSIVIDADE ATUALIZADOS */
         @media (max-width: 768px) {
-            header h1 { font-size: 2.4rem; }
-            header h1 .youtube-badge { font-size: 2.1rem; padding: 2px 10px; border-radius: 8px; }
+            header h1 { font-size: 3rem; }
             header p { font-size: 1rem; }
             .cupons-section h2 { font-size: 2.6rem; }
             .section-title { font-size: 1.4rem; margin-top: 40px; }
@@ -614,7 +595,7 @@
     <div class="bg-decor" id="decor3">🧡</div>
 
     <header>
-        <h1>Dani e Selmo <span class="youtube-badge">TV</span></h1>
+        <h1>🧡 Dani e Selmo TV 🧡</h1>
         <p>Os melhores momentos da nossa história construída juntos</p>
     </header>
 
@@ -691,7 +672,7 @@
 						<img src="https://img.youtube.com/vi/TVmnSane_4c/hqdefault.jpg" alt="Capa do vídeo 9">
 					</div>
 					<p>Morro do Tiuzão da Bike 🚵🏼‍♀️</p>
-                </div>
+				</div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/NCiTey-9OH4">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/NCiTey-9OH4/hqdefault.jpg" alt="Capa do vídeo 10">
@@ -796,7 +777,7 @@
         </div>
 
         <div class="cupons-section fade-in-section delay-2">
-            <h2>🍿 CineCupom Dani TV</h2>
+            <h2> 🎁 Cupom presente para Dani 🎟️</h2>
             <p class="sub">Retire um vale-mimo especial e aleatório válido com o Selmo!</p>
             
             <div class="roleta-box">
@@ -841,6 +822,7 @@
     </footer>
 
     <script>
+        // Lista Completa de Opções de Cupons Cadastrados
         const listaCupons = [
             {
                 titulo: "💆🏼‍♀️ Vale 1 Massagem Relaxante",
@@ -884,6 +866,7 @@
             }
         ];
 
+        // LÓGICA DO SORTEIO DOS CUPONS (ROLETA)
         const btnSortear = document.getElementById('jsSortearBtn');
         const ticketBox = document.getElementById('jsTicketBox');
         const ticketTitle = document.getElementById('jsTicketTitle');
@@ -918,6 +901,8 @@
             }, 100);
         });
 
+
+        // Controle Avançado do Player de Vídeo
         const mainPlayer = document.getElementById('mainPlayer');
         const videoCards = document.querySelectorAll('.js-video-card');
 
@@ -931,6 +916,7 @@
             });
         });
 
+        // Lógica do Modal das Fotos
         const photoModal = document.getElementById('photoModal');
         const modalImg = document.getElementById('modalImg');
         const closeModal = document.getElementById('closeModal');
@@ -950,6 +936,8 @@
         closeModal.addEventListener('click', fecharModalFotos);
         photoModal.addEventListener('click', fecharModalFotos);
 
+
+        // LÓGICA DO MODAL DE SENHA DA TARTARUGA
         const turtleBtn = document.getElementById('jsTurtleBtn');
         const passwordModal = document.getElementById('passwordModal');
         const closePasswordModal = document.getElementById('closePasswordModal');
@@ -991,6 +979,8 @@
             if (e.key === 'Enter') verificarSenha();
         });
 
+
+        // Atalho Geral: Fecha qualquer modal aberto ao apertar "ESC"
         window.addEventListener('keydown', (e) => {
             if (e.key === "Escape") {
                 fecharModalFotos();
@@ -998,6 +988,7 @@
             }
         });
 
+        // MUDADO PARA EFEITO DE CLIQUE EM CORAÇÕES LARANJAS
         document.addEventListener('click', (e) => {
             if(e.target.tagName === 'IFRAME' || 
                e.target.closest('.modal-close') || 
@@ -1008,7 +999,7 @@
 
             const heart = document.createElement('div');
             heart.classList.add('click-heart');
-            heart.innerHTML = '🧡';
+            heart.innerHTML = '🧡'; // Coração Laranja
             heart.style.left = `${e.pageX}px`;
             heart.style.top = `${e.pageY}px`;
             
