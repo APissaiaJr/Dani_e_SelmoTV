@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dani & Selmo tv ❤️ | Feliz Dia dos Namorados</title>
+    <title>Dani & Selmo tv 🧡 | Feliz Dia dos Namorados</title>
     <style>
         /* Importando fontes elegantes e modernas */
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Great+Vibes&display=swap');
@@ -16,17 +16,18 @@
         }
 
         :root {
-            --primary: #ff2a6d;
-            --primary-glow: rgba(255, 42, 109, 0.5);
+            /* MUDADO PARA LARANJA PREMIUM E ELEGANTE */
+            --primary: #ff6a00;
+            --primary-glow: rgba(255, 106, 0, 0.5);
             --accent: #ffd700;
-            --bg-dark: #0a0508;
-            --bg-card: #160d13;
-            --text-light: #fff5f7;
+            --bg-dark: #0a0604;
+            --bg-card: #16100d;
+            --text-light: #fff8f5;
             --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         body {
-            background: linear-gradient(135deg, #070306 0%, #14080f 50%, #1f0b18 100%);
+            background: linear-gradient(135deg, #070403 0%, #140b07 50%, #1f110a 100%);
             color: var(--text-light);
             scroll-behavior: smooth;
             overflow-x: hidden;
@@ -68,13 +69,13 @@
 
         /* HEADER PREMIUM ESTILO CINEMA */
         header {
-            background: linear-gradient(to bottom, rgba(22, 13, 19, 0.98), rgba(10, 5, 8, 0.85));
+            background: linear-gradient(to bottom, rgba(22, 16, 13, 0.98), rgba(10, 6, 4, 0.85));
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             padding: 50px 20px;
             text-align: center;
             border-bottom: 2px solid var(--primary);
-            box-shadow: 0 10px 40px rgba(255, 42, 109, 0.15);
+            box-shadow: 0 10px 40px rgba(255, 106, 0, 0.15);
             position: relative;
             z-index: 10;
         }
@@ -90,7 +91,7 @@
 
         header p {
             font-size: 1.15rem;
-            color: #c9b4c0;
+            color: #c9bab4;
             font-weight: 300;
             letter-spacing: 1.5px;
             max-width: 600px;
@@ -124,7 +125,7 @@
             content: '';
             flex: 1;
             height: 1px;
-            background: linear-gradient(to right, rgba(255, 42, 109, 0.6), transparent);
+            background: linear-gradient(to right, rgba(255, 106, 0, 0.6), transparent);
         }
 
         /* MOLDURA DA TV (CINEMA BOX) */
@@ -132,8 +133,8 @@
             background: var(--bg-card);
             padding: 18px;
             border-radius: 24px;
-            border: 1px solid rgba(255, 42, 109, 0.25);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 42, 109, 0.08);
+            border: 1px solid rgba(255, 106, 0, 0.25);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 106, 0, 0.08);
             transition: var(--transition-smooth);
             max-width: 850px;
             margin: 0 auto 20px auto;
@@ -142,7 +143,7 @@
 
         .cinema-box:hover {
             border-color: var(--primary);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(255, 42, 109, 0.2);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(255, 106, 0, 0.2);
         }
 
         .video-responsive {
@@ -184,15 +185,15 @@
 
         .card:hover {
             transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(255, 42, 109, 0.2);
-            border-color: rgba(255, 42, 109, 0.5);
+            box-shadow: 0 20px 40px rgba(255, 106, 0, 0.2);
+            border-color: rgba(255, 106, 0, 0.5);
         }
 
         .card-media {
             position: relative;
             overflow: hidden;
             aspect-ratio: 16 / 10;
-            background-color: #11090e;
+            background-color: #110b09;
         }
 
         /* Botão Play / Zoom Inteligente nos Cards */
@@ -243,92 +244,140 @@
             font-size: 1rem;
             font-weight: 500;
             text-align: center;
-            color: #e5d5df;
+            color: #e5dad5;
             letter-spacing: 0.5px;
             border-top: 1px solid rgba(255,255,255,0.02);
         }
 
-        /* QUADRO DE MENSAGEM EMOCIONANTE */
-        .mensagem {
-            background: linear-gradient(145deg, #1f0f1a, #130a10);
+        /* QUADRO DE SESSÃO DE CUPONS */
+        .cupons-section {
+            background: linear-gradient(145deg, #1f110a, #130b07);
             margin-top: 80px;
-            padding: 60px 40px;
+            padding: 50px 30px;
             border-radius: 30px;
             text-align: center;
-            border: 1px solid rgba(255, 42, 109, 0.35);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 42, 109, 0.05);
+            border: 1px solid rgba(255, 106, 0, 0.35);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
             position: relative;
         }
 
-        .mensagem h2 {
+        .cupons-section h2 {
             font-family: 'Great Vibes', cursive;
             color: var(--accent);
             font-size: 3.5rem;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
-        .mensagem p {
-            font-size: 1.2rem;
-            line-height: 1.9;
-            max-width: 750px;
-            margin: auto;
-            color: #e6d3df;
+        .cupons-section p.sub {
+            font-size: 1.1rem;
+            color: #c9bab4;
+            margin-bottom: 35px;
             font-weight: 300;
-            letter-spacing: 0.5px;
         }
 
-        .mensagem .te-amo {
-            font-size: 1.8rem;
-            color: var(--primary);
-            font-weight: 600;
-            margin-top: 35px;
-            display: inline-block;
-            text-shadow: 0 0 15px var(--primary-glow);
-            animation: heartbeat 1.5s ease-in-out infinite;
-        }
-
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            14% { transform: scale(1.1); }
-            28% { transform: scale(1); }
-            42% { transform: scale(1.15); }
-            70% { transform: scale(1); }
-        }
-
-        /* ÁREA DO COMENTÁRIO DIÁRIO */
-        .comentario-section {
-            text-align: center;
-            margin-top: 60px;
-            margin-bottom: 20px;
-        }
-
-        .comentario-btn {
-            display: inline-flex;
+        .roleta-box {
+            max-width: 500px;
+            margin: 0 auto;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            gap: 12px;
-            background: linear-gradient(135deg, #ff2a6d 0%, #d2144d 100%);
+        }
+
+        /* Botão do Cupom */
+        .btn-sortear {
+            background: linear-gradient(135deg, #ff6a00 0%, #d25500 100%);
             border: none;
-            padding: 16px 32px;
+            padding: 16px 35px;
             border-radius: 50px;
             color: white;
             font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 10px 25px rgba(255, 42, 109, 0.3);
+            box-shadow: 0 10px 25px rgba(255, 106, 0, 0.4);
             transition: var(--transition-smooth);
             letter-spacing: 0.5px;
         }
 
-        .comentario-btn:hover {
-            transform: translateY(-3px) scale(1.03);
-            box-shadow: 0 15px 35px rgba(255, 42, 109, 0.5);
+        .btn-sortear:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(255, 106, 0, 0.6);
+        }
+
+        /* DESIGN DO BILHETE DE CINEMA PREMIADO */
+        .ticket {
+            display: none;
+            background: #110905;
+            border: 2px dashed var(--primary);
+            border-radius: 16px;
+            padding: 25px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 0 30px rgba(255, 106, 0, 0.25);
+            position: relative;
+            animation: ticketIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        @keyframes ticketIn {
+            0% { transform: scale(0.7); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Entalhes do bilhete clássico de cinema lateral */
+        .ticket::before, .ticket::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            background: #150d09; /* Cor idêntica ao fundo da seção */
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            z-index: 2;
+        }
+        .ticket::before { left: -14px; border-left: none; }
+        .ticket::after { right: -14px; border-right: none; }
+
+        .ticket-header {
+            font-size: 0.8rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .ticket-title {
+            font-size: 1.4rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .ticket-desc {
+            font-size: 0.95rem;
+            color: #fff8f5;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .ticket-footer {
+            font-size: 0.75rem;
+            color: #7a6a63;
+            border-top: 1px solid rgba(255, 106, 0, 0.2);
+            padding-top: 12px;
+            font-style: italic;
         }
 
         /* ÁREA E ESTILO DO BOTÃO DE TARTARUGA */
         .turtle-section {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 60px;
             margin-bottom: 20px;
         }
 
@@ -338,7 +387,7 @@
             align-items: center;
             justify-content: center;
             background: var(--bg-card);
-            border: 2px solid rgba(255, 42, 109, 0.4);
+            border: 2px solid rgba(255, 106, 0, 0.4);
             border-radius: 50%;
             width: 100px;
             height: 100px;
@@ -356,7 +405,7 @@
 
         .turtle-btn .turtle-text {
             font-size: 0.75rem;
-            color: #c9b4c0;
+            color: #c9bab4;
             margin-top: 2px;
             font-weight: 500;
             letter-spacing: 0.5px;
@@ -381,7 +430,7 @@
         footer {
             text-align: center;
             padding: 60px 20px;
-            color: #7a6371;
+            color: #7a6a63;
             font-size: 0.9rem;
             border-top: 1px solid rgba(255,255,255,0.04);
             margin-top: 40px;
@@ -393,7 +442,7 @@
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(4, 2, 4, 0.96);
+            background: rgba(4, 2, 2, 0.96);
             z-index: 1000;
             justify-content: center;
             align-items: center;
@@ -413,7 +462,7 @@
             max-width: 95%;
             max-height: 85vh;
             border-radius: 16px;
-            box-shadow: 0 0 40px rgba(255, 42, 109, 0.4);
+            box-shadow: 0 0 40px rgba(255, 106, 0, 0.4);
             transform: scale(0.9);
             transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
@@ -439,11 +488,11 @@
 
         /* DESIGN DO BOX DE SENHA DENTRO DO MODAL */
         .password-box {
-            background: #1a0f17;
+            background: #1a120f;
             padding: 40px 30px;
             border-radius: 24px;
             border: 2px solid var(--primary);
-            box-shadow: 0 0 35px rgba(255, 42, 109, 0.3);
+            box-shadow: 0 0 35px rgba(255, 106, 0, 0.3);
             text-align: center;
             max-width: 400px;
             width: 100%;
@@ -464,7 +513,7 @@
 
         .password-box p {
             font-size: 0.95rem;
-            color: #a38f9b;
+            color: #a3958f;
             margin-bottom: 25px;
         }
 
@@ -472,8 +521,8 @@
             width: 100%;
             padding: 14px 20px;
             border-radius: 50px;
-            border: 1px solid rgba(255, 42, 109, 0.3);
-            background: #0d060b;
+            border: 1px solid rgba(255, 106, 0, 0.3);
+            background: #0d0806;
             color: white;
             font-size: 1.2rem;
             text-align: center;
@@ -485,7 +534,7 @@
 
         .password-box input:focus {
             border-color: var(--primary);
-            box-shadow: 0 0 15px rgba(255, 42, 109, 0.4);
+            box-shadow: 0 0 15px rgba(255, 106, 0, 0.4);
         }
 
         .password-box button {
@@ -498,18 +547,18 @@
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition-smooth);
-            box-shadow: 0 5px 15px rgba(255, 42, 109, 0.3);
+            box-shadow: 0 5px 15px rgba(255, 106, 0, 0.3);
             width: 100%;
         }
 
         .password-box button:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px var(--primary-glow);
-            background: #ff4781;
+            background: #ff8025;
         }
 
         .password-box .error-message {
-            color: #ff4a4a;
+            color: #ff554a;
             font-size: 0.85rem;
             margin-top: 12px;
             display: none;
@@ -533,8 +582,7 @@
         @media (max-width: 768px) {
             header h1 { font-size: 3rem; }
             header p { font-size: 1rem; }
-            .mensagem h2 { font-size: 2.6rem; }
-            .mensagem p { font-size: 1.1rem; }
+            .cupons-section h2 { font-size: 2.6rem; }
             .section-title { font-size: 1.4rem; margin-top: 40px; }
             .grid { gap: 20px; }
         }
@@ -542,12 +590,12 @@
 </head>
 <body>
 
-    <div class="bg-decor" id="decor1">❤️</div>
-    <div class="bg-decor" id="decor2">💖</div>
-    <div class="bg-decor" id="decor3">💕</div>
+    <div class="bg-decor" id="decor1">🧡</div>
+    <div class="bg-decor" id="decor2">🍊</div>
+    <div class="bg-decor" id="decor3">🧡</div>
 
     <header>
-        <h1>❤️ Dani e Selmo TV ❤️</h1>
+        <h1>🧡 Dani e Selmo TV 🧡</h1>
         <p>Os melhores momentos da nossa história construída juntos</p>
     </header>
 
@@ -581,37 +629,37 @@
                     <div class="card-media">
                         <img src="https://img.youtube.com/vi/0ibNowxrIk8/hqdefault.jpg" alt="Capa do vídeo 2">
                     </div>
-                    <p>Shishando com Anselmo ❤️💨</p>
+                    <p>Shishando com Anselmo 🧡💨</p>
                 </div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/jIhJwoYUGWg">
                     <div class="card-media">
                         <img src="https://img.youtube.com/vi/jIhJwoYUGWg/hqdefault.jpg" alt="Capa do vídeo 3">
                     </div>
-                    <p>Papo da Madruga ❤️ 🌝</p>
+                    <p>Papo da Madruga 🧡 🌝</p>
                 </div>   
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/iTodi8Eqn48">
                     <div class="card-media">
                          <img src="https://img.youtube.com/vi/iTodi8Eqn48/hqdefault.jpg" alt="Capa do vídeo 4">
                     </div>
-                    <p>Shisha time Anselmo ❤️💨</p>
+                    <p>Shisha time Anselmo 🧡💨</p>
                 </div>    
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/-yzUDkyxQ0M">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/-yzUDkyxQ0M/hqdefault.jpg" alt="Capa do vídeo 5">
 					</div>
-					<p>Muita fome pelo jeito ❤🍖</p>
+					<p>Muita fome pelo jeito 🧡🍖</p>
 				</div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/r2DzUDhSP1E">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/r2DzUDhSP1E/hqdefault.jpg" alt="Capa do vídeo 6">
 					</div>
-					<p>Gata muda 🐈‍⬛ 😶 ❤️</p>
+					<p>Gata muda 🐈‍⬛ 😶 🧡</p>
 				</div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/ilnPlYvzoxc">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/ilnPlYvzoxc/hqdefault.jpg" alt="Capa do vídeo 7">
 					</div>
-					<p>Veja o Vídeo de ontem ❤️</p>
+					<p>Veja o Vídeo de ontem 🧡</p>
 				</div>  
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/K3mSctzulqA">
 					<div class="card-media">
@@ -629,79 +677,79 @@
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/NCiTey-9OH4/hqdefault.jpg" alt="Capa do vídeo 10">
 					</div>
-					<p>Tradutor da Daniele ❤🗣️ </p>
+					<p>Tradutor da Daniele 🧡🗣️ </p>
 				</div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/dGAP3zaOLaE">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/dGAP3zaOLaE/hqdefault.jpg" alt="Capa do vídeo 11">
 					</div>
-					<p> Passeio no morro e camisas❤️</p>
+					<p> Passeio no morro e camisas🧡</p>
 				</div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/H1yFz42qNrU">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/H1yFz42qNrU/hqdefault.jpg" alt="Capa do vídeo 12">
 					</div>
-					<p>Ouvido Branco da Abelha Anselmo ❤️</p>
+					<p>Ouvido Branco da Abelha Anselmo 🧡</p>
 				</div>	
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/PtFzUdtCHOU">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/PtFzUdtCHOU/hqdefault.jpg" alt="Capa do vídeo 13">
 					</div>
-					<p>Aula de secador, vinada e adesivos ❤️</p>
+					<p>Aula de secador, vinada e adesivos 🧡</p>
 				</div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/qfIQlKRLc6M">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/qfIQlKRLc6M/hqdefault.jpg" alt="Capa do vídeo 14">
 					</div>
-					<p>Porta fechada com espelho ❤️</p>
+					<p>Porta fechada com espelho 🧡</p>
 				</div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/zbM4eLC6jMY">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/zbM4eLC6jMY/hqdefault.jpg" alt="Capa do vídeo 15">
 					</div>
-					<p>Onibus sem cueca ❤️</p>
+					<p>Onibus sem cueca 🧡</p>
 				</div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/5CsiLtIDZvI">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/5CsiLtIDZvI/hqdefault.jpg" alt="Capa do vídeo 16">
 					</div>
-					<p>Patriota não planejada 🇧🇷 🇧🇷 🇧🇷❤️</p>
+					<p>Patriota não planejada 🇧🇷 🇧🇷 🇧🇷🧡</p>
 				</div>	
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/JtG-lyScBCI">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/JtG-lyScBCI/hqdefault.jpg" alt="Capa do vídeo 17">
 					</div>
-					<p>❤⭐⭐SHISHANDO COM DANI⭐⭐ - A SAGA DO ALUMINIO️❤️</p>
+					<p>🧡⭐⭐SHISHANDO COM DANI⭐⭐ - A SAGA DO ALUMINIO️🧡</p>
 				</div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/8w-gseHvtNY">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/8w-gseHvtNY/hqdefault.jpg" alt="Capa do vídeo 18">
 					</div>
-					<p>o Primeiro - DOIS MALUCOS EM GRAMADO ❤️ </p>
+					<p>o Primeiro - DOIS MALUCOS EM GRAMADO 🧡 </p>
 				</div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/YpwAFnzjD7g">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/YpwAFnzjD7g/hqdefault.jpg" alt="Capa do vídeo 19">
 					</div>
-					<p>Dois Malucos em Gramado 2 ❤️</p>
+					<p>Dois Maluces em Gramado 2 🧡</p>
 				</div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/ibhyKgpeqxw">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/ibhyKgpeqxw/hqdefault.jpg" alt="Capa do vídeo 2">
 					</div>
-					<p>Recebido Pago com Spoiler 🛏️❤️</p>
+					<p>Recebido Pago com Spoiler 🛏️🧡</p>
 				</div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/DEJ-R0SZgbc">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/DEJ-R0SZgbc/hqdefault.jpg" alt="Capa do vídeo 2">
 					</div>
-					<p>Torresmo Maneiro ❤️</p>
+					<p>Torresmo Maneiro 🧡</p>
 				</div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/tGsoPBXo4uI">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/tGsoPBXo4uI/hqdefault.jpg" alt="Capa do vídeo 2">
 					</div>
-					<p>Recebido Pago da Dani 🛏️❤️</p>
+					<p>Recebido Pago da Dani 🛏️🧡</p>
 				</div>
 				
             </div>
@@ -728,29 +776,20 @@
             </div>
         </div>
 
-        <div class="mensagem fade-in-section delay-2">
-            <h2>💌 Para você, Daniele</h2>
-            <p>
-                ❤️ FELIZ DIA DOS NAMORADOS PRINCESA ❤️<br><br>
-                📤 Anselmo compartilhou seu vídeo<br><br>
-                💬 Anselmo comentou:<br>
-                <i>Feliz Dia dos Namorados, minha princesa. Obrigado por transformar momentos simples em memórias que EU NUNCA MAIS VOU ESQUECER. Por me fazer ser melhor a cada dia, peço que me desculpe por alguma coisa que um dia eu possa ter feito para te aborrecer ou decepcionar, quero fazer bem para você e sempre te fazer feliz. Obrigado pelas risadas, pelas conversas e suas histórias que amo escutar, pelos passeios que fizemos, pelos planos de viagens (que vamos fazer) e pelas coisas que fazemos que fazem a gente dar muita gargalhada. Você conseguiu ocupar um espaço muito especial na minha vida e eu sou grato por cada instante ao seu lado. Que a gente continue colecionando histórias, viagens, cafés da manhã pendentes em panificadoras e muitas outras aventuras. Te amo, princesa. </i> ❤️<br><br>
-                ⭐ Anselmo virou membro do canal e renovou a assinatura automaticamente<br><br>
-                🔔 Anselmo ativou o sininho para não perder nenhum sorriso seu<br><br>
-                ❤️ Anselmo curtiu 100% dos momentos ao seu lado<br><br>
-                📌 Anselmo adicionou aos favoritos: seu sorriso, seu abraço e a mulher incrível que você é<br><br>
-                😍 Anselmo reagiu com "amei" à nossa história<br><br>
-                😘 Anselmo deixou um beijo<br><br>
-                💬 Anselmo comentou novamente:<br>
-                E pode ter certeza que, independente da cor do seu catarro, se está sem voz, das ásias por glútem ou das enxaquecas, vou continue SEMPRE aqui para cuidar de você. ❤️
-            </p>
-            <span class="te-amo">Feliz Dia dos Namorados! Te amo princesa ❤️</span>
-        </div>
-
-        <div class="comentario-section fade-in-section delay-2">
-            <button class="comentario-btn" id="jsComentarioBtn">
-                <span>💬</span> Diário da Dani: Como foi seu dia?
-            </button>
+        <div class="cupons-section fade-in-section delay-2">
+            <h2>🍿 CineCupom Dani TV</h2>
+            <p class="sub">Retire um vale-mimo especial e aleatório válido com o Selmo!</p>
+            
+            <div class="roleta-box">
+                <button class="btn-sortear" id="jsSortearBtn">Resgatar Meu Cupom do Dia 🎫</button>
+                
+                <div class="ticket" id="jsTicketBox">
+                    <div class="ticket-header">Ticket Premiado</div>
+                    <div class="ticket-title" id="jsTicketTitle">Nome do Cupom</div>
+                    <div class="ticket-desc" id="jsTicketDesc">Descrição especial aqui...</div>
+                    <div class="ticket-footer">📸 Tire um print para cobrar o Selmo!</div>
+                </div>
+            </div>
         </div>
 
         <div class="turtle-section fade-in-section delay-2">
@@ -774,7 +813,7 @@
             <p>Digite a senha para desbloquear a surpresa:</p>
             <input type="password" id="secretPasswordInput" placeholder="••••••" maxlength="10">
             <button id="submitPasswordBtn">Desbloquear</button>
-            <div class="error-message" id="passwordError">Senha incorreta! Tente de novo ❤️</div>
+            <div class="error-message" id="passwordError">Senha incorreta! Tente de novo 🧡</div>
         </div>
     </div>
 
@@ -783,6 +822,86 @@
     </footer>
 
     <script>
+        // Lista Completa de Opções de Cupons Cadastrados
+        const listaCupons = [
+            {
+                titulo: "💆🏼‍♀️ Vale 1 Massagem Relaxante",
+                desc: "Válido para as costas ou pés, com direito a música calma, ambiente tranquilo e zero reclamações ou pressa por parte do Selmo."
+            },
+            {
+                titulo: "👩🏼‍🍳 Vale Jantar Especial",
+                desc: "O Selmo cozinha ou pede a sua janta favorita no capricho hoje. Você não mexe um dedo, só senta, assiste e saboreia!"
+            },
+            {
+                titulo: "🍿 Vale Cinema com Pipoca",
+                desc: "Você escolhe o filme da noite (mesmo que seja o romance mais meloso do mundo). O Selmo paga a pipoca e promete não dormir no meio!"
+            },
+            {
+                titulo: "🥐 Vale Café da Manhã na Panificadora",
+                desc: "Aquele café da manhã pendente de panificadora finalmente vai sair! Totalmente por conta e pago pelo Selmo, com tudo que você tem direito."
+            },
+            {
+                titulo: "🍖 Vale Muita Fome",
+                desc: "Dia de rodada insana! Válido para uma janta com muita carne, lanches caprichados ou aquele torresmo maneiro para devorar sem culpa."
+            },
+            {
+                titulo: "💨 Vale Sessão de Shisha Premium",
+                desc: "Uma sessão completa de arguile de altíssima qualidade montada pelo Anselmo, com a essência que você escolher e o alumínio perfeitamente esticado."
+            },
+            {
+                titulo: "🍫 Vale Doce na Madrugada",
+                desc: "Bateu aquela vontade incontrolável de comer um chocolate, doce ou guloseima fora de hora? Ative esse cupom e o Selmo dá um jeito de conseguir."
+            },
+            {
+                titulo: "🩹 Vale Anti-Enxaqueca & Azia",
+                desc: "Dia de mimo e proteção absoluta: massagem suave na cabeça, remédio na mão na hora certa, quarto escurinho e silêncio total garantido."
+            },
+            {
+                titulo: "💆🏼‍♀️ Vale Cafuné Sem Limite de Tempo",
+                desc: "Mimo ativado! Cafoffo e cafuné contínuos até o Selmo ficar com cãibra na mão ou você pegar no sono bem relaxada."
+            },
+            {
+                titulo: "🏎️ Vale Rolê no Sandero Possante",
+                desc: "Um passeio especial de carro sem destino, ouvindo as músicas que você quiser e curtindo a companhia um do outro."
+            }
+        ];
+
+        // LÓGICA DO SORTEIO DOS CUPONS (ROLETA)
+        const btnSortear = document.getElementById('jsSortearBtn');
+        const ticketBox = document.getElementById('jsTicketBox');
+        const ticketTitle = document.getElementById('jsTicketTitle');
+        const ticketDesc = document.getElementById('jsTicketDesc');
+
+        btnSortear.addEventListener('click', () => {
+            btnSortear.disabled = true;
+            ticketBox.style.display = 'none';
+            btnSortear.innerText = "Sorteando seu prêmio... 🎰";
+
+            let cliques = 0;
+            const roletaInterval = setInterval(() => {
+                const cupomAleatorio = listaCupons[Math.floor(Math.random() * listaCupons.length)];
+                btnSortear.style.background = cliques % 2 === 0 ? '#ffd700' : '#ff6a00';
+                btnSortear.style.color = cliques % 2 === 0 ? '#000' : '#fff';
+                cliques++;
+
+                if (cliques > 12) {
+                    clearInterval(roletaInterval);
+                    
+                    const cupomFinal = listaCupons[Math.floor(Math.random() * listaCupons.length)];
+                    ticketTitle.innerText = cupomFinal.titulo;
+                    ticketDesc.innerText = cupomFinal.desc;
+                    
+                    btnSortear.style.background = 'linear-gradient(135deg, #ff6a00 0%, #d25500 100%)';
+                    btnSortear.style.color = 'white';
+                    btnSortear.innerText = "Pegar Outro Cupom 🎫";
+                    btnSortear.disabled = false;
+
+                    ticketBox.style.display = 'block';
+                }
+            }, 100);
+        });
+
+
         // Controle Avançado do Player de Vídeo
         const mainPlayer = document.getElementById('mainPlayer');
         const videoCards = document.querySelectorAll('.js-video-card');
@@ -826,13 +945,12 @@
         const submitPasswordBtn = document.getElementById('submitPasswordBtn');
         const passwordError = document.getElementById('passwordError');
 
-        // Abre o modal de senha ao clicar na tartaruga
         turtleBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             passwordInput.value = '';
             passwordError.style.display = 'none';
             passwordModal.classList.add('active');
-            setTimeout(() => passwordInput.focus(), 100); // Dá foco automático no campo de texto
+            setTimeout(() => passwordInput.focus(), 100);
         });
 
         function fecharModalSenha() {
@@ -841,16 +959,13 @@
         closePasswordModal.addEventListener('click', fecharModalSenha);
         passwordModal.addEventListener('click', fecharModalSenha);
 
-        // Impede que o clique dentro da caixinha de senha feche o modal
         document.querySelector('.password-box').addEventListener('click', (e) => {
             e.stopPropagation();
         });
 
-        // Função de verificação da senha
         function verificarSenha() {
             if (passwordInput.value === '100226') {
                 fecharModalSenha();
-                // Abre o link do YouTube Shorts numa aba nova
                 window.open('https://youtube.com/shorts/cs_fznYRSxI?feature=share', '_blank', 'noopener,noreferrer');
             } else {
                 passwordError.style.display = 'block';
@@ -860,136 +975,8 @@
         }
 
         submitPasswordBtn.addEventListener('click', verificarSenha);
-
-        // Permite enviar a senha apertando "Enter" no teclado
         passwordInput.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') verificarSenha();
-        });
-
-
-        // LÓGICA DA NOVA ABA DE COMENTÁRIOS DA DANI
-        document.getElementById('jsComentarioBtn').addEventListener('click', (e) => {
-            e.stopPropagation();
-            
-            // Abre uma nova janela limpa
-            const novaAba = window.open('', '_blank', 'width=450,height=350,scrollbars=no,resizable=no');
-            
-            // Injeta o HTML e o visual direto nessa aba
-            novaAba.document.write(`
-                <!DOCTYPE html>
-                <html lang="pt-BR">
-                <head>
-                    <meta charset="UTF-8">
-                    <title>Diário da Dani ❤️</title>
-                    <style>
-                        body {
-                            background: #0a0508;
-                            color: #fff5f7;
-                            font-family: 'Arial', sans-serif;
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            height: 100vh;
-                            margin: 0;
-                            padding: 20px;
-                            box-sizing: border-box;
-                        }
-                        .box {
-                            background: #160d13;
-                            padding: 25px;
-                            border-radius: 20px;
-                            border: 1px solid rgba(255, 42, 109, 0.4);
-                            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-                            width: 100%;
-                            max-width: 380px;
-                            text-align: center;
-                        }
-                        h3 {
-                            color: #ff2a6d;
-                            margin-top: 0;
-                            margin-bottom: 15px;
-                            font-size: 1.3rem;
-                        }
-                        textarea {
-                            width: 100%;
-                            height: 100px;
-                            background: #0d060b;
-                            border: 1px solid rgba(255, 42, 109, 0.2);
-                            border-radius: 12px;
-                            color: white;
-                            padding: 12px;
-                            box-sizing: border-box;
-                            resize: none;
-                            outline: none;
-                            font-size: 1rem;
-                            transition: all 0.3s;
-                        }
-                        textarea:focus {
-                            border-color: #ff2a6d;
-                            box-shadow: 0 0 10px rgba(255, 42, 109, 0.3);
-                        }
-                        .footer-box {
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: center;
-                            margin-top: 15px;
-                        }
-                        .contador {
-                            font-size: 0.85rem;
-                            color: #a38f9b;
-                        }
-                        button {
-                            background: #ff2a6d;
-                            color: white;
-                            border: none;
-                            padding: 10px 24px;
-                            border-radius: 50px;
-                            font-weight: 600;
-                            cursor: pointer;
-                            transition: all 0.3s;
-                            box-shadow: 0 4px 10px rgba(255, 42, 109, 0.3);
-                        }
-                        button:hover {
-                            background: #ff4781;
-                            transform: translateY(-1px);
-                        }
-                    </style>
-                </head>
-                <body>
-                    <div class="box">
-                        <h3>Como foi seu dia, Dani? 🥰</h3>
-                        <textarea id="texto" maxlength="100" placeholder="Conta para o Selmo..."></textarea>
-                        <div class="footer-box">
-                            <div class="contador"><span id="caracteres">0</span>/100</div>
-                            <button id="btnSalvar">Salvar ❤️</button>
-                        </div>
-                    </div>
-
-                    <script>
-                        const txt = document.getElementById('texto');
-                        const cnt = document.getElementById('caracteres');
-                        const btn = document.getElementById('btnSalvar');
-
-                        // Atualiza o contador de letras
-                        txt.addEventListener('input', () => {
-                            cnt.textContent = txt.value.length;
-                        });
-
-                        // Ação do botão salvar
-                        btn.addEventListener('click', () => {
-                            if(txt.value.trim() === '') {
-                                alert('Escreve algo antes de salvar, princesa! 😉');
-                                return;
-                            }
-                            // Exibe a mensagem de sucesso
-                            alert('Comentário salvo com sucesso! Te amo! ❤️\\n\\n"' + txt.value + '"');
-                            window.close(); // Fecha a aba
-                        });
-                    <\/script>
-                </body>
-                </html>
-            `);
-            novaAba.document.close();
         });
 
 
@@ -1001,17 +988,18 @@
             }
         });
 
-        // Cria corações flutuantes temporários no local exato do clique
+        // MUDADO PARA EFEITO DE CLIQUE EM CORAÇÕES LARANJAS
         document.addEventListener('click', (e) => {
             if(e.target.tagName === 'IFRAME' || 
                e.target.closest('.modal-close') || 
                e.target.closest('#jsTurtleBtn') || 
-               e.target.closest('#jsComentarioBtn') || 
+               e.target.closest('#jsSortearBtn') ||
+               e.target.closest('.ticket') ||
                e.target.closest('.password-box')) return;
 
             const heart = document.createElement('div');
             heart.classList.add('click-heart');
-            heart.innerHTML = '❤️';
+            heart.innerHTML = '🧡'; // Coração Laranja
             heart.style.left = `${e.pageX}px`;
             heart.style.top = `${e.pageY}px`;
             
