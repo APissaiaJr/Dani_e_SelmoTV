@@ -296,10 +296,39 @@
             70% { transform: scale(1); }
         }
 
+        /* ÁREA DO COMENTÁRIO DIÁRIO */
+        .comentario-section {
+            text-align: center;
+            margin-top: 60px;
+            margin-bottom: 20px;
+        }
+
+        .comentario-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #ff2a6d 0%, #d2144d 100%);
+            border: none;
+            padding: 16px 32px;
+            border-radius: 50px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(255, 42, 109, 0.3);
+            transition: var(--transition-smooth);
+            letter-spacing: 0.5px;
+        }
+
+        .comentario-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(255, 42, 109, 0.5);
+        }
+
         /* ÁREA E ESTILO DO BOTÃO DE TARTARUGA */
         .turtle-section {
             text-align: center;
-            margin-top: 60px;
+            margin-top: 40px;
             margin-bottom: 20px;
         }
 
@@ -445,7 +474,7 @@
             border-radius: 50px;
             border: 1px solid rgba(255, 42, 109, 0.3);
             background: #0d060b;
-            color: #white;
+            color: white;
             font-size: 1.2rem;
             text-align: center;
             outline: none;
@@ -542,155 +571,133 @@
         <div class="fade-in-section delay-1">
             <h2 class="section-title">📹 Nossa Playlist Especial</h2>
             <div class="grid">
-                <!-- Card 1 -->
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/c2OPgRowig4">
                     <div class="card-media">
                         <img src="https://img.youtube.com/vi/c2OPgRowig4/hqdefault.jpg" alt="Capa do vídeo 1">
                     </div>
                     <p>Sandero Possante 🏎️</p>
                 </div>
-<!-- Card 2 -->
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/0ibNowxrIk8">
                     <div class="card-media">
                         <img src="https://img.youtube.com/vi/0ibNowxrIk8/hqdefault.jpg" alt="Capa do vídeo 2">
                     </div>
                     <p>Shishando com Anselmo ❤️💨</p>
                 </div>
-<!-- Card 3 -->
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/jIhJwoYUGWg">
                     <div class="card-media">
                         <img src="https://img.youtube.com/vi/jIhJwoYUGWg/hqdefault.jpg" alt="Capa do vídeo 3">
                     </div>
                     <p>Papo da Madruga ❤️ 🌝</p>
                 </div>   
-<!-- Card 4 -->				
-			    <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/iTodi8Eqn48">
+                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/iTodi8Eqn48">
                     <div class="card-media">
                          <img src="https://img.youtube.com/vi/iTodi8Eqn48/hqdefault.jpg" alt="Capa do vídeo 4">
                     </div>
                     <p>Shisha time Anselmo ❤️💨</p>
                 </div>    
-<!-- Card 5 -->				
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/-yzUDkyxQ0M">
+                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/-yzUDkyxQ0M">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/-yzUDkyxQ0M/hqdefault.jpg" alt="Capa do vídeo 5">
 					</div>
 					<p>Muita fome pelo jeito ❤🍖</p>
 				</div>
-<!-- Card 6 -->					
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/r2DzUDhSP1E">
+                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/r2DzUDhSP1E">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/r2DzUDhSP1E/hqdefault.jpg" alt="Capa do vídeo 6">
 					</div>
 					<p>Gata muda 🐈‍⬛ 😶 ❤️</p>
 				</div>
- <!-- Card 7 -->
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/ilnPlYvzoxc">
+                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/ilnPlYvzoxc">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/ilnPlYvzoxc/hqdefault.jpg" alt="Capa do vídeo 7">
 					</div>
 					<p>Veja o Vídeo de ontem ❤️</p>
 				</div>  
-<!-- Card 8 -->
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/K3mSctzulqA">
+                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/K3mSctzulqA">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/K3mSctzulqA/hqdefault.jpg" alt="Capa do vídeo 8">
 					</div>
 					<p>Shisha time Anselmo Parte 1 💨</p>
 				</div>
-<!-- Card 9 -->				
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/TVmnSane_4c">
+                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/TVmnSane_4c">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/TVmnSane_4c/hqdefault.jpg" alt="Capa do vídeo 9">
 					</div>
 					<p>Morro do Tiuzão da Bike 🚵🏼‍♀️</p>
 				</div>
-<!-- Card 10 -->				
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/NCiTey-9OH4">
+                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/NCiTey-9OH4">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/NCiTey-9OH4/hqdefault.jpg" alt="Capa do vídeo 10">
 					</div>
 					<p>Tradutor da Daniele ❤🗣️ </p>
 				</div>
-<!-- Card 11 -->				
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/dGAP3zaOLaE">
+                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/dGAP3zaOLaE">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/dGAP3zaOLaE/hqdefault.jpg" alt="Capa do vídeo 11">
 					</div>
 					<p> Passeio no morro e camisas❤️</p>
 				</div>
-<!-- Card 12 -->			
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/H1yFz42qNrU">
+                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/H1yFz42qNrU">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/H1yFz42qNrU/hqdefault.jpg" alt="Capa do vídeo 12">
 					</div>
 					<p>Ouvido Branco da Abelha Anselmo ❤️</p>
 				</div>	
-<!-- Card 13 -->
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/PtFzUdtCHOU">
+                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/PtFzUdtCHOU">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/PtFzUdtCHOU/hqdefault.jpg" alt="Capa do vídeo 13">
 					</div>
 					<p>Aula de secador, vinada e adesivos ❤️</p>
 				</div>
-<!-- Card 14 -->				
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/qfIQlKRLc6M">
+                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/qfIQlKRLc6M">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/qfIQlKRLc6M/hqdefault.jpg" alt="Capa do vídeo 14">
 					</div>
 					<p>Porta fechada com espelho ❤️</p>
 				</div>
-<!-- Card 15 -->				
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/zbM4eLC6jMY">
+                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/zbM4eLC6jMY">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/zbM4eLC6jMY/hqdefault.jpg" alt="Capa do vídeo 15">
 					</div>
 					<p>Onibus sem cueca ❤️</p>
 				</div>
-<!-- Card 16 -->				
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/5CsiLtIDZvI">
+                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/5CsiLtIDZvI">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/5CsiLtIDZvI/hqdefault.jpg" alt="Capa do vídeo 16">
 					</div>
 					<p>Patriota não planejada 🇧🇷 🇧🇷 🇧🇷❤️</p>
 				</div>	
-<!-- Card 17 -->				
-			    <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/JtG-lyScBCI">
+                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/JtG-lyScBCI">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/JtG-lyScBCI/hqdefault.jpg" alt="Capa do vídeo 17">
 					</div>
 					<p>❤⭐⭐SHISHANDO COM DANI⭐⭐ - A SAGA DO ALUMINIO️❤️</p>
 				</div>
-<!-- Card 18 -->				
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/8w-gseHvtNY">
+                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/8w-gseHvtNY">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/8w-gseHvtNY/hqdefault.jpg" alt="Capa do vídeo 18">
 					</div>
 					<p>o Primeiro - DOIS MALUCOS EM GRAMADO ❤️ </p>
 				</div>
-<!-- Card 19 -->				
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/YpwAFnzjD7g">
+                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/YpwAFnzjD7g">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/YpwAFnzjD7g/hqdefault.jpg" alt="Capa do vídeo 19">
 					</div>
 					<p>Dois Malucos em Gramado 2 ❤️</p>
 				</div>
-<!-- Card 20 -->				
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/ibhyKgpeqxw">
+                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/ibhyKgpeqxw">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/ibhyKgpeqxw/hqdefault.jpg" alt="Capa do vídeo 2">
 					</div>
 					<p>Recebido Pago com Spoiler 🛏️❤️</p>
 				</div>
-<!-- Card 21 -->				
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/DEJ-R0SZgbc">
+                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/DEJ-R0SZgbc">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/DEJ-R0SZgbc/hqdefault.jpg" alt="Capa do vídeo 2">
 					</div>
 					<p>Torresmo Maneiro ❤️</p>
 				</div>
-<!-- Card 22 -->				
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/tGsoPBXo4uI">
+                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/tGsoPBXo4uI">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/tGsoPBXo4uI/hqdefault.jpg" alt="Capa do vídeo 2">
 					</div>
@@ -735,9 +742,15 @@
                 😍 Anselmo reagiu com "amei" à nossa história<br><br>
                 😘 Anselmo deixou um beijo<br><br>
                 💬 Anselmo comentou novamente:<br>
-                E pode ter certeza que, independente da cor do seu catarro, se está sem voz, das ásias por glútem ou das enxaquecas, vou continuar SEMPRE aqui para cuidar de você. ❤️
+                E pode ter certeza que, independente da cor do seu catarro, se está sem voz, das ásias por glútem ou das enxaquecas, vou continue SEMPRE aqui para cuidar de você. ❤️
             </p>
             <span class="te-amo">Feliz Dia dos Namorados! Te amo princesa ❤️</span>
+        </div>
+
+        <div class="comentario-section fade-in-section delay-2">
+            <button class="comentario-btn" id="jsComentarioBtn">
+                <span>💬</span> Diário da Dani: Como foi seu dia?
+            </button>
         </div>
 
         <div class="turtle-section fade-in-section delay-2">
@@ -854,6 +867,132 @@
         });
 
 
+        // LÓGICA DA NOVA ABA DE COMENTÁRIOS DA DANI
+        document.getElementById('jsComentarioBtn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            
+            // Abre uma nova janela limpa
+            const novaAba = window.open('', '_blank', 'width=450,height=350,scrollbars=no,resizable=no');
+            
+            // Injeta o HTML e o visual direto nessa aba
+            novaAba.document.write(`
+                <!DOCTYPE html>
+                <html lang="pt-BR">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Diário da Dani ❤️</title>
+                    <style>
+                        body {
+                            background: #0a0508;
+                            color: #fff5f7;
+                            font-family: 'Arial', sans-serif;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            height: 100vh;
+                            margin: 0;
+                            padding: 20px;
+                            box-sizing: border-box;
+                        }
+                        .box {
+                            background: #160d13;
+                            padding: 25px;
+                            border-radius: 20px;
+                            border: 1px solid rgba(255, 42, 109, 0.4);
+                            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+                            width: 100%;
+                            max-width: 380px;
+                            text-align: center;
+                        }
+                        h3 {
+                            color: #ff2a6d;
+                            margin-top: 0;
+                            margin-bottom: 15px;
+                            font-size: 1.3rem;
+                        }
+                        textarea {
+                            width: 100%;
+                            height: 100px;
+                            background: #0d060b;
+                            border: 1px solid rgba(255, 42, 109, 0.2);
+                            border-radius: 12px;
+                            color: white;
+                            padding: 12px;
+                            box-sizing: border-box;
+                            resize: none;
+                            outline: none;
+                            font-size: 1rem;
+                            transition: all 0.3s;
+                        }
+                        textarea:focus {
+                            border-color: #ff2a6d;
+                            box-shadow: 0 0 10px rgba(255, 42, 109, 0.3);
+                        }
+                        .footer-box {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            margin-top: 15px;
+                        }
+                        .contador {
+                            font-size: 0.85rem;
+                            color: #a38f9b;
+                        }
+                        button {
+                            background: #ff2a6d;
+                            color: white;
+                            border: none;
+                            padding: 10px 24px;
+                            border-radius: 50px;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: all 0.3s;
+                            box-shadow: 0 4px 10px rgba(255, 42, 109, 0.3);
+                        }
+                        button:hover {
+                            background: #ff4781;
+                            transform: translateY(-1px);
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="box">
+                        <h3>Como foi seu dia, Dani? 🥰</h3>
+                        <textarea id="texto" maxlength="100" placeholder="Conta para o Selmo..."></textarea>
+                        <div class="footer-box">
+                            <div class="contador"><span id="caracteres">0</span>/100</div>
+                            <button id="btnSalvar">Salvar ❤️</button>
+                        </div>
+                    </div>
+
+                    <script>
+                        const txt = document.getElementById('texto');
+                        const cnt = document.getElementById('caracteres');
+                        const btn = document.getElementById('btnSalvar');
+
+                        // Atualiza o contador de letras
+                        txt.addEventListener('input', () => {
+                            cnt.textContent = txt.value.length;
+                        });
+
+                        // Ação do botão salvar
+                        btn.addEventListener('click', () => {
+                            if(txt.value.trim() === '') {
+                                alert('Escreve algo antes de salvar, princesa! 😉');
+                                return;
+                            }
+                            // Exibe a mensagem de sucesso
+                            alert('Comentário salvo com sucesso! Te amo! ❤️\\n\\n"' + txt.value + '"');
+                            window.close(); // Fecha a aba
+                        });
+                    <\/script>
+                </body>
+                </html>
+            `);
+            novaAba.document.close();
+        });
+
+
         // Atalho Geral: Fecha qualquer modal aberto ao apertar "ESC"
         window.addEventListener('keydown', (e) => {
             if (e.key === "Escape") {
@@ -867,6 +1006,7 @@
             if(e.target.tagName === 'IFRAME' || 
                e.target.closest('.modal-close') || 
                e.target.closest('#jsTurtleBtn') || 
+               e.target.closest('#jsComentarioBtn') || 
                e.target.closest('.password-box')) return;
 
             const heart = document.createElement('div');
