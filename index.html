@@ -374,11 +374,67 @@
             font-style: italic;
         }
 
-        /* ÁREA E ESTILO DO BOTÃO DE TARTARUGA */
+/* QUADRO DE MENSAGEM EMOCIONANTE */
+        .mensagem {
+            background: linear-gradient(145deg, #1f0f1a, #130a10);
+            margin-top: 80px;
+            padding: 60px 40px;
+            border-radius: 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 42, 109, 0.35);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 42, 109, 0.05);
+            position: relative;
+        }
+
+        .mensagem h2 {
+            font-family: 'Great Vibes', cursive;
+            color: var(--accent);
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .mensagem p {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            max-width: 750px;
+            margin: auto;
+            color: #e6d3df;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .mensagem .te-amo {
+            font-size: 1.8rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-top: 35px;
+            display: inline-block;
+            text-shadow: 0 0 15px var(--primary-glow);
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.1); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.15); }
+            70% { transform: scale(1); }
+        }
+
+
+      /* ÁREA E ESTILO DO BOTÃO DE TARTARUGA E VIAGENS */
         .turtle-section {
             text-align: center;
             margin-top: 60px;
             margin-bottom: 20px;
+        }
+
+        /* Container para alinhar os dois botões lado a lado */
+        .buttons-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 30px; /* Espaço entre os dois botões */
         }
 
         .turtle-btn {
@@ -396,6 +452,11 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.4);
             transition: var(--transition-smooth);
             animation: floatTurtle 3s ease-in-out infinite;
+        }
+
+        /* Faz com que o segundo botão flutue com um ritmo levemente diferente para dar charme */
+        .buttons-wrapper .turtle-btn:nth-child(2) {
+            animation-delay: -1.5s;
         }
 
         .turtle-btn .turtle-emoji {
@@ -776,7 +837,9 @@
             </div>
         </div>
 
- <div class="mensagem fade-in-section delay-2">
+
+
+		<div class="mensagem fade-in-section delay-2">
             <h2>💌 Para você, Daniele</h2>
             <p>
                 ❤️ FELIZ DIA DOS NAMORADOS PRINCESA ❤️<br><br>
@@ -813,9 +876,20 @@
         </div>
 
         <div class="turtle-section fade-in-section delay-2">
-            <div class="turtle-btn" id="jsTurtleBtn" title="Apenas para quem sabe o segredo...">
-                <span class="turtle-emoji">🐢</span>
-                <span class="turtle-text">Segredo!</span>
+            <div class="buttons-wrapper">
+                <div class="turtle-btn" id="jsTurtleBtn" title="Apenas para quem sabe o segredo...">
+                    <span class="turtle-emoji">🐢</span>
+                    <span class="turtle-text">Segredo!</span>
+                </div>
+
+                <a href="https://docs.google.com/spreadsheets/d/1DwMDnoFrSAuhg4VjZmxTrKskm6SDkDVd1YgwSzEroOw/edit?gid=0#gid=0" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="turtle-btn" 
+                   title="Nossos próximos destinos! ✈️">
+                    <span class="turtle-emoji">✈️</span>
+                    <span class="turtle-text">Viagens</span>
+                </a>
             </div>
         </div>
 
