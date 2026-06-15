@@ -421,9 +421,7 @@
             42% { transform: scale(1.15); }
             70% { transform: scale(1); }
         }
-
-
-      /* ÁREA E ESTILO DO BOTÃO DE TARTARUGA E VIAGENS */
+/* ÁREA E ESTILO DO BOTÃO DE TARTARUGA E VIAGENS */
         .turtle-section {
             text-align: center;
             margin-top: 60px;
@@ -485,6 +483,58 @@
         @keyframes floatTurtle {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
+        }
+
+      /* ESTILOS DO TIMER DE VIAGEM */
+        .countdown-container {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 106, 0, 0.2);
+            border-radius: 20px;
+            padding: 20px;
+            max-width: 450px;
+            margin: 0 auto 30px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .countdown-container h3 {
+            font-size: 1rem;
+            color: #c9bab4;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: space-around;
+            gap: 10px;
+        }
+
+        .timer-box {
+            background: #0d0806;
+            border-bottom: 2px solid var(--primary);
+            border-radius: 10px;
+            padding: 10px;
+            min-width: 75px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+        }
+
+        .timer-box span {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-shadow: 0 0 10px var(--primary-glow);
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .timer-box p {
+            font-size: 0.7rem;
+            color: #7a6a63;
+            text-transform: uppercase;
+            margin-top: 3px;
+            letter-spacing: 0.5px;
         }
 
         /* FOOTER DE CONTEÚDO */
@@ -876,6 +926,17 @@
         </div>
 
         <div class="turtle-section fade-in-section delay-2">
+            
+            <div class="countdown-container">
+                <h3>✈️ Contagem Regressiva para Gramado 🏔️</h3>
+                <div class="countdown-timer">
+                    <div class="timer-box"><span id="days">00</span><p>Dias</p></div>
+                    <div class="timer-box"><span id="hours">00</span><p>Horas</p></div>
+                    <div class="timer-box"><span id="minutes">00</span><p>Min</p></div>
+                    <div class="timer-box"><span id="seconds">00</span><p>Seg</p></div>
+                </div>
+            </div>
+
             <div class="buttons-wrapper">
                 <div class="turtle-btn" id="jsTurtleBtn" title="Apenas para quem sabe o segredo...">
                     <span class="turtle-emoji">🐢</span>
@@ -892,7 +953,6 @@
                 </a>
             </div>
         </div>
-
     </div>
 
     <div id="photoModal" class="modal">
@@ -1103,6 +1163,32 @@
                 heart.remove();
             }, 1000);
         });
+		
+		// LÓGICA DA CONTAGEM REGRESSIVA PARA GRAMADO (31/08/2026)
+        const dataViagem = new Date('August 31, 2026 00:00:00').getTime();
+
+        const atualizarTimer = setInterval(() => {
+            const agora = new Date().getTime();
+            const diferenca = dataViagem - agora;
+
+            // Cálculos de tempo para Dias, Horas, Minutos e Segundos
+            const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+            // Injeta os valores formatados com 2 dígitos no HTML
+            document.getElementById('days').innerText = dias < 10 ? '0' + dias : dias;
+            document.getElementById('hours').innerText = horas < 10 ? '0' + horas : horas;
+            document.getElementById('minutes').innerText = minutos < 10 ? '0' + minutos : minutos;
+            document.getElementById('seconds').innerText = segundos < 10 ? '0' + segundos : segundos;
+
+            // Mensagem caso a data chegue!
+            if (diferenca < 0) {
+                clearInterval(atualizarTimer);
+                document.querySelector('.countdown-container').innerHTML = "<h3>🧳 PARTIU GRAMADO! A viagem começou! ✈️</h3>";
+            }
+        }, 1000);
     </script>
 </body>
 </html>
