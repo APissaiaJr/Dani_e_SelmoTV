@@ -1341,16 +1341,16 @@
             const diferenca = dataViagem - agora;
 
             // Cálculos de tempo para Dias, Horas, Minutos e Segundos
-            const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
-            const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
-            const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+            const calculoDias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+            const calculoHoras = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const calculoMinutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+            const calculoSegundos = Math.floor((diferenca % (1000 * 60)) / 1000);
 
-            // Injeta os valores formatados com 2 dígitos no HTML
-            document.getElementById('days').innerText = dias < 10 ? '0' + dias : dias;
-            document.getElementById('hours').innerText = horas < 10 ? '0' + horas : horas;
-            document.getElementById('minutes').innerText = minutos < 10 ? '0' + minutos : minutes;
-            document.getElementById('seconds').innerText = segundos < 10 ? '0' + segundos : segundos;
+            // Injeta os valores formatados com 2 dígitos no HTML usando IDs exatos
+            document.getElementById('days').innerText = calculoDias < 10 ? '0' + calculoDias : calculoDias;
+            document.getElementById('hours').innerText = calculoHoras < 10 ? '0' + calculoHoras : calculoHoras;
+            document.getElementById('minutes').innerText = calculoMinutos < 10 ? '0' + calculoMinutos : calculoMinutos;
+            document.getElementById('seconds').innerText = calculoSegundos < 10 ? '0' + calculoSegundos : calculoSegundos;
 
             // Mensagem caso a data chegue!
             if (diferenca < 0) {
