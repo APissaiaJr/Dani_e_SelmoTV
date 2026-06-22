@@ -374,7 +374,7 @@
             font-style: italic;
         }
 
-/* QUADRO DE MENSAGEM EMOCIONANTE */
+        /* QUADRO DE MENSAGEM EMOCIONANTE */
         .mensagem {
             background: linear-gradient(145deg, #1f0f1a, #130a10);
             margin-top: 80px;
@@ -421,7 +421,8 @@
             42% { transform: scale(1.15); }
             70% { transform: scale(1); }
         }
-/* ÁREA E ESTILO DO BOTÃO DE TARTARUGA E VIAGENS */
+
+        /* ÁREA E ESTILO DO BOTÃO DE TARTARUGA E VIAGENS */
         .turtle-section {
             text-align: center;
             margin-top: 60px;
@@ -485,7 +486,7 @@
             50% { transform: translateY(-10px); }
         }
 
-      /* ESTILOS DO TIMER DE VIAGEM */
+        /* ESTILOS DO TIMER DE VIAGEM */
         .countdown-container {
             background: var(--bg-card);
             border: 1px solid rgba(255, 106, 0, 0.2);
@@ -569,9 +570,18 @@
             opacity: 1;
         }
 
-        .modal img {
+        /* Container interno do modal para alinhar imagem e legenda verticalmente */
+        .modal-content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             max-width: 95%;
-            max-height: 85vh;
+            max-height: 90vh;
+        }
+
+        .modal img {
+            max-width: 100%;
+            max-height: 75vh;
             border-radius: 16px;
             box-shadow: 0 0 40px rgba(255, 106, 0, 0.4);
             transform: scale(0.9);
@@ -580,6 +590,27 @@
 
         .modal.active img {
             transform: scale(1);
+        }
+
+        /* LEGENDA PREMIUM DO MODAL */
+        .modal-caption {
+            margin-top: 15px;
+            font-size: 1.1rem;
+            color: #fff8f5;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            background: rgba(22, 16, 13, 0.85);
+            padding: 10px 25px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 106, 0, 0.3);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            letter-spacing: 0.5px;
+            max-width: 90%;
+        }
+
+        .modal-caption span {
+            color: var(--accent);
+            font-weight: 600;
         }
 
         .modal-close {
@@ -696,6 +727,7 @@
             .cupons-section h2 { font-size: 2.6rem; }
             .section-title { font-size: 1.4rem; margin-top: 40px; }
             .grid { gap: 20px; }
+            .modal-caption { font-size: 0.95rem; padding: 8px 15px; }
         }
     </style>
 </head>
@@ -730,37 +762,37 @@
         <div class="fade-in-section delay-1">
             <h2 class="section-title">📹 Nossa Playlist Especial</h2>
             <div class="grid">
-			<!-- Card 2 -->
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/XVKlGdRZKJs">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/XVKlGdRZKJs/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>💛💚 PRIMEIRO JOGO DA COPA 💛💚</p>
-				</div>		
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/Ca5b_DkWItY">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/Ca5b_DkWItY/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>Paisagem de Joinville Muda ️🧡</p>
-				</div>
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/balxKDd6TmE">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/balxKDd6TmE/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>SHISHA LOVERS</p>
-				</div>
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/NEF0rxLm2Jw">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/NEF0rxLm2Jw/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>Dia dos namorados MUDO </p>
-				</div>
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/_wfNyyZA8RU">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/_wfNyyZA8RU/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>🌭CONVERSA DO HOTDOG OFUSCADO🌭</p>
-				</div>
+                <!-- Card 2 -->
+                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/XVKlGdRZKJs">
+                    <div class="card-media">
+                        <img src="https://img.youtube.com/vi/XVKlGdRZKJs/hqdefault.jpg" alt="Capa do vídeo 2">
+                    </div>
+                    <p>💛💚 PRIMEIRO JOGO DA COPA 💛💚</p>
+                </div>		
+                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/Ca5b_DkWItY">
+                    <div class="card-media">
+                        <img src="https://img.youtube.com/vi/Ca5b_DkWItY/hqdefault.jpg" alt="Capa do vídeo 2">
+                    </div>
+                    <p>Paisagem de Joinville Muda ️🧡</p>
+                </div>
+                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/balxKDd6TmE">
+                    <div class="card-media">
+                        <img src="https://img.youtube.com/vi/balxKDd6TmE/hqdefault.jpg" alt="Capa do vídeo 2">
+                    </div>
+                    <p>SHISHA LOVERS</p>
+                </div>
+                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/NEF0rxLm2Jw">
+                    <div class="card-media">
+                        <img src="https://img.youtube.com/vi/NEF0rxLm2Jw/hqdefault.jpg" alt="Capa do vídeo 2">
+                    </div>
+                    <p>Dia dos namorados MUDO </p>
+                </div>
+                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/_wfNyyZA8RU">
+                    <div class="card-media">
+                        <img src="https://img.youtube.com/vi/_wfNyyZA8RU/hqdefault.jpg" alt="Capa do vídeo 2">
+                    </div>
+                    <p>🌭CONVERSA DO HOTDOG OFUSCADO🌭</p>
+                </div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/c2OPgRowig4">
                     <div class="card-media">
                         <img src="https://img.youtube.com/vi/c2OPgRowig4/hqdefault.jpg" alt="Capa do vídeo 1">
@@ -786,169 +818,169 @@
                     <p>Shisha time Anselmo 🧡💨</p>
                 </div>    
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/-yzUDkyxQ0M">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/-yzUDkyxQ0M/hqdefault.jpg" alt="Capa do vídeo 5">
-					</div>
-					<p>Muita fome pelo jeito 🧡🍖</p>
-				</div>
+                    <div class="card-media">
+                        <img src="https://img.youtube.com/vi/-yzUDkyxQ0M/hqdefault.jpg" alt="Capa do vídeo 5">
+                    </div>
+                    <p>Muita fome pelo jeito 🧡🍖</p>
+                </div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/r2DzUDhSP1E">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/r2DzUDhSP1E/hqdefault.jpg" alt="Capa do vídeo 6">
-					</div>
-					<p>Gata muda 🐈‍⬛ 😶 🧡</p>
-				</div>
+                    <div class="card-media">
+                        <img src="https://img.youtube.com/vi/r2DzUDhSP1E/hqdefault.jpg" alt="Capa do vídeo 6">
+                    </div>
+                    <p>Gata muda 🐈‍⬛ 😶 🧡</p>
+                </div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/ilnPlYvzoxc">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/ilnPlYvzoxc/hqdefault.jpg" alt="Capa do vídeo 7">
-					</div>
-					<p>Veja o Vídeo de ontem 🧡</p>
-				</div>  
+                    <div class="card-media">
+                        <img src="https://img.youtube.com/vi/ilnPlYvzoxc/hqdefault.jpg" alt="Capa do vídeo 7">
+                    </div>
+                    <p>Veja o Vídeo de ontem 🧡</p>
+                </div>  
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/K3mSctzulqA">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/K3mSctzulqA/hqdefault.jpg" alt="Capa do vídeo 8">
-					</div>
-					<p>Shisha time Anselmo Parte 1 💨</p>
-				</div>
+                    <div class="card-media">
+                        <img src="https://img.youtube.com/vi/K3mSctzulqA/hqdefault.jpg" alt="Capa do vídeo 8">
+                    </div>
+                    <p>Shisha time Anselmo Parte 1 💨</p>
+                </div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/TVmnSane_4c">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/TVmnSane_4c/hqdefault.jpg" alt="Capa do vídeo 9">
-					</div>
-					<p>Morro do Tiuzão da Bike 🚵🏼‍♀️</p>
-				</div>
+                    <div class="card-media">
+                        <img src="https://img.youtube.com/vi/TVmnSane_4c/hqdefault.jpg" alt="Capa do vídeo 9">
+                    </div>
+                    <p>Morro do Tiuzão da Bike 🚵🏼‍♀️</p>
+                </div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/NCiTey-9OH4">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/NCiTey-9OH4/hqdefault.jpg" alt="Capa do vídeo 10">
-					</div>
-					<p>Tradutor da Daniele 🧡🗣️ </p>
-				</div>
+                    <div class="card-media">
+                        <img src="https://img.youtube.com/vi/NCiTey-9OH4/hqdefault.jpg" alt="Capa do vídeo 10">
+                    </div>
+                    <p>Tradutor da Daniele 🧡🗣️ </p>
+                </div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/dGAP3zaOLaE">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/dGAP3zaOLaE/hqdefault.jpg" alt="Capa do vídeo 11">
-					</div>
-					<p> Passeio no morro e camisas🧡</p>
-				</div>
+                    <div class="card-media">
+                        <img src="https://img.youtube.com/vi/dGAP3zaOLaE/hqdefault.jpg" alt="Capa do vídeo 11">
+                    </div>
+                    <p> Passeio no morro e camisas🧡</p>
+                </div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/H1yFz42qNrU">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/H1yFz42qNrU/hqdefault.jpg" alt="Capa do vídeo 12">
-					</div>
-					<p>Ouvido Branco da Abelha Anselmo 🧡</p>
-				</div>	
+                    <div class="card-media">
+                        <img src="https://img.youtube.com/vi/H1yFz42qNrU/hqdefault.jpg" alt="Capa do vídeo 12">
+                    </div>
+                    <p>Ouvido Branco da Abelha Anselmo 🧡</p>
+                </div>	
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/PtFzUdtCHOU">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/PtFzUdtCHOU/hqdefault.jpg" alt="Capa do vídeo 13">
-					</div>
-					<p>Aula de secador, vinada e adesivos 🧡</p>
-				</div>
+                    <div class="card-media">
+                        <img src="https://img.youtube.com/vi/PtFzUdtCHOU/hqdefault.jpg" alt="Capa do vídeo 13">
+                    </div>
+                    <p>Aula de secador, vinada e adesivos 🧡</p>
+                </div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/qfIQlKRLc6M">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/qfIQlKRLc6M/hqdefault.jpg" alt="Capa do vídeo 14">
-					</div>
-					<p>Porta fechada com espelho 🧡</p>
-				</div>
+                    <div class="card-media">
+                        <img src="https://img.youtube.com/vi/qfIQlKRLc6M/hqdefault.jpg" alt="Capa do vídeo 14">
+                    </div>
+                    <p>Porta fechada com espelho 🧡</p>
+                </div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/zbM4eLC6jMY">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/zbM4eLC6jMY/hqdefault.jpg" alt="Capa do vídeo 15">
-					</div>
-					<p>Onibus sem cueca 🧡</p>
-				</div>
+                    <div class="card-media">
+                        <img src="https://img.youtube.com/vi/zbM4eLC6jMY/hqdefault.jpg" alt="Capa do vídeo 15">
+                    </div>
+                    <p>Onibus sem cueca 🧡</p>
+                </div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/5CsiLtIDZvI">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/5CsiLtIDZvI/hqdefault.jpg" alt="Capa do vídeo 16">
-					</div>
-					<p>Patriota não planejada 🇧🇷 🇧🇷 🇧🇷🧡</p>
-				</div>	
+                    <div class="card-media">
+                        <img src="https://img.youtube.com/vi/5CsiLtIDZvI/hqdefault.jpg" alt="Capa do vídeo 16">
+                    </div>
+                    <p>Patriota não planejada 🇧🇷 🇧🇷 🇧🇷🧡</p>
+                </div>	
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/JtG-lyScBCI">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/JtG-lyScBCI/hqdefault.jpg" alt="Capa do vídeo 17">
-					</div>
-					<p>🧡⭐⭐SHISHANDO COM DANI⭐⭐ - A SAGA DO ALUMINIO️🧡</p>
-				</div>
+                    <div class="card-media">
+                        <img src="https://img.youtube.com/vi/JtG-lyScBCI/hqdefault.jpg" alt="Capa do vídeo 17">
+                    </div>
+                    <p>🧡⭐⭐SHISHANDO COM DANI⭐⭐ - A SAGA DO ALUMINIO️🧡</p>
+                </div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/8w-gseHvtNY">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/8w-gseHvtNY/hqdefault.jpg" alt="Capa do vídeo 18">
-					</div>
-					<p>o Primeiro - DOIS MALUCOS EM GRAMADO 🧡 </p>
-				</div>
+                    <div class="card-media">
+                        <img src="https://img.youtube.com/vi/8w-gseHvtNY/hqdefault.jpg" alt="Capa do vídeo 18">
+                    </div>
+                    <p>o Primeiro - DOIS MALUCOS EM GRAMADO 🧡 </p>
+                </div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/YpwAFnzjD7g">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/YpwAFnzjD7g/hqdefault.jpg" alt="Capa do vídeo 19">
-					</div>
-					<p>Dois Maluces em Gramado 2 🧡</p>
-				</div>
+                    <div class="card-media">
+                        <img src="https://img.youtube.com/vi/YpwAFnzjD7g/hqdefault.jpg" alt="Capa do vídeo 19">
+                    </div>
+                    <p>Dois Maluces em Gramado 2 🧡</p>
+                </div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/ibhyKgpeqxw">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/ibhyKgpeqxw/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>Recebido Pago com Spoiler 🛏️🧡</p>
-				</div>
+                    <div class="card-media">
+                        <img src="https://img.youtube.com/vi/ibhyKgpeqxw/hqdefault.jpg" alt="Capa do vídeo 2">
+                    </div>
+                    <p>Recebido Pago com Spoiler 🛏️🧡</p>
+                </div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/DEJ-R0SZgbc">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/DEJ-R0SZgbc/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>Torresmo Maneiro 🧡</p>
-				</div>
+                    <div class="card-media">
+                        <img src="https://img.youtube.com/vi/DEJ-R0SZgbc/hqdefault.jpg" alt="Capa do vídeo 2">
+                    </div>
+                    <p>Torresmo Maneiro 🧡</p>
+                </div>
                 <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/tGsoPBXo4uI">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/tGsoPBXo4uI/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>Recebido Pago da Dani 🛏️🧡</p>
-				</div>
+                    <div class="card-media">
+                        <img src="https://img.youtube.com/vi/tGsoPBXo4uI/hqdefault.jpg" alt="Capa do vídeo 2">
+                    </div>
+                    <p>Recebido Pago da Dani 🛏️🧡</p>
+                </div>
 				
             </div>
         </div>
 
-<!-- NOVA SEÇÃO: FOTOS DA COPA DO MUNDO -->
+        <!-- SEÇÃO: FOTOS DA COPA DO MUNDO (COM DATA E LOCAL CONFIGURADOS COMO EXEMPLO) -->
         <div class="fade-in-section delay-2">
             <h2 class="section-title">⚽ Jogos do Brasil com a melhor companhia 💛💚</h2>
             <div class="grid">
-                <!-- Você pode alterar o caminho 'fotos/copa1.jpeg' pelos nomes reais das suas fotos da copa -->
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa1.jpeg" alt="Jogos do Brasil"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa2.jpeg" alt="Jogos do Brasil"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa3.jpeg" alt="Jogos do Brasil"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa4.jpeg" alt="Jogos do Brasil"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa5.jpeg" alt="Jogos do Brasil"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa6.jpeg" alt="Jogos do Brasil"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa7.jpeg" alt="Jogos do Brasil"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa8.jpeg" alt="Jogos do Brasil"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa9.jpeg" alt="Jogos do Brasil"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa10.jpeg" alt="Jogos do Brasil"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa11.jpeg" alt="Jogos do Brasil"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa12.jpeg" alt="Jogos do Brasil"></div></div>
-			</div>
+                <!-- EXEMPLO: basta adicionar data-local e data-data nas tags <img> -->
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa1.jpeg" data-local="CASA DO SELMO - Pré jogo" data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa2.jpeg" data-local="CASA DO SELMO - Pré jogo" data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa3.jpeg" data-local="Bastards Brewery (não fomos no melhor dia) " data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa4.jpeg" data-local="Fumaçônica Brewhouse" data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa5.jpeg" data-local="Fumaçônica Brewhouse" data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa6.jpeg" data-local="Fumaçônica Brewhouse" data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa7.jpeg" data-local="Fumaçônica Brewhouse" data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa8.jpeg" data-local="Fumaçônica Brewhouse" data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa9.jpeg" data-local="CASA DO SELMO - com Tabua de frios e quentes" data-data="19/06/2026" alt="Jogos do Brasil"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa10.jpeg" data-local="CASA DO SELMO - com Tabua de frios e quentes" data-data="19/06/2026" alt="Jogos do Brasil"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa11.jpeg" data-local="CASA DO SELMO - com Tabua de frios e quentes" data-data="19/06/2026" alt="Jogos do Brasil"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa12.jpeg" data-local="CASA DO SELMO - com Tabua de frios e quentes" data-data="19/06/2026" alt="Jogos do Brasil"></div></div>
+            </div>
         </div>
 
         <div class="fade-in-section delay-2">
             <h2 class="section-title">📸 Galeria de Retratos Favoritos</h2>
             <div class="grid">
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto1.jpeg" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto2.jpeg" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto22.jpeg" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto3.jpeg" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto4.jpeg" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto5.jpeg" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto6.jpeg" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto7.jpeg" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto77.jpeg" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto8.jpeg" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto9.jpeg" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto10.jpeg" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto11.jpeg" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto12.jpeg" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto13.jpeg" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto14.jpeg" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto18.jpeg" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto15.jpeg" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto16.jpeg" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto17.jpeg" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto19.jpeg" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto20.jpeg" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto21.jpeg" alt="Nossos momentos"></div></div>
-			</div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto1.jpeg" data-local="Na frente da casa da Dani - Piraquara - PR" data-data="25 de Fevereiro 2026" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto22.jpeg" data-local="Pesque Pague lanchonete do Cachimbo - São José dos Pinhais - PR" data-data="3 de Abril 2026" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto2.jpeg" data-local="Feira do Largo da Ordem - Curitiba - PR" data-data="12 de Abril 2026" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto3.jpeg" data-local="Pista do Gaúcho - Curitiba - PR" data-data="21 de Abril 2026" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto4.jpeg" data-local="Antes do Festival do Torresmos - Curitiba - PR" data-data="17 de Maio 2026" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto5.jpeg" data-local="Pizzaria Dell's - Piraquara - PR" data-data="13 de Maio 2026" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto6.jpeg" data-local="La Campesina Restaurante (finge que eu sou um bolo)  - Curitiba - PR" data-data="27 de Maio 2026" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto7.jpeg" data-local="Role pela Prudente de Morais (depois da janta)   - Curitiba - PR" data-data="27 de Maio 2026"  alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto77.jpeg" data-local="Habib's Pinhais - PR" data-data="21 de Maio de 2026" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto8.jpeg" data-local="Saindo da casa do Selmo indo para Joinville - Piraquara - PR" data-data="30 de Maio 2026" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto9.jpeg" data-local="Mirante da Serra Dona Francisca - Joinville - SC" data-data="30 de Maio 2026" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto10.jpeg" data-local="Role do Toretto - Joinville - SC" data-data="30 de Maio 2026" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto11.jpeg" data-local="Mirante de Joinville - Joinville - SC" data-data="31 de Maio 2026" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto12.jpeg" data-local="Trapiche da Vila da Glória - São Francisco do Sul - SC" data-data="31 de Maio 2026" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto13.jpeg" data-local="Ta vendo aquela lua que brilha lá no céu? - Itapoá - SC" data-data="31 de Maio 2026" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto14.jpeg" data-local="Pão com linguiça da sede da FÚRIA - Curitiba - PR" data-data="06 de Junho 2026" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto18.jpeg" data-local="Mika Dog - Pinhais - PR" data-data="14 de Junho 2026" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto15.jpeg" data-local="Casa do Selmo - Piraquara - PR" data-data="14 de Junho 2026" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto16.jpeg" data-local="Primeiro dia dos Namorados ♥ Porcini Trattoria - Curitiba - PR" data-data="12 de Junho 2026" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto17.jpeg" data-local="Primeiro dia dos Namorados ♥ Porcini Trattoria - Curitiba - PR" data-data="12 de Junho 2026" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto19.jpeg" data-local="Jantar no Madero Palladium - Curitiba - PR" data-data="16 de Junho 2026" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto20.jpeg" data-local="Dogão no Avião (pré viagem) - Curitiba - PR" data-data="20 de Junho 2026" alt="Nossos momentos"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto21.jpeg" data-local="Pastel no Parque das Águas - Pinhais - PR" data-data="21 de Junho 2026" alt="Nossos momentos"></div></div>
+            </div>
         </div>
 
 
 
-		<div class="mensagem fade-in-section delay-2">
+        <div class="mensagem fade-in-section delay-2">
             <h2>💌 Para você, Daniele</h2>
             <p>
                 ❤️ FELIZ DIA DOS NAMORADOS PRINCESA ❤️<br><br>
@@ -1014,9 +1046,13 @@
         </div>
     </div>
 
+    <!-- MODAL DE FOTOS ADAPTADO COM CONTAINER INTERNO E LEGENDA -->
     <div id="photoModal" class="modal">
         <span class="modal-close" id="closeModal">&times;</span>
-        <img id="modalImg" src="" alt="Zoom Premium">
+        <div class="modal-content-wrapper">
+            <img id="modalImg" src="" alt="Zoom Premium">
+            <div id="modalCaption" class="modal-caption">📍 Local: <span>-</span> | 📅 Data: <span>-</span></div>
+        </div>
     </div>
 
     <div id="passwordModal" class="modal">
@@ -1069,7 +1105,7 @@
                 titulo: "🩹 Vale Anti-Enxaqueca & Azia",
                 desc: "Dia de mimo e proteção absoluta: massagem suave na cabeça, remédio na mão na hora certa, quarto escurinho e silêncio total garantido."
             },
-			{
+            {
                 titulo: "🌳 Vale Tarde de Passeio sem Destino",
                 desc: "Um passeio bem gostoso para caminhar de mãos dadas, visitar um parque legal e curtir a companhia um do outro sem pressa de voltar."
             },			
@@ -1077,23 +1113,23 @@
                 titulo: "💆🏼‍♀️ Vale Cafuné Sem Limite de Tempo",
                 desc: "Mimo ativado! Cafoffo e cafuné contínuos até o Selmo ficar com cãibra na mão ou você pegar no sono bem relaxada."
             },
-			{
+            {
                 titulo: "🧩 Vale Montar Quebra-Cabeça a Dois",
                 desc: "Uma noite inteira separada para abrir um quebra-cabeça novo! O Selmo ajuda a separar as bordas, dividir as peças por cores e garante os petiscos e a música de fundo enquanto vocês se divertem juntos."
             },
-			{
+            {
                 titulo: "🚫 ERRO 404: Cupom Não Encontrado",
                 desc: "Ops! Parece que o Selmo estava limpando a shisha ou jogando Pokemon na hora de cadastrar esse prêmio. Chame a atenção do Selmo para ele te dar atenção, tente a sorte novamente! 💤"
             },
-			{
+            {
                 titulo: "🔄 Cupom Reverso: Faça um Cafuné no Selmo",
                 desc: "O jogo virou! Você deu o azar (ou sorte) de tirar o cupom invertido. Vá até o Selmo e faça 5 minutos de cafuné caprichado nele para liberar a roleta! 💆🏼‍♂️"
             },
-			{
+            {
                 titulo: "🎬 Vale Vídeo de Reação Especial para o Canal",
                 desc: "O Selmo topa gravar um vídeo super divertido reagindo a algo que você escolher (suas fotos antigas, uma série ou um desafio) para movimentar o canal!"
             },
-			{
+            {
                 titulo: "📈 Notificação de Juros: O Fiado Cobrou Seu Preço!",
                 desc: "Atenção! O Banco do Selmo aplicou a taxa Selic do amor sobre aquele seu 'vale CONFIANÇA'. Como juros acumulados da dívida, você agora DEVE um CHOPP 🍺 para ele. Pague o que deve! 💆🏼‍♂️💸"
             },
@@ -1101,38 +1137,42 @@
                 titulo: "🔍 Vale 'Detetive de Peças Perdidas'",
                 desc: "Está travada naquela parte super difícil do quebra-cabeça onde tudo parece igual? Ative este cupom e o Selmo vira seu assistente focado em achar a peça exata que falta!"
             },
-			{
+            {
                 titulo: "🧱 Vale Montar Bricks Sem Interrupção",
                 desc: "Um dia ou noite dedicada a montar seus Bricks favoritos. O Selmo ajuda a separar as peças por cor, abre os saquinhos e garante zero interrupções!"
             },
-			{
+            {
                 titulo: "🥩 Vale Assistente de Churrasco",
                 desc: "Dia de comer carne boa! O Selmo cuida da brasa, prepara tudo e te serve os melhores pedaços na mesa com direito a zero trabalho para você."
             },
-			{
-				titulo: "🐧 Vale Pinguim",
-				desc: "Você ganhou um abraço aleatório e obrigatório do Selmo no momento em que apresentar este cupom."
-			},
-			{
-				titulo: "🍓 Vale Sobremesa Especial",
-				desc: "Escolha qualquer sobremesa que estiver com vontade e o Selmo providencia."
-			},
-			{
+            {
+                titulo: "🐧 Vale Pinguim",
+                desc: "Você ganhou um abraço aleatório e obrigatório do Selmo no momento em que apresentar este cupom."
+            },
+            {
+                titulo: "🍓 Vale Sobremesa Especial",
+                desc: "Escolha qualquer sobremesa que estiver com vontade e o Selmo providencia."
+            },
+            {
                 titulo: "⚠️ reCAPTCHA: Verificação de dívida de Dívida / Vale Fiado",
                 desc: "Erro no sistema! O banco de dados do site encontrou um 'vale fiado' pendente na sua conta. Para quitar os juros a favor do Selmo, vá até ele e pague com um beijo estalado e um cafuné de 5 minutos. 📊"
             },
-			{
+            {
                 titulo: "🥤 Vale Pastel com Caldo de Cana Caprichado",
                 desc: "Desejo ativado! Válido para ir comer aquele pastel de feira sequinho e gigante, acompanhado de um caldo de cana bem gelado. Tudo pago pelo Selmo!"
             },
-			{
-				titulo: "💖 Vale 100 Beijos",
-				desc: "Cupom válido para uma carga imediata de carinho, beijos e abraços sem limite de validade."
-			},
-			{
+            {
+                titulo: "💖 Vale 100 Beijos",
+                desc: "Cupom válido para uma carga imediata de carinho, beijos e abraços sem limite de validade."
+            },
+            {
                 titulo: "🧺 Vale Piquenique Romântico no Parque",
                 desc: "Dani e Selmo organizam a cesta de lanches, estende a toalha no parque e te leva para passar uma tarde incrível e relaxante ao ar livre."
             },
+			{
+                titulo: "📱 Vale Chamego Remoto",
+                desc: "Dani e Selmo estão distantes um do outro nesse momento, o Selmo deve cantar uma musica ou fazer algo para alegrar mais ainda o dia da Princesa Dani."
+            },		
             {
                 titulo: "🏎️ Vale Rolê no Sandero Possante",
                 desc: "Um passeio especial de carro sem destino, ouvindo as músicas que você quiser e curtindo a companhia um do outro."
@@ -1189,9 +1229,10 @@
             });
         });
 
-        // Lógica do Modal das Fotos
+        // Lógica do Modal das Fotos (ATUALIZADA COM LEGENDA DINÂMICA)
         const photoModal = document.getElementById('photoModal');
         const modalImg = document.getElementById('modalImg');
+        const modalCaption = document.getElementById('modalCaption');
         const closeModal = document.getElementById('closeModal');
         const photoCards = document.querySelectorAll('.js-photo-card img');
 
@@ -1199,6 +1240,14 @@
             img.addEventListener('click', (e) => {
                 e.stopPropagation();
                 modalImg.src = img.src;
+
+                // Captura as informações dos atributos data-local e data-data
+                const local = img.getAttribute('data-local') || "Não informado";
+                const data = img.getAttribute('data-data') || "Não informada";
+
+                // Insere dinamicamente no html do modal
+                modalCaption.innerHTML = `📍 Local: <span>${local}</span> | 📅 Data: <span>${data}</span>`;
+
                 photoModal.classList.add('active');
             });
         });
@@ -1268,7 +1317,8 @@
                e.target.closest('#jsTurtleBtn') || 
                e.target.closest('#jsSortearBtn') ||
                e.target.closest('.ticket') ||
-               e.target.closest('.password-box')) return;
+               e.target.closest('.password-box') ||
+               e.target.closest('.modal-caption')) return; // Evita corações na legenda
 
             const heart = document.createElement('div');
             heart.classList.add('click-heart');
@@ -1283,7 +1333,7 @@
             }, 1000);
         });
 		
-		// LÓGICA DA CONTAGEM REGRESSIVA PARA GRAMADO (31/08/2026)
+        // LÓGICA DA CONTAGEM REGRESSIVA PARA GRAMADO (31/08/2026)
         const dataViagem = new Date('August 31, 2026 00:00:00').getTime();
 
         const atualizarTimer = setInterval(() => {
@@ -1299,7 +1349,7 @@
             // Injeta os valores formatados com 2 dígitos no HTML
             document.getElementById('days').innerText = dias < 10 ? '0' + dias : dias;
             document.getElementById('hours').innerText = horas < 10 ? '0' + horas : horas;
-            document.getElementById('minutes').innerText = minutos < 10 ? '0' + minutos : minutos;
+            document.getElementById('minutes').innerText = minutos < 10 ? '0' + minutos : minutes;
             document.getElementById('seconds').innerText = segundos < 10 ? '0' + segundos : segundos;
 
             // Mensagem caso a data chegue!
