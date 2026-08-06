@@ -422,18 +422,11 @@
             70% { transform: scale(1); }
         }
 
-        /* ÁREA E ESTILO DO BOTÃO DE TARTARUGA E VIAGENS */
+        /* ÁREA E ESTILO DO BOTÃO DE TARTARUGA */
         .turtle-section {
             text-align: center;
             margin-top: 60px;
             margin-bottom: 20px;
-        }
-
-        /* Container para alinhar os dois botões lado a lado */
-        .buttons-wrapper {
-            display: flex;
-            justify-content: center;
-            gap: 30px; /* Espaço entre os dois botões */
         }
 
         .turtle-btn {
@@ -451,11 +444,6 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.4);
             transition: var(--transition-smooth);
             animation: floatTurtle 3s ease-in-out infinite;
-        }
-
-        /* Faz com que o segundo botão flutue com um ritmo levemente diferente para dar charme */
-        .buttons-wrapper .turtle-btn:nth-child(2) {
-            animation-delay: -1.5s;
         }
 
         .turtle-btn .turtle-emoji {
@@ -486,15 +474,20 @@
             50% { transform: translateY(-10px); }
         }
 
-        /* ESTILOS DO TIMER DE VIAGEM */
+        /* ESTILOS DO TIMER DE VIAGEM E BOTÃO DE VIAGENS */
+        .travel-top-section {
+            margin-bottom: 40px;
+        }
+
         .countdown-container {
             background: var(--bg-card);
             border: 1px solid rgba(255, 106, 0, 0.2);
             border-radius: 20px;
             padding: 20px;
-            max-width: 450px;
-            margin: 0 auto 30px auto;
+            max-width: 480px;
+            margin: 0 auto;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: center;
         }
 
         .countdown-container h3 {
@@ -510,6 +503,7 @@
             display: flex;
             justify-content: space-around;
             gap: 10px;
+            margin-bottom: 20px;
         }
 
         .timer-box {
@@ -536,6 +530,30 @@
             text-transform: uppercase;
             margin-top: 3px;
             letter-spacing: 0.5px;
+        }
+
+        /* BOTÃO DE VIAGENS RETANGULAR NO TIMER */
+        .btn-viagem-retangular {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #ff6a00 0%, #d25500 100%);
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(255, 106, 0, 0.3);
+            transition: var(--transition-smooth);
+        }
+
+        .btn-viagem-retangular:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px var(--primary-glow);
+            background: linear-gradient(135deg, #ff8025 0%, #e05d00 100%);
         }
 
         /* FOOTER DE CONTEÚDO */
@@ -743,6 +761,27 @@
     </header>
 
     <div class="container">
+
+        <!-- BLOCO DA VIAGEM TRANSFERIDO PARA O TOPO -->
+        <div class="travel-top-section fade-in-section">
+            <div class="countdown-container">
+                <h3>✈️ Contagem Regressiva para Gramado ( TA PELA BOA MEU AMOR) 🏔️</h3>
+                <div class="countdown-timer">
+                    <div class="timer-box"><span id="days">00</span><p>Dias</p></div>
+                    <div class="timer-box"><span id="hours">00</span><p>Horas</p></div>
+                    <div class="timer-box"><span id="minutes">00</span><p>Min</p></div>
+                    <div class="timer-box"><span id="seconds">00</span><p>Seg</p></div>
+                </div>
+                <a href="https://docs.google.com/spreadsheets/d/1DwMDnoFrSAuhg4VjZmxTrKskm6SDkDVd1YgwSzEroOw/edit?gid=0#gid=0" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="btn-viagem-retangular" 
+                   title="Nossos próximos destinos! ✈️">
+                    <span>✈️</span>
+                    <span>Ver Planilha de Viagens</span>
+                </a>
+            </div>
+        </div>
 
         <div class="fade-in-section">
             <h2 class="section-title">🎬 Assistindo Agora</h2>
@@ -1067,8 +1106,6 @@
             </div>
         </div>
 
-
-
         <div class="mensagem fade-in-section delay-2">
             <h2>💌 Para você, Daniele</h2>
             <p>
@@ -1088,7 +1125,6 @@
             <span class="te-amo">Feliz Dia dos Namorados! Te amo princesa ❤️</span>
         </div>
 
-
         <div class="cupons-section fade-in-section delay-2">
             <h2> 🎁 Cupom presente para Dani 🎟️</h2>
             <p class="sub">Retire um vale-mimo especial e aleatório válido com o Selmo!</p>
@@ -1105,32 +1141,11 @@
             </div>
         </div>
 
+        <!-- BOTÃO DA TARTARUGA SOZINHO -->
         <div class="turtle-section fade-in-section delay-2">
-            
-            <div class="countdown-container">
-                <h3>✈️ Contagem Regressiva para Gramado ( TA PELA BOA MEU AMOR) 🏔️</h3>
-                <div class="countdown-timer">
-                    <div class="timer-box"><span id="days">00</span><p>Dias</p></div>
-                    <div class="timer-box"><span id="hours">00</span><p>Horas</p></div>
-                    <div class="timer-box"><span id="minutes">00</span><p>Min</p></div>
-                    <div class="timer-box"><span id="seconds">00</span><p>Seg</p></div>
-                </div>
-            </div>
-
-            <div class="buttons-wrapper">
-                <div class="turtle-btn" id="jsTurtleBtn" title="Apenas para quem sabe o segredo...">
-                    <span class="turtle-emoji">🐢</span>
-                    <span class="turtle-text">Segredo!</span>
-                </div>
-
-                <a href="https://docs.google.com/spreadsheets/d/1DwMDnoFrSAuhg4VjZmxTrKskm6SDkDVd1YgwSzEroOw/edit?gid=0#gid=0" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="turtle-btn" 
-                   title="Nossos próximos destinos! ✈️">
-                    <span class="turtle-emoji">✈️</span>
-                    <span class="turtle-text">Viagens</span>
-                </a>
+            <div class="turtle-btn" id="jsTurtleBtn" title="Apenas para quem sabe o segredo...">
+                <span class="turtle-emoji">🐢</span>
+                <span class="turtle-text">Segredo!</span>
             </div>
         </div>
     </div>
