@@ -34,6 +34,32 @@
             position: relative;
         }
 
+        /* Fundo Animado de Estrelas Clicáveis / Flutuantes */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .star-particle {
+            position: absolute;
+            background: var(--accent);
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: fallStars linear infinite;
+        }
+
+        @keyframes fallStars {
+            0% { transform: translateY(-10px); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+
         /* Elementos flutuantes de fundo mais discretos e elegantes */
         .bg-decor {
             position: fixed;
@@ -164,6 +190,96 @@
             border: 0;
         }
 
+        /* SESSÃO SPOTIFY */
+        .spotify-container {
+            max-width: 850px;
+            margin: 30px auto;
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 15px;
+            border: 1px solid rgba(255, 106, 0, 0.25);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* SEÇÃO BOTÕES "ABRA QUANDO..." */
+        .open-when-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .btn-open-when {
+            background: linear-gradient(145deg, #1f110a, #16100d);
+            border: 1px solid rgba(255, 106, 0, 0.3);
+            color: var(--text-light);
+            padding: 20px 15px;
+            border-radius: 16px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn-open-when:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(255, 106, 0, 0.3);
+            background: linear-gradient(145deg, #2a170e, #1f110a);
+        }
+
+        .btn-open-when span.icon {
+            font-size: 2rem;
+        }
+
+        /* SEÇÃO DE AVALIAÇÃO DE ESTRELAS */
+        .stars-rating-section {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 40px 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 106, 0, 0.25);
+            margin-top: 50px;
+        }
+
+        .stars-rating-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .stars-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-size: 2.5rem;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        .star-item {
+            color: #4a3b32;
+            transition: color 0.2s, transform 0.2s;
+        }
+
+        .star-item:hover, .star-item.active {
+            color: var(--accent);
+            transform: scale(1.2);
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+        }
+
+        .stars-feedback {
+            font-size: 1rem;
+            color: #c9bab4;
+            min-height: 24px;
+        }
+
         /* GRIDS DE CONTEÚDO */
         .grid {
             display: grid;
@@ -196,7 +312,6 @@
             background-color: #110b09;
         }
 
-        /* Botão Play / Zoom Inteligente nos Cards */
         .card-media::after {
             content: '▶';
             position: absolute;
@@ -286,7 +401,6 @@
             align-items: center;
         }
 
-        /* Botão do Cupom */
         .btn-sortear {
             background: linear-gradient(135deg, #ff6a00 0%, #d25500 100%);
             border: none;
@@ -306,7 +420,6 @@
             box-shadow: 0 15px 35px rgba(255, 106, 0, 0.6);
         }
 
-        /* DESIGN DO BILHETE DE CINEMA PREMIADO */
         .ticket {
             display: none;
             background: #110905;
@@ -325,7 +438,6 @@
             100% { transform: scale(1); opacity: 1; }
         }
 
-        /* Entalhes do bilhete clássico de cinema lateral */
         .ticket::before, .ticket::after {
             content: '';
             position: absolute;
@@ -333,7 +445,7 @@
             transform: translateY(-50%);
             width: 24px;
             height: 24px;
-            background: #150d09; /* Cor idêntica ao fundo da seção */
+            background: #150d09;
             border-radius: 50%;
             border: 2px solid var(--primary);
             z-index: 2;
@@ -532,7 +644,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* BOTÃO DE VIAGENS RETANGULAR NO TIMER */
         .btn-viagem-retangular {
             display: inline-flex;
             align-items: center;
@@ -556,7 +667,6 @@
             background: linear-gradient(135deg, #ff8025 0%, #e05d00 100%);
         }
 
-        /* FOOTER DE CONTEÚDO */
         footer {
             text-align: center;
             padding: 60px 20px;
@@ -567,7 +677,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* MODAIS OTIMIZADOS (FOTOS E SENHA) */
+        /* MODAIS OTIMIZADOS */
         .modal {
             display: none;
             position: fixed;
@@ -588,7 +698,6 @@
             opacity: 1;
         }
 
-        /* Container interno do modal para alinhar imagem e legenda verticalmente */
         .modal-content-wrapper {
             display: flex;
             flex-direction: column;
@@ -610,7 +719,6 @@
             transform: scale(1);
         }
 
-        /* LEGENDA PREMIUM DO MODAL */
         .modal-caption {
             margin-top: 15px;
             font-size: 1.1rem;
@@ -646,7 +754,6 @@
             color: var(--primary);
         }
 
-        /* DESIGN DO BOX DE SENHA DENTRO DO MODAL */
         .password-box {
             background: #1a120f;
             padding: 40px 30px;
@@ -725,7 +832,6 @@
             font-weight: 500;
         }
 
-        /* ANIMAÇÃO DE ENTRADA SUAVE (FADE-IN) */
         .fade-in-section {
             opacity: 0;
             transform: translateY(20px);
@@ -738,7 +844,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* AJUSTES DE RESPONSIVIDADE ATUALIZADOS */
         @media (max-width: 768px) {
             header h1 { font-size: 3rem; }
             header p { font-size: 1rem; }
@@ -750,6 +855,9 @@
     </style>
 </head>
 <body>
+
+    <!-- ANIMAÇÃO DE ESTRELAS DE FUNDO -->
+    <div class="stars-container" id="jsStarsContainer"></div>
 
     <div class="bg-decor" id="decor1">🧡</div>
     <div class="bg-decor" id="decor2">🍊</div>
@@ -765,7 +873,7 @@
         <!-- BLOCO DA VIAGEM TRANSFERIDO PARA O TOPO -->
         <div class="travel-top-section fade-in-section">
             <div class="countdown-container">
-                <h3>✈️ Contagem Regressiva para Gramado ( TA PELA BOA MEU AMOR) 🏔️</h3>
+                <h3>✈️ Contagem Regressiva para Gramado 🏔️ (FALTA MENOS DE 10 DIAS 😱😱😱) </h3>
                 <div class="countdown-timer">
                     <div class="timer-box"><span id="days">00</span><p>Dias</p></div>
                     <div class="timer-box"><span id="hours">00</span><p>Horas</p></div>
@@ -782,6 +890,32 @@
                 </a>
             </div>
         </div>
+      
+
+        <!-- SEÇÃO BOTÕES "ABRA QUANDO..." -->
+        <div class="fade-in-section delay-1">
+            <h2 class="section-title">✉️ Abra Quando...</h2>
+            <div class="open-when-grid">
+                <button class="btn-open-when" data-msg="Lembre-se de que a distância é só um detalhe perto do que sentimos um pelo outro meu amor. Lembra dos nossos roles e momentos que passamos e vamos passar juntinhos. Eu estou sempre aqui quando precisar, me manda um WhatsApp e pergunta como que eu to, com toda certeza eu vou estar pensamento em você. Fecha os olhos e sente o meu abraço — logo, logo a gente estará juntinho novamente Princesa.">
+                    <span class="icon">🥺</span>
+                    <span>Estiver com Saudades...</span>
+                </button>
+                <button class="btn-open-when" data-msg="COMPLIACADO NE MOR ... KKKKK brincadeira mor. Respira fundo. Você é uma Mulher incrível Dani meu mor, forte e muito mais capaz do que imagina. Dias ruins passam, mas o meu apoio, meu carinho e o meu amor por você não mudam nunca. Vai dar tudo certo, eu tô aqui com você.">
+                    <span class="icon">🌧️</span>
+                    <span>Tiver um Dia Difícil...</span>
+                </button>
+                <button class="btn-open-when" data-msg="Se o dia estiver pesado, pensa na gente caindo na risada por conta de uma foto de eu olhando para você fixamente. Meu lugar favorito no mundo é onde você está sorrindo, então faz um favor para mim: dá um sorriso agora e me manda uma foto, só para deixar meu dia mais bonito também. ❤️">
+                    <span class="icon">😁</span>
+                    <span>Precisar sorrir...</span>
+                </button>
+                <button class="btn-open-when" data-msg="Se em algum momento você duvidar, olha para este site, para as nossas fotos e para tudo o que construímos. Eu te amo mais a cada dia, nos pequenos detalhes, nas piadas internas e na certeza de que é você que eu quero do meu lado.">
+                    <span class="icon">🧡</span>
+                    <span>Estiver com dúvida do quanto eu te amo...</span>
+                </button>
+            </div>
+        </div>
+
+
 
         <div class="fade-in-section">
             <h2 class="section-title">🎬 Assistindo Agora</h2>
@@ -797,11 +931,103 @@
                 </div>
             </div>
         </div>
-
         <div class="fade-in-section delay-1">
             <h2 class="section-title">📹 Nossa Playlist Especial</h2>
             <div class="grid">
-                <!-- Card 2 -->
+			
+			<!-- cola a partir daqui Anselmo -->
+			
+			
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/99fg9uTEBVM">
+				<div class="card-media">
+					<img src="https://img.youtube.com/vi/99fg9uTEBVM/hqdefault.jpg" alt="Capa do vídeo 2">
+				</div>
+					<p>Bate papo depois da risada com xixi na calça 🤣🗣️💦</p>
+				</div>
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/PgBreQB-x9o">
+					<div class="card-media">
+						<img src="https://img.youtube.com/vi/PgBreQB-x9o/hqdefault.jpg" alt="Capa do vídeo 2">
+					</div>
+					<p>Bricks não terminado 🧱🧩🚧</p>
+				</div>
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/INuTxI6RRyU">
+					<div class="card-media">
+						<img src="https://img.youtube.com/vi/INuTxI6RRyU/hqdefault.jpg" alt="Capa do vídeo 2">
+					</div>
+					<p>Dia do pirata - yessss 🏴‍☠️⚓🦜🎉</p>
+				</div>
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/sv99NcZD0UE">
+					<div class="card-media">
+						<img src="https://img.youtube.com/vi/sv99NcZD0UE/hqdefault.jpg" alt="Capa do vídeo 2">
+					</div>
+					<p>Festa Junina asepi em Agosto 🌽🔥🤠🎊</p>
+				</div>
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/E4hh0Z2_3So">
+					<div class="card-media">
+						<img src="https://img.youtube.com/vi/E4hh0Z2_3So/hqdefault.jpg" alt="Capa do vídeo 2">
+					</div>
+					<p>Fofoca de Skincare 🗣️✨🧴💆‍♀️</p>
+				</div>
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/RzXgvddYlJc">
+					<div class="card-media">
+						<img src="https://img.youtube.com/vi/RzXgvddYlJc/hqdefault.jpg" alt="Capa do vídeo 2">
+					</div>
+					<p>Rolê na Decathlon 1 🛒🏃‍♂️🏀🛍️</p>
+				</div>
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/Tuhsajtpd_w">
+					<div class="card-media">
+						<img src="https://img.youtube.com/vi/Tuhsajtpd_w/hqdefault.jpg" alt="Capa do vídeo 2">
+					</div>
+					<p>Rolê na Decathlon 2 🛒🎯🏋️‍♀️🛍️</p>
+				</div>
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/kXAuhF7cZAU">
+					<div class="card-media">
+						<img src="https://img.youtube.com/vi/kXAuhF7cZAU/hqdefault.jpg" alt="Capa do vídeo 2">
+					</div>
+					<p>Papo da Madruga depois do Aniversário 🎂🌙💬🥳</p>
+				</div>
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/NSp_-4Y-vu4">
+					<div class="card-media">
+						<img src="https://img.youtube.com/vi/NSp_-4Y-vu4/hqdefault.jpg" alt="Capa do vídeo 2">
+					</div>
+					<p>PASSEIO NO PARQUE 2 🌳🧺☀️🍃</p>
+				</div>
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/arhXYw0PdKY">
+					<div class="card-media">
+						<img src="https://img.youtube.com/vi/arhXYw0PdKY/hqdefault.jpg" alt="Capa do vídeo 2">
+					</div>
+					<p>Passeio no parque das águas Pinhais 🌊🌳🦆☀️</p>
+				</div>
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/zzTJMlgBe-E">
+					<div class="card-media">
+						<img src="https://img.youtube.com/vi/zzTJMlgBe-E/hqdefault.jpg" alt="Capa do vídeo 2">
+					</div>
+					<p>Boas Energias na CGM ✨🧘‍♂️✌️💖</p>
+				</div>
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/-b00pkKYFYo">
+					<div class="card-media">
+						<img src="https://img.youtube.com/vi/-b00pkKYFYo/hqdefault.jpg" alt="Capa do vídeo 2">
+					</div>
+					<p>Manhã de Cantoria ☀️🎤🎶🌅</p>
+				</div>
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/EO_dxgqZzAY">
+					<div class="card-media">
+						<img src="https://img.youtube.com/vi/EO_dxgqZzAY/hqdefault.jpg" alt="Capa do vídeo 2">
+					</div>
+					<p>Melhor risada do MUNDO 😂😆🌍❤️</p>
+				</div>
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/xmVHaNTM6Hg">
+					<div class="card-media">
+						<img src="https://img.youtube.com/vi/xmVHaNTM6Hg/hqdefault.jpg" alt="Capa do vídeo 2">
+					</div>
+					<p>Role na Praia - CAIOBA 🏖️🌊☀️🌊</p>
+				</div>
+				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/rhAvlhcEUuU">
+					<div class="card-media">
+						<img src="https://img.youtube.com/vi/rhAvlhcEUuU/hqdefault.jpg" alt="Capa do vídeo 2">
+					</div>
+					<p>Voltando do role da praia 🚗🌅🏖️🚗</p>
+				</div>
 				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/NAgSnGbtPiE">
 					<div class="card-media">
 						<img src="https://img.youtube.com/vi/NAgSnGbtPiE/hqdefault.jpg" alt="Capa do vídeo 2">
@@ -1030,32 +1256,9 @@
                     </div>
                     <p>Recebido Pago da Dani 🛏️🧡</p>
                 </div>
-				
             </div>
         </div>
 
-        <!-- SEÇÃO: FOTOS DA COPA DO MUNDO (COM DATA E LOCAL CONFIGURADOS COMO EXEMPLO) -->
-        <div class="fade-in-section delay-2">
-            <h2 class="section-title">⚽ o Brasil não ganhou o hexa :( mas quem ganhou esse ano foi a gente com companhia um do outro 💛💚</h2>
-            <div class="grid">
-                <!-- EXEMPLO: basta adicionar data-local e data-data nas tags <img> -->
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa1.jpeg" data-local="CASA DO SELMO - Pré jogo" data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa2.jpeg" data-local="CASA DO SELMO - Pré jogo" data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa3.jpeg" data-local="Bastards Brewery (não fomos no melhor dia) " data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa4.jpeg" data-local="Fumaçônica Brewhouse" data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa5.jpeg" data-local="Fumaçônica Brewhouse" data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa6.jpeg" data-local="Fumaçônica Brewhouse" data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa7.jpeg" data-local="Fumaçônica Brewhouse" data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa8.jpeg" data-local="Fumaçônica Brewhouse" data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa9.jpeg" data-local="CASA DO SELMO - com Tabua de frios e quentes" data-data="19/06/2026" alt="Jogos do Brasil"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa10.jpeg" data-local="CASA DO SELMO - com Tabua de frios e quentes" data-data="19/06/2026" alt="Jogos do Brasil"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa11.jpeg" data-local="CASA DO SELMO - com Tabua de frios e quentes" data-data="19/06/2026" alt="Jogos do Brasil"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa12.jpeg" data-local="CASA DO SELMO - com Tabua de frios e quentes" data-data="19/06/2026" alt="Jogos do Brasil"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa13.jpeg" data-local="Bar Guimarães - Pinhais - PR" data-data="24/06/2026" alt="Jogos do Brasil"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa14.jpeg" data-local="Bar Guimarães - Pinhais - PR" data-data="24/06/2026" alt="Jogos do Brasil"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa15.jpeg" data-local="CASA DO SELMO - No dia da eliminação :( - Piraquara - PR" data-data="05/07/2026" alt="Jogos do Brasil"></div></div>
-            </div>
-        </div>
 
         <div class="fade-in-section delay-2">
             <h2 class="section-title">📸 Galeria de Retratos Favoritos</h2>
@@ -1102,7 +1305,38 @@
 				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto39.jpeg" data-local="Shisha Lounge - São José dos Pinhais - PR" data-data="30 de Julho 2026" alt="Nossos momentos"></div></div>
 				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto40.jpeg" data-local="Festa Junina ASEPI - Pinhais - PR" data-data="01 de Agosto 2026" alt="Nossos momentos"></div></div>
 				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto41.jpeg" data-local="Festa Junina ASEPI - Pinhais - PR" data-data="01 de Agosto 2026" alt="Nossos momentos"></div></div>
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto42.jpeg" data-local="Cinema Shopping Estação - Filme do Miranha - Curitiba - PR" data-data="04 de Agosto 2026" alt="Nossos momentos"></div></div>
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto43.jpeg" data-local="Sede da ASEPI - Pinhais - PR" data-data="07 de Agosto 2026" alt="Nossos momentos"></div></div>
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto44.jpeg" data-local="Shopping SJP - Evento de carros maneiros - São Jose dos Pinhais - PR" data-data="09 de Agosto 2026" alt="Nossos momentos"></div></div>
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto45.jpeg" data-local="Praia Mansa de Caiobá - Caiobá - PR" data-data="15 de Agosto 2026" alt="Nossos momentos"></div></div>
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto46.jpeg" data-local="Praia Mansa de Caiobá - Caiobá - PR" data-data="15 de Agosto 2026" alt="Nossos momentos"></div></div>
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto47.jpeg" data-local="Praia Brava de Caiobá - Campeonato de Surf - Caiobá - PR" data-data="15 de Agosto 2026" alt="Nossos momentos"></div></div>
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto49.jpeg" data-local="Saida dos pescadores de Caiobá - Caiobá - PR" data-data="15 de Agosto 2026" alt="Nossos momentos"></div></div>
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto50.jpeg" data-local="Jantar de panquecas - Pinhais - PR" data-data="17 de Agosto 2026" alt="Nossos momentos"></div></div>
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto51.jpeg" data-local="O dia que a Dani bateu no carro do Selmo - Curitiba - PR" data-data="18 de Agosto 2026" alt="Nossos momentos"></div></div>
 				
+            </div>
+        </div>
+
+        <!-- SEÇÃO: FOTOS DA COPA DO MUNDO -->
+        <div class="fade-in-section delay-2">
+            <h2 class="section-title">⚽ o Brasil não ganhou o hexa :( mas quem ganhou esse ano foi a gente com companhia um do outro 💛💚</h2>
+            <div class="grid">
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa1.jpeg" data-local="CASA DO SELMO - Pré jogo" data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa2.jpeg" data-local="CASA DO SELMO - Pré jogo" data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa3.jpeg" data-local="Bastards Brewery (não fomos no melhor dia) " data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa4.jpeg" data-local="Fumaçônica Brewhouse" data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa5.jpeg" data-local="Fumaçônica Brewhouse" data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa6.jpeg" data-local="Fumaçônica Brewhouse" data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa7.jpeg" data-local="Fumaçônica Brewhouse" data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa8.jpeg" data-local="Fumaçônica Brewhouse" data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa9.jpeg" data-local="CASA DO SELMO - com Tabua de frios e quentes" data-data="19/06/2026" alt="Jogos do Brasil"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa10.jpeg" data-local="CASA DO SELMO - com Tabua de frios e quentes" data-data="19/06/2026" alt="Jogos do Brasil"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa11.jpeg" data-local="CASA DO SELMO - com Tabua de frios e quentes" data-data="19/06/2026" alt="Jogos do Brasil"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa12.jpeg" data-local="CASA DO SELMO - com Tabua de frios e quentes" data-data="19/06/2026" alt="Jogos do Brasil"></div></div>
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa13.jpeg" data-local="Bar Guimarães - Pinhais - PR" data-data="24/06/2026" alt="Jogos do Brasil"></div></div>
+                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa14.jpeg" data-local="Bar Guimarães - Pinhais - PR" data-data="24/06/2026" alt="Jogos do Brasil"></div></div>
+				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa15.jpeg" data-local="CASA DO SELMO - No dia da eliminação :( - Piraquara - PR" data-data="05/07/2026" alt="Jogos do Brasil"></div></div>
             </div>
         </div>
 
@@ -1124,7 +1358,15 @@
             </p>
             <span class="te-amo">Feliz Dia dos Namorados! Te amo princesa ❤️</span>
         </div>
-
+		
+		<!-- SESSÃO DO SPOTIFY -->
+        <div class="fade-in-section delay-1">
+            <h2 class="section-title">🎵 Nossa Trilha Sonora no Spotify</h2>
+            <div class="spotify-container">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/playlist/2WrXseGy2D8kSDJDqrdUzk?si=f6da6b68e70a4cf9" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+        </div>
+		
         <div class="cupons-section fade-in-section delay-2">
             <h2> 🎁 Cupom presente para Dani 🎟️</h2>
             <p class="sub">Retire um vale-mimo especial e aleatório válido com o Selmo!</p>
@@ -1140,7 +1382,20 @@
                 </div>
             </div>
         </div>
-
+        <!-- SEÇÃO DE AVALIAÇÃO COM ESTRELAS -->
+        <div class="fade-in-section delay-2">
+            <div class="stars-rating-section">
+                <h3>⭐ Quantas estrelas nossa história merece? ⭐</h3>
+                <div class="stars-wrapper" id="jsStarsWrapper">
+                    <span class="star-item" data-value="1">★</span>
+                    <span class="star-item" data-value="2">★</span>
+                    <span class="star-item" data-value="3">★</span>
+                    <span class="star-item" data-value="4">★</span>
+                    <span class="star-item" data-value="5">★</span>
+                </div>
+                <div class="stars-feedback" id="jsStarsFeedback">Clique nas estrelas para avaliar!</div>
+            </div>
+        </div>
         <!-- BOTÃO DA TARTARUGA SOZINHO -->
         <div class="turtle-section fade-in-section delay-2">
             <div class="turtle-btn" id="jsTurtleBtn" title="Apenas para quem sabe o segredo...">
@@ -1150,12 +1405,21 @@
         </div>
     </div>
 
-    <!-- MODAL DE FOTOS ADAPTADO COM CONTAINER INTERNO E LEGENDA -->
+    <!-- MODAL DE FOTOS -->
     <div id="photoModal" class="modal">
         <span class="modal-close" id="closeModal">&times;</span>
         <div class="modal-content-wrapper">
             <img id="modalImg" src="" alt="Zoom Premium">
             <div id="modalCaption" class="modal-caption">📍 Local: <span>-</span> | 📅 Data: <span>-</span></div>
+        </div>
+    </div>
+
+    <!-- MODAL DE MENSAGENS -->
+    <div id="msgModal" class="modal">
+        <span class="modal-close" id="closeMsgModal">&times;</span>
+        <div class="password-box" style="max-width:450px;">
+            <h3>💌 Abra Quando...</h3>
+            <p id="modalMsgContent" style="color:#fff; font-size:1.1rem; line-height:1.6; margin-top:15px;"></p>
         </div>
     </div>
 
@@ -1175,6 +1439,66 @@
     </footer>
 
     <script>
+        // GERADOR DE ESTRELAS DE FUNDO
+        const starsContainer = document.getElementById('jsStarsContainer');
+        for (let i = 0; i < 35; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star-particle');
+            const size = Math.random() * 3 + 1;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.animationDuration = `${Math.random() * 8 + 4}s`;
+            star.style.animationDelay = `${Math.random() * 5}s`;
+            starsContainer.appendChild(star);
+        }
+
+        // LÓGICA DAS ESTRELAS DE AVALIAÇÃO
+        const starItems = document.querySelectorAll('.star-item');
+        const starsFeedback = document.getElementById('jsStarsFeedback');
+        const feedbackTexts = [
+            "1 estrela? Impossível! Tente novamente! 😉",
+            "2 estrelas? Acho que você clicou errado! 😜",
+            "3 estrelas? Tá melhorando, mas nosso amor vale mais! ❤️",
+            "4 estrelas? Quase lá! Nosso amor merece topo máximo! 🌟",
+            "⭐⭐⭐⭐⭐ 5 ESTRELAS! O melhor amor do mundo inteirinho! 🥰✨"
+        ];
+
+        starItems.forEach(star => {
+            star.addEventListener('click', () => {
+                const val = parseInt(star.getAttribute('data-value'));
+                starItems.forEach((s, idx) => {
+                    if (idx < val) {
+                        s.classList.add('active');
+                    } else {
+                        s.classList.remove('active');
+                    }
+                });
+                starsFeedback.innerText = feedbackTexts[val - 1];
+            });
+        });
+
+        // LÓGICA DOS BOTÕES "ABRA QUANDO..."
+        const openWhenBtns = document.querySelectorAll('.btn-open-when');
+        const msgModal = document.getElementById('msgModal');
+        const modalMsgContent = document.getElementById('modalMsgContent');
+        const closeMsgModal = document.getElementById('closeMsgModal');
+
+        openWhenBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const msg = btn.getAttribute('data-msg');
+                modalMsgContent.innerText = msg;
+                msgModal.classList.add('active');
+            });
+        });
+
+        function fecharModalMsg() {
+            msgModal.classList.remove('active');
+        }
+        closeMsgModal.addEventListener('click', fecharModalMsg);
+        msgModal.addEventListener('click', fecharModalMsg);
+
         // Lista Completa de Opções de Cupons Cadastrados
         const listaCupons = [
             {
@@ -1327,7 +1651,6 @@
             }, 100);
         });
 
-
         // Controle Avançado do Player de Vídeo
         const mainPlayer = document.getElementById('mainPlayer');
         const videoCards = document.querySelectorAll('.js-video-card');
@@ -1342,7 +1665,7 @@
             });
         });
 
-        // Lógica do Modal das Fotos (ATUALIZADA COM LEGENDA DINÂMICA)
+        // Lógica do Modal das Fotos
         const photoModal = document.getElementById('photoModal');
         const modalImg = document.getElementById('modalImg');
         const modalCaption = document.getElementById('modalCaption');
@@ -1354,13 +1677,10 @@
                 e.stopPropagation();
                 modalImg.src = img.src;
 
-                // Captura as informações dos atributos data-local e data-data
                 const local = img.getAttribute('data-local') || "Não informado";
                 const data = img.getAttribute('data-data') || "Não informada";
 
-                // Insere dinamicamente no html do modal
                 modalCaption.innerHTML = `📍 Local: <span>${local}</span> | 📅 Data: <span>${data}</span>`;
-
                 photoModal.classList.add('active');
             });
         });
@@ -1370,7 +1690,6 @@
         }
         closeModal.addEventListener('click', fecharModalFotos);
         photoModal.addEventListener('click', fecharModalFotos);
-
 
         // LÓGICA DO MODAL DE SENHA DA TARTARUGA
         const turtleBtn = document.getElementById('jsTurtleBtn');
@@ -1414,16 +1733,16 @@
             if (e.key === 'Enter') verificarSenha();
         });
 
-
         // Atalho Geral: Fecha qualquer modal aberto ao apertar "ESC"
         window.addEventListener('keydown', (e) => {
             if (e.key === "Escape") {
                 fecharModalFotos();
                 fecharModalSenha();
+                fecharModalMsg();
             }
         });
 
-        // MUDADO PARA EFEITO DE CLIQUE EM CORAÇÕES LARANJAS
+        // EFEITO DE CLIQUE EM CORAÇÕES LARANJAS
         document.addEventListener('click', (e) => {
             if(e.target.tagName === 'IFRAME' || 
                e.target.closest('.modal-close') || 
@@ -1431,11 +1750,11 @@
                e.target.closest('#jsSortearBtn') ||
                e.target.closest('.ticket') ||
                e.target.closest('.password-box') ||
-               e.target.closest('.modal-caption')) return; // Evita corações na legenda
+               e.target.closest('.modal-caption')) return;
 
             const heart = document.createElement('div');
             heart.classList.add('click-heart');
-            heart.innerHTML = '🧡'; // Coração Laranja
+            heart.innerHTML = '🧡';
             heart.style.left = `${e.pageX}px`;
             heart.style.top = `${e.pageY}px`;
             
@@ -1446,26 +1765,23 @@
             }, 1000);
         });
 		
-        // LÓGICA DA CONTAGEM REGRESSIVA PARA GRAMADO (31/08/2026)
+        // LÓGICA DA CONTAGEM REGRESSIVA PARA GRAMADO
         const dataViagem = new Date('August 31, 2026 00:00:00').getTime();
 
         const atualizarTimer = setInterval(() => {
             const agora = new Date().getTime();
             const diferenca = dataViagem - agora;
 
-            // Cálculos de tempo para Dias, Horas, Minutos e Segundos
             const calculoDias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
             const calculoHoras = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const calculoMinutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
             const calculoSegundos = Math.floor((diferenca % (1000 * 60)) / 1000);
 
-            // Injeta os valores formatados com 2 dígitos no HTML usando IDs exatos
             document.getElementById('days').innerText = calculoDias < 10 ? '0' + calculoDias : calculoDias;
             document.getElementById('hours').innerText = calculoHoras < 10 ? '0' + calculoHoras : calculoHoras;
             document.getElementById('minutes').innerText = calculoMinutos < 10 ? '0' + calculoMinutos : calculoMinutos;
             document.getElementById('seconds').innerText = calculoSegundos < 10 ? '0' + calculoSegundos : calculoSegundos;
 
-            // Mensagem caso a data chegue!
             if (diferenca < 0) {
                 clearInterval(atualizarTimer);
                 document.querySelector('.countdown-container').innerHTML = "<h3>🧳 PARTIU GRAMADO! A viagem começou! ✈️</h3>";
