@@ -3,1807 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dani & Selmo tv 🧡 | Feliz Dia dos Namorados</title>
+    <title>Para Daniele, Meu Amor ❤️</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Playfair Display e Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                            orange: '#ff6b00',
+                            glow: '#ff8c00',
+                        }
+                    },
+                    keyframes: {
+                        floatSlow: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-15px) rotate(2deg)' },
+                        },
+                        heartRise: {
+                            '0%': { transform: 'translateY(100vh) scale(0.4)', opacity: '0' },
+                            '20%': { opacity: '0.7' },
+                            '80%': { opacity: '0.7' },
+                            '100%': { transform: 'translateY(-10vh) scale(1.1)', opacity: '0' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: 0.35, transform: 'scale(1)' },
+                            '50%': { opacity: 0.6, transform: 'scale(1.12)' },
+                        }
+                    },
+                    animation: {
+                        'float-slow': 'floatSlow 6s infinite ease-in-out',
+                        'pulse-glow': 'pulseGlow 5s infinite ease-in-out',
+                    }
+                }
+            }
+        }
+    </script>
+    
     <style>
-        /* Importando fontes elegantes e modernas */
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Great+Vibes&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
-        :root {
-            /* MUDADO PARA LARANJA PREMIUM E ELEGANTE */
-            --primary: #ff6a00;
-            --primary-glow: rgba(255, 106, 0, 0.5);
-            --accent: #ffd700;
-            --bg-dark: #0a0604;
-            --bg-card: #16100d;
-            --text-light: #fff8f5;
-            --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        body {
-            background: linear-gradient(135deg, #070403 0%, #140b07 50%, #1f110a 100%);
-            color: var(--text-light);
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Fundo Animado de Estrelas Clicáveis / Flutuantes */
-        .stars-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        /* Estilos personalizados para os corações de fundo em tons de laranja */
+        .heart-particle {
+            position: absolute;
+            bottom: -50px;
+            color: rgba(249, 115, 22, 0.4);
+            animation: heartRise linear infinite;
             pointer-events: none;
             z-index: 1;
-            overflow: hidden;
-        }
-
-        .star-particle {
-            position: absolute;
-            background: var(--accent);
-            border-radius: 50%;
-            opacity: 0.5;
-            animation: fallStars linear infinite;
-        }
-
-        @keyframes fallStars {
-            0% { transform: translateY(-10px); opacity: 0; }
-            50% { opacity: 0.8; }
-            100% { transform: translateY(100vh); opacity: 0; }
-        }
-
-        /* Elementos flutuantes de fundo mais discretos e elegantes */
-        .bg-decor {
-            position: fixed;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.03;
-            font-size: 2.5rem;
-            animation: boing 8s ease-in-out infinite alternate;
-        }
-        #decor1 { top: 15%; left: 5%; }
-        #decor2 { bottom: 20%; right: 5%; animation-delay: -2s; }
-        #decor3 { top: 60%; left: 8%; animation-delay: -4s; }
-
-        @keyframes boing {
-            0% { transform: translateY(0) scale(1) rotate(0deg); }
-            100% { transform: translateY(-40px) scale(1.1) rotate(15deg); }
-        }
-
-        /* Efeito de clique de coração via JS */
-        .click-heart {
-            position: absolute;
-            pointer-events: none;
-            color: var(--primary);
-            font-size: 1.5rem;
-            animation: heartOut 1s ease-out forwards;
-            z-index: 9999;
-        }
-
-        @keyframes heartOut {
-            0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
-            100% { transform: translate(-50%, -100%) scale(1.5); opacity: 0; }
-        }
-
-        /* HEADER PREMIUM ESTILO CINEMA */
-        header {
-            background: linear-gradient(to bottom, rgba(22, 16, 13, 0.98), rgba(10, 6, 4, 0.85));
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            padding: 50px 20px;
-            text-align: center;
-            border-bottom: 2px solid var(--primary);
-            box-shadow: 0 10px 40px rgba(255, 106, 0, 0.15);
-            position: relative;
-            z-index: 10;
-        }
-
-        header h1 {
-            font-family: 'Great Vibes', cursive;
-            color: var(--primary);
-            font-size: 4rem;
-            text-shadow: 0 0 20px var(--primary-glow);
-            margin-bottom: 12px;
-            letter-spacing: 1px;
-        }
-
-        header p {
-            font-size: 1.15rem;
-            color: #c9bab4;
-            font-weight: 300;
-            letter-spacing: 1.5px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* CONTAINER PRINCIPAL */
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 40px 20px;
-            position: relative;
-            z-index: 5;
-        }
-
-        /* TÍTULOS DE SEÇÃO COM DESIGN CLEAN */
-        .section-title {
-            margin-top: 60px;
-            margin-bottom: 30px;
-            font-size: 1.6rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            color: var(--text-light);
-            letter-spacing: 0.5px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-        }
-
-        .section-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: linear-gradient(to right, rgba(255, 106, 0, 0.6), transparent);
-        }
-
-        /* MOLDURA DA TV (CINEMA BOX) */
-        .cinema-box {
-            background: var(--bg-card);
-            padding: 18px;
-            border-radius: 24px;
-            border: 1px solid rgba(255, 106, 0, 0.25);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 106, 0, 0.08);
-            transition: var(--transition-smooth);
-            max-width: 850px;
-            margin: 0 auto 20px auto;
-            position: relative;
-        }
-
-        .cinema-box:hover {
-            border-color: var(--primary);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(255, 106, 0, 0.2);
-        }
-
-        .video-responsive {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 14px;
-            background-color: #000;
-        }
-
-        .video-responsive iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-       		.playlist-container {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.spotify-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background-color: #1DB954; /* Verde clássico do Spotify */
-    color: #000;
-    font-weight: 700;
-    padding: 12px 24px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 15px rgba(29, 185, 84, 0.3);
-}
-
-.spotify-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(29, 185, 84, 0.5);
-    background-color: #1ed760;
-}
-
-        /* SEÇÃO BOTÕES "ABRA QUANDO..." */
-        .open-when-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .btn-open-when {
-            background: linear-gradient(145deg, #1f110a, #16100d);
-            border: 1px solid rgba(255, 106, 0, 0.3);
-            color: var(--text-light);
-            padding: 20px 15px;
-            border-radius: 16px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        .btn-open-when:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: 0 10px 25px rgba(255, 106, 0, 0.3);
-            background: linear-gradient(145deg, #2a170e, #1f110a);
-        }
-
-        .btn-open-when span.icon {
-            font-size: 2rem;
-        }
-
-        /* SEÇÃO DE AVALIAÇÃO DE ESTRELAS */
-        .stars-rating-section {
-            background: var(--bg-card);
-            border-radius: 24px;
-            padding: 40px 20px;
-            text-align: center;
-            border: 1px solid rgba(255, 106, 0, 0.25);
-            margin-top: 50px;
-        }
-
-        .stars-rating-section h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--accent);
-        }
-
-        .stars-wrapper {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            font-size: 2.5rem;
-            cursor: pointer;
-            margin-bottom: 15px;
-        }
-
-        .star-item {
-            color: #4a3b32;
-            transition: color 0.2s, transform 0.2s;
-        }
-
-        .star-item:hover, .star-item.active {
-            color: var(--accent);
-            transform: scale(1.2);
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
-        }
-
-        .stars-feedback {
-            font-size: 1rem;
-            color: #c9bab4;
-            min-height: 24px;
-        }
-
-        /* GRIDS DE CONTEÚDO */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        /* CARDS PREMIUM ESTILO STREAMING */
-        .card {
-            background: var(--bg-card);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            transition: var(--transition-smooth);
-            cursor: pointer;
-            position: relative;
-        }
-
-        .card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(255, 106, 0, 0.2);
-            border-color: rgba(255, 106, 0, 0.5);
-        }
-
-        .card-media {
-            position: relative;
-            overflow: hidden;
-            aspect-ratio: 16 / 10;
-            background-color: #110b09;
-        }
-
-        .card-media::after {
-            content: '▶';
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%) scale(0.7);
-            background: var(--primary);
-            color: white;
-            width: 55px; height: 55px;
-            border-radius: 50%;
-            display: flex; justify-content: center; align-items: center;
-            opacity: 0; 
-            transition: var(--transition-smooth);
-            font-size: 18px; 
-            padding-left: 4px;
-            box-shadow: 0 0 20px var(--primary-glow);
-            z-index: 3;
-        }
-
-        .card:hover .card-media::after {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        .card.photo-card .card-media::after {
-            content: '🔍';
-            padding-left: 0;
-            font-size: 20px;
-        }
-
-        .card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .card:hover img {
-            transform: scale(1.08);
-            filter: brightness(0.8);
-        }
-
-        .card p {
-            padding: 22px;
-            font-size: 1rem;
-            font-weight: 500;
-            text-align: center;
-            color: #e5dad5;
-            letter-spacing: 0.5px;
-            border-top: 1px solid rgba(255,255,255,0.02);
-        }
-
-        /* QUADRO DE SESSÃO DE CUPONS */
-        .cupons-section {
-            background: linear-gradient(145deg, #1f110a, #130b07);
-            margin-top: 80px;
-            padding: 50px 30px;
-            border-radius: 30px;
-            text-align: center;
-            border: 1px solid rgba(255, 106, 0, 0.35);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-            position: relative;
-        }
-
-        .cupons-section h2 {
-            font-family: 'Great Vibes', cursive;
-            color: var(--accent);
-            font-size: 3.5rem;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-        }
-
-        .cupons-section p.sub {
-            font-size: 1.1rem;
-            color: #c9bab4;
-            margin-bottom: 35px;
-            font-weight: 300;
-        }
-
-        .roleta-box {
-            max-width: 500px;
-            margin: 0 auto;
-            min-height: 180px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .btn-sortear {
-            background: linear-gradient(135deg, #ff6a00 0%, #d25500 100%);
-            border: none;
-            padding: 16px 35px;
-            border-radius: 50px;
-            color: white;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 10px 25px rgba(255, 106, 0, 0.4);
-            transition: var(--transition-smooth);
-            letter-spacing: 0.5px;
-        }
-
-        .btn-sortear:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 35px rgba(255, 106, 0, 0.6);
-        }
-
-        .ticket {
-            display: none;
-            background: #110905;
-            border: 2px dashed var(--primary);
-            border-radius: 16px;
-            padding: 25px;
-            width: 100%;
-            max-width: 450px;
-            box-shadow: 0 0 30px rgba(255, 106, 0, 0.25);
-            position: relative;
-            animation: ticketIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-        }
-
-        @keyframes ticketIn {
-            0% { transform: scale(0.7); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        .ticket::before, .ticket::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 24px;
-            height: 24px;
-            background: #150d09;
-            border-radius: 50%;
-            border: 2px solid var(--primary);
-            z-index: 2;
-        }
-        .ticket::before { left: -14px; border-left: none; }
-        .ticket::after { right: -14px; border-right: none; }
-
-        .ticket-header {
-            font-size: 0.8rem;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .ticket-title {
-            font-size: 1.4rem;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 10px;
-            letter-spacing: 0.5px;
-        }
-
-        .ticket-desc {
-            font-size: 0.95rem;
-            color: #fff8f5;
-            line-height: 1.5;
-            margin-bottom: 20px;
-            font-weight: 300;
-        }
-
-        .ticket-footer {
-            font-size: 0.75rem;
-            color: #7a6a63;
-            border-top: 1px solid rgba(255, 106, 0, 0.2);
-            padding-top: 12px;
-            font-style: italic;
-        }
-
-        /* QUADRO DE MENSAGEM EMOCIONANTE */
-        .mensagem {
-            background: linear-gradient(145deg, #1f0f1a, #130a10);
-            margin-top: 80px;
-            padding: 60px 40px;
-            border-radius: 30px;
-            text-align: center;
-            border: 1px solid rgba(255, 42, 109, 0.35);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 42, 109, 0.05);
-            position: relative;
-        }
-
-        .mensagem h2 {
-            font-family: 'Great Vibes', cursive;
-            color: var(--accent);
-            font-size: 3.5rem;
-            margin-bottom: 25px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-        }
-
-        .mensagem p {
-            font-size: 1.2rem;
-            line-height: 1.9;
-            max-width: 750px;
-            margin: auto;
-            color: #e6d3df;
-            font-weight: 300;
-            letter-spacing: 0.5px;
-        }
-
-        .mensagem .te-amo {
-            font-size: 1.8rem;
-            color: var(--primary);
-            font-weight: 600;
-            margin-top: 35px;
-            display: inline-block;
-            text-shadow: 0 0 15px var(--primary-glow);
-            animation: heartbeat 1.5s ease-in-out infinite;
-        }
-
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            14% { transform: scale(1.1); }
-            28% { transform: scale(1); }
-            42% { transform: scale(1.15); }
-            70% { transform: scale(1); }
-        }
-
-        /* ÁREA E ESTILO DO BOTÃO DE TARTARUGA */
-        .turtle-section {
-            text-align: center;
-            margin-top: 60px;
-            margin-bottom: 20px;
-        }
-
-        .turtle-btn {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: var(--bg-card);
-            border: 2px solid rgba(255, 106, 0, 0.4);
-            border-radius: 50%;
-            width: 100px;
-            height: 100px;
-            text-decoration: none;
-            cursor: pointer;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-            transition: var(--transition-smooth);
-            animation: floatTurtle 3s ease-in-out infinite;
-        }
-
-        .turtle-btn .turtle-emoji {
-            font-size: 2.8rem;
-            transition: var(--transition-smooth);
-        }
-
-        .turtle-btn .turtle-text {
-            font-size: 0.75rem;
-            color: #c9bab4;
-            margin-top: 2px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-        }
-
-        .turtle-btn:hover {
-            transform: scale(1.1);
-            border-color: var(--primary);
-            box-shadow: 0 0 30px var(--primary-glow);
-        }
-
-        .turtle-btn:hover .turtle-emoji {
-            transform: rotate(15deg) scale(1.1);
-        }
-
-        @keyframes floatTurtle {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* ESTILOS DO TIMER DE VIAGEM E BOTÃO DE VIAGENS */
-        .travel-top-section {
-            margin-bottom: 40px;
-        }
-
-        .countdown-container {
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 106, 0, 0.2);
-            border-radius: 20px;
-            padding: 20px;
-            max-width: 480px;
-            margin: 0 auto;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            text-align: center;
-        }
-
-        .countdown-container h3 {
-            font-size: 1rem;
-            color: #c9bab4;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .countdown-timer {
-            display: flex;
-            justify-content: space-around;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .timer-box {
-            background: #0d0806;
-            border-bottom: 2px solid var(--primary);
-            border-radius: 10px;
-            padding: 10px;
-            min-width: 75px;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
-        }
-
-        .timer-box span {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-shadow: 0 0 10px var(--primary-glow);
-            display: block;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .timer-box p {
-            font-size: 0.7rem;
-            color: #7a6a63;
-            text-transform: uppercase;
-            margin-top: 3px;
-            letter-spacing: 0.5px;
-        }
-
-        .btn-viagem-retangular {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-            padding: 12px 20px;
-            background: linear-gradient(135deg, #ff6a00 0%, #d25500 100%);
-            color: #ffffff;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(255, 106, 0, 0.3);
-            transition: var(--transition-smooth);
-        }
-
-        .btn-viagem-retangular:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px var(--primary-glow);
-            background: linear-gradient(135deg, #ff8025 0%, #e05d00 100%);
-        }
-
-        footer {
-            text-align: center;
-            padding: 60px 20px;
-            color: #7a6a63;
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(255,255,255,0.04);
-            margin-top: 40px;
-            letter-spacing: 0.5px;
-        }
-
-        /* MODAIS OTIMIZADOS */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(4, 2, 2, 0.96);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .modal.active {
-            display: flex;
-            opacity: 1;
-        }
-
-        .modal-content-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 95%;
-            max-height: 90vh;
-        }
-
-        .modal img {
-            max-width: 100%;
-            max-height: 75vh;
-            border-radius: 16px;
-            box-shadow: 0 0 40px rgba(255, 106, 0, 0.4);
-            transform: scale(0.9);
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .modal.active img {
-            transform: scale(1);
-        }
-
-        .modal-caption {
-            margin-top: 15px;
-            font-size: 1.1rem;
-            color: #fff8f5;
-            text-align: center;
-            font-family: 'Montserrat', sans-serif;
-            background: rgba(22, 16, 13, 0.85);
-            padding: 10px 25px;
-            border-radius: 30px;
-            border: 1px solid rgba(255, 106, 0, 0.3);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            letter-spacing: 0.5px;
-            max-width: 90%;
-        }
-
-        .modal-caption span {
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 25px; right: 30px;
-            color: var(--text-light);
-            font-size: 50px;
-            font-weight: 300;
-            cursor: pointer;
-            transition: color 0.2s;
-            line-height: 1;
-        }
-
-        .modal-close:hover {
-            color: var(--primary);
-        }
-
-        .password-box {
-            background: #1a120f;
-            padding: 40px 30px;
-            border-radius: 24px;
-            border: 2px solid var(--primary);
-            box-shadow: 0 0 35px rgba(255, 106, 0, 0.3);
-            text-align: center;
-            max-width: 400px;
-            width: 100%;
-            transform: scale(0.9);
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .modal.active .password-box {
-            transform: scale(1);
-        }
-
-        .password-box h3 {
-            font-size: 1.4rem;
-            margin-bottom: 12px;
-            color: var(--text-light);
-            font-weight: 600;
-        }
-
-        .password-box p {
-            font-size: 0.95rem;
-            color: #a3958f;
-            margin-bottom: 25px;
-        }
-
-        .password-box input {
-            width: 100%;
-            padding: 14px 20px;
-            border-radius: 50px;
-            border: 1px solid rgba(255, 106, 0, 0.3);
-            background: #0d0806;
-            color: white;
-            font-size: 1.2rem;
-            text-align: center;
-            outline: none;
-            transition: var(--transition-smooth);
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-        }
-
-        .password-box input:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 15px rgba(255, 106, 0, 0.4);
-        }
-
-        .password-box button {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 14px 35px;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            box-shadow: 0 5px 15px rgba(255, 106, 0, 0.3);
-            width: 100%;
-        }
-
-        .password-box button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px var(--primary-glow);
-            background: #ff8025;
-        }
-
-        .password-box .error-message {
-            color: #ff554a;
-            font-size: 0.85rem;
-            margin-top: 12px;
-            display: none;
-            font-weight: 500;
-        }
-
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-
-        @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @media (max-width: 768px) {
-            header h1 { font-size: 3rem; }
-            header p { font-size: 1rem; }
-            .cupons-section h2 { font-size: 2.6rem; }
-            .section-title { font-size: 1.4rem; margin-top: 40px; }
-            .grid { gap: 20px; }
-            .modal-caption { font-size: 0.95rem; padding: 8px 15px; }
+            filter: drop-shadow(0 0 6px rgba(255, 107, 0, 0.5));
         }
     </style>
 </head>
-<body>
+<body class="bg-black text-amber-50 font-sans min-h-screen flex flex-col justify-between items-center relative overflow-x-hidden selection:bg-orange-500 selection:text-black">
 
-    <!-- ANIMAÇÃO DE ESTRELAS DE FUNDO -->
-    <div class="stars-container" id="jsStarsContainer"></div>
+    <!-- Luzes de fundo atmosféricas laranjas (Ambient Glows) -->
+    <div class="absolute top-1/4 -left-20 w-80 h-80 sm:w-96 sm:h-96 bg-orange-600/20 rounded-full filter blur-3xl animate-pulse-glow pointer-events-none"></div>
+    <div class="absolute bottom-1/4 -right-20 w-80 h-80 sm:w-96 sm:h-96 bg-amber-500/20 rounded-full filter blur-3xl animate-pulse-glow pointer-events-none" style="animation-delay: 2.5s;"></div>
 
-    <div class="bg-decor" id="decor1">🧡</div>
-    <div class="bg-decor" id="decor2">🍊</div>
-    <div class="bg-decor" id="decor3">🧡</div>
+    <!-- Container dos corações flutuantes em laranja -->
+    <div id="hearts-container" class="fixed inset-0 pointer-events-none overflow-hidden z-0"></div>
 
-    <header>
-        <h1>🧡 Dani e Selmo TV 🧡</h1>
-        <p>Os melhores momentos da nossa história construída juntos</p>
+    <!-- Cabeçalho -->
+    <header class="w-full max-w-5xl mx-auto p-6 flex justify-between items-center z-10">
+        <div class="flex items-center space-x-2.5 text-orange-400 font-serif text-lg tracking-wide">
+            <i class="fa-solid fa-heart text-orange-500 animate-pulse drop-shadow-[0_0_8px_rgba(249,115,22,0.8)]"></i>
+            <span class="font-semibold text-orange-300">Daniele & Você</span>
+        </div>
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-950/40 border border-orange-600/40 text-xs font-medium text-orange-300 backdrop-blur-md shadow-inner">
+            <span class="w-2 h-2 rounded-full bg-orange-400 animate-ping"></span>
+            Preparando Surpresas
+        </div>
     </header>
 
-    <div class="container">
+    <main class="w-full max-w-2xl px-6 py-8 my-auto flex flex-col items-center text-center z-10">
+        
+        <!-- Cartão Romântico com Efeito Glassmorphism escuro e bordas laranjas -->
+        <div class="w-full p-8 sm:p-12 rounded-3xl bg-neutral-950/80 border border-orange-500/30 shadow-[0_0_50px_rgba(249,115,22,0.15)] backdrop-blur-xl animate-float-slow relative overflow-hidden">
+            
+            <!-- Linha decorativa no topo -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent shadow-[0_0_12px_#f97316]"></div>
 
-        <!-- BLOCO DA VIAGEM TRANSFERIDO PARA O TOPO -->
-        <div class="travel-top-section fade-in-section">
-            <div class="countdown-container">
-                <h3>✈️ Contagem Regressiva para Gramado 🏔️ (FALTA MENOS DE 10 DIAS 😱😱😱) </h3>
-                <div class="countdown-timer">
-                    <div class="timer-box"><span id="days">00</span><p>Dias</p></div>
-                    <div class="timer-box"><span id="hours">00</span><p>Horas</p></div>
-                    <div class="timer-box"><span id="minutes">00</span><p>Min</p></div>
-                    <div class="timer-box"><span id="seconds">00</span><p>Seg</p></div>
-                </div>
+            <!-- Ícone Principal: Coração Laranja com brilho -->
+            <div class="mb-6 inline-flex p-4 rounded-2xl bg-gradient-to-tr from-orange-600 to-amber-500 text-black shadow-lg shadow-orange-500/30">
+                <i class="fa-solid fa-heart text-3xl sm:text-4xl text-black"></i>
+            </div>
+
+            <!-- Título Romântico com degradê laranja/dourado -->
+            <h1 class="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-white mb-4 leading-tight">
+                Para o meu amor,<br/>
+                <span class="bg-gradient-to-r from-orange-400 via-amber-300 to-amber-500 bg-clip-text text-transparent italic drop-shadow-[0_2px_10px_rgba(249,115,22,0.3)]">
+                    Daniele Alves Martins 🧡
+                </span>
+            </h1>
+
+            <!-- Aviso de Manutenção com temática laranja -->
+            <div class="inline-block px-4 py-1.5 mb-6 rounded-full bg-orange-950/60 border border-orange-500/40 text-orange-300 text-xs sm:text-sm font-medium shadow-inner">
+                ✨ Dani & Selmo TV em manutenção para melhorar a experiência ✨
+            </div>
+
+            <!-- Mensagem carinhosa com texto laranja suave/claro -->
+            <p class="text-orange-100/90 text-base sm:text-lg mb-8 leading-relaxed font-light">
+                Estou ajustando cada detalhe do nosso site, com todo o carinho do mundo. Enquanto deixo tudo impecável pra nós, que tal continuarmos a planejar nossas próximas viagens e aventuras juntos?
+            </p>
+
+            <!-- Botão da Planilha de Viagens em Laranja Vibrante -->
+            <div class="mb-8">
                 <a href="https://docs.google.com/spreadsheets/d/1DwMDnoFrSAuhg4VjZmxTrKskm6SDkDVd1YgwSzEroOw/edit?gid=0#gid=0" 
                    target="_blank" 
                    rel="noopener noreferrer" 
-                   class="btn-viagem-retangular" 
-                   title="Nossos próximos destinos! ✈️">
-                    <span>✈️</span>
-                    <span>Ver Planilha de Viagens</span>
+                   class="group relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 text-black font-bold text-base sm:text-lg shadow-[0_0_25px_rgba(249,115,22,0.4)] hover:shadow-[0_0_35px_rgba(249,115,22,0.7)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 border border-orange-300/40">
+                    <i class="fa-solid fa-plane-departure text-black group-hover:rotate-12 transition-transform duration-300"></i>
+                    <span>Nossas Viagens 🗺️✨</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-80 group-hover:opacity-100 transition-opacity"></i>
                 </a>
             </div>
-        </div>
-      
 
-        <!-- SEÇÃO BOTÕES "ABRA QUANDO..." -->
-        <div class="fade-in-section delay-1">
-            <h2 class="section-title">✉️ Abra Quando...</h2>
-            <div class="open-when-grid">
-                <button class="btn-open-when" data-msg="Lembre-se de que a distância é só um detalhe perto do que sentimos um pelo outro meu amor. Lembra dos nossos roles e momentos que passamos e vamos passar juntinhos. Eu estou sempre aqui quando precisar, me manda um WhatsApp e pergunta como que eu to, com toda certeza eu vou estar pensamento em você. Fecha os olhos e sente o meu abraço — logo, logo a gente estará juntinho novamente Princesa.">
-                    <span class="icon">🥺</span>
-                    <span>Estiver com Saudades...</span>
-                </button>
-                <button class="btn-open-when" data-msg="COMPLIACADO NE MOR ... KKKKK brincadeira mor. Respira fundo. Você é uma Mulher incrível Dani meu mor, forte e muito mais capaz do que imagina. Dias ruins passam, mas o meu apoio, meu carinho e o meu amor por você não mudam nunca. Vai dar tudo certo, eu tô aqui com você.">
-                    <span class="icon">🌧️</span>
-                    <span>Tiver um Dia Difícil...</span>
-                </button>
-                <button class="btn-open-when" data-msg="Se o dia estiver pesado, pensa na gente caindo na risada por conta de uma foto de eu olhando para você fixamente. Meu lugar favorito no mundo é onde você está sorrindo, então faz um favor para mim: dá um sorriso agora e me manda uma foto, só para deixar meu dia mais bonito também. ❤️">
-                    <span class="icon">😁</span>
-                    <span>Precisar sorrir...</span>
-                </button>
-                <button class="btn-open-when" data-msg="Se em algum momento você duvidar, olha para este site, para as nossas fotos e para tudo o que construímos. Eu te amo mais a cada dia, nos pequenos detalhes, nas piadas internas e na certeza de que é você que eu quero do meu lado.">
-                    <span class="icon">🧡</span>
-                    <span>Estiver com dúvida do quanto eu te amo...</span>
-                </button>
+            <!-- Indicador de Destino em tons de laranja -->
+            <div class="pt-6 border-t border-orange-900/40 flex flex-col sm:flex-row items-center justify-between text-xs text-orange-300/80 gap-2">
+                <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-compass text-orange-400"></i>
+                    Próximo Destino: <strong class="text-orange-200">Nosso Futuro Juntos</strong>
+                </span>
+                <span class="flex items-center gap-1.5 font-serif italic text-orange-300">
+                    Com todo meu amor: Anselmo JR. <i class="fa-solid fa-heart text-xs text-orange-500"></i>
+                </span>
             </div>
+
         </div>
 
+    </main>
 
-
-        <div class="fade-in-section">
-            <h2 class="section-title">🎬 Assistindo Agora</h2>
-            <div class="cinema-box">
-                <div class="video-responsive">
-                    <iframe
-                        id="mainPlayer"
-                        src="https://www.youtube.com/embed/c2OPgRowig4?autoplay=1&mute=1&rel=0"
-                        title="Nosso vídeo especial"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-        </div>
-        <div class="fade-in-section delay-1">
-            <h2 class="section-title">📹 Nossa Playlist Especial</h2>
-            <div class="grid">
-			
-			<!-- cola a partir daqui Anselmo -->
-			
-			
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/99fg9uTEBVM">
-				<div class="card-media">
-					<img src="https://img.youtube.com/vi/99fg9uTEBVM/hqdefault.jpg" alt="Capa do vídeo 2">
-				</div>
-					<p>Bate papo depois da risada com xixi na calça 🤣🗣️💦</p>
-				</div>
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/PgBreQB-x9o">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/PgBreQB-x9o/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>Bricks não terminado 🧱🧩🚧</p>
-				</div>
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/INuTxI6RRyU">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/INuTxI6RRyU/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>Dia do pirata - yessss 🏴‍☠️⚓🦜🎉</p>
-				</div>
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/sv99NcZD0UE">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/sv99NcZD0UE/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>Festa Junina asepi em Agosto 🌽🔥🤠🎊</p>
-				</div>
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/E4hh0Z2_3So">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/E4hh0Z2_3So/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>Fofoca de Skincare 🗣️✨🧴💆‍♀️</p>
-				</div>
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/RzXgvddYlJc">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/RzXgvddYlJc/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>Rolê na Decathlon 1 🛒🏃‍♂️🏀🛍️</p>
-				</div>
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/Tuhsajtpd_w">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/Tuhsajtpd_w/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>Rolê na Decathlon 2 🛒🎯🏋️‍♀️🛍️</p>
-				</div>
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/kXAuhF7cZAU">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/kXAuhF7cZAU/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>Papo da Madruga depois do Aniversário 🎂🌙💬🥳</p>
-				</div>
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/NSp_-4Y-vu4">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/NSp_-4Y-vu4/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>PASSEIO NO PARQUE 2 🌳🧺☀️🍃</p>
-				</div>
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/arhXYw0PdKY">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/arhXYw0PdKY/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>Passeio no parque das águas Pinhais 🌊🌳🦆☀️</p>
-				</div>
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/zzTJMlgBe-E">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/zzTJMlgBe-E/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>Boas Energias na CGM ✨🧘‍♂️✌️💖</p>
-				</div>
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/-b00pkKYFYo">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/-b00pkKYFYo/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>Manhã de Cantoria ☀️🎤🎶🌅</p>
-				</div>
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/EO_dxgqZzAY">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/EO_dxgqZzAY/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>Melhor risada do MUNDO 😂😆🌍❤️</p>
-				</div>
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/xmVHaNTM6Hg">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/xmVHaNTM6Hg/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>Role na Praia - CAIOBA 🏖️🌊☀️🌊</p>
-				</div>
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/rhAvlhcEUuU">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/rhAvlhcEUuU/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>Voltando do role da praia 🚗🌅🏖️🚗</p>
-				</div>
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/NAgSnGbtPiE">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/NAgSnGbtPiE/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>P.P.P - Passeio Público de Pokemongos</p>
-				</div>
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/UUxzI1k-cOE">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/UUxzI1k-cOE/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>🪛 Philips Multi Utilidades A FERRAMENTA PARA ABRIR CAIXA 🪛</p>
-				</div>
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/KJKJc9www7I">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/KJKJc9www7I/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>☕ Café da manha no domingo Portal do Itupava</p>
-				</div>
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/obW4aUfisJ4">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/obW4aUfisJ4/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>🐶 Kinder e a primeira aparição da Malu 🐶 </p>
-				</div>
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/btrpZDBBWIU">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/btrpZDBBWIU/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>⚽ Jogo do Brasil com a Dani princesa 👸🏻</p>
-				</div>
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/ArAYNLEUe2Y">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/ArAYNLEUe2Y/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>🌟 Cabelo Brilhante e quase gol do Brasil 🌟</p>
-				</div>
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/7fAyXag4kcU">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/7fAyXag4kcU/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>❤️REVIEW DE JOINVILLE PT2❤️</p>
-				</div>
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/4cU6J8i5fIs">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/4cU6J8i5fIs/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>🗣️ VOZ DE VOLTA - REVIEW DE JOINVILLE PT1 🗣️</p>
-				</div>
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/OYl9OWg9rDg">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/OYl9OWg9rDg/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>🩲 Desfile de Cueca ❤️</p>
-				</div>
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/OGk2DfcM6LU">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/OGk2DfcM6LU/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>✈️ ROLE DO DOG AVIÃO🌭❤️</p>
-				</div>
-				<div class="card js-video-card" data-youtube="https://www.youtube.com/embed/RHDPHsKnxfg">
-					<div class="card-media">
-						<img src="https://img.youtube.com/vi/RHDPHsKnxfg/hqdefault.jpg" alt="Capa do vídeo 2">
-					</div>
-					<p>🧱 O Primeiro BRICKS ❤️🧱</p>
-				</div>
-                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/XVKlGdRZKJs">
-                    <div class="card-media">
-                        <img src="https://img.youtube.com/vi/XVKlGdRZKJs/hqdefault.jpg" alt="Capa do vídeo 2">
-                    </div>
-                    <p>💛💚 PRIMEIRO JOGO DA COPA 💛💚</p>
-                </div>		
-                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/Ca5b_DkWItY">
-                    <div class="card-media">
-                        <img src="https://img.youtube.com/vi/Ca5b_DkWItY/hqdefault.jpg" alt="Capa do vídeo 2">
-                    </div>
-                    <p>Paisagem de Joinville Muda ️🧡</p>
-                </div>
-                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/balxKDd6TmE">
-                    <div class="card-media">
-                        <img src="https://img.youtube.com/vi/balxKDd6TmE/hqdefault.jpg" alt="Capa do vídeo 2">
-                    </div>
-                    <p>SHISHA LOVERS</p>
-                </div>
-                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/NEF0rxLm2Jw">
-                    <div class="card-media">
-                        <img src="https://img.youtube.com/vi/NEF0rxLm2Jw/hqdefault.jpg" alt="Capa do vídeo 2">
-                    </div>
-                    <p>Dia dos namorados MUDO </p>
-                </div>
-                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/_wfNyyZA8RU">
-                    <div class="card-media">
-                        <img src="https://img.youtube.com/vi/_wfNyyZA8RU/hqdefault.jpg" alt="Capa do vídeo 2">
-                    </div>
-                    <p>🌭CONVERSA DO HOTDOG OFUSCADO🌭</p>
-                </div>
-                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/c2OPgRowig4">
-                    <div class="card-media">
-                        <img src="https://img.youtube.com/vi/c2OPgRowig4/hqdefault.jpg" alt="Capa do vídeo 1">
-                    </div>
-                    <p>Sandero Possante 🏎️</p>
-                </div>
-                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/0ibNowxrIk8">
-                    <div class="card-media">
-                        <img src="https://img.youtube.com/vi/0ibNowxrIk8/hqdefault.jpg" alt="Capa do vídeo 2">
-                    </div>
-                    <p>Shishando com Anselmo 🧡💨</p>
-                </div>
-                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/jIhJwoYUGWg">
-                    <div class="card-media">
-                        <img src="https://img.youtube.com/vi/jIhJwoYUGWg/hqdefault.jpg" alt="Capa do vídeo 3">
-                    </div>
-                    <p>Papo da Madruga 🧡 🌝</p>
-                </div>   
-                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/iTodi8Eqn48">
-                    <div class="card-media">
-                         <img src="https://img.youtube.com/vi/iTodi8Eqn48/hqdefault.jpg" alt="Capa do vídeo 4">
-                    </div>
-                    <p>Shisha time Anselmo 🧡💨</p>
-                </div>    
-                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/-yzUDkyxQ0M">
-                    <div class="card-media">
-                        <img src="https://img.youtube.com/vi/-yzUDkyxQ0M/hqdefault.jpg" alt="Capa do vídeo 5">
-                    </div>
-                    <p>Muita fome pelo jeito 🧡🍖</p>
-                </div>
-                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/r2DzUDhSP1E">
-                    <div class="card-media">
-                        <img src="https://img.youtube.com/vi/r2DzUDhSP1E/hqdefault.jpg" alt="Capa do vídeo 6">
-                    </div>
-                    <p>Gata muda 🐈‍⬛ 😶 🧡</p>
-                </div>
-                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/ilnPlYvzoxc">
-                    <div class="card-media">
-                        <img src="https://img.youtube.com/vi/ilnPlYvzoxc/hqdefault.jpg" alt="Capa do vídeo 7">
-                    </div>
-                    <p>Veja o Vídeo de ontem 🧡</p>
-                </div>  
-                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/K3mSctzulqA">
-                    <div class="card-media">
-                        <img src="https://img.youtube.com/vi/K3mSctzulqA/hqdefault.jpg" alt="Capa do vídeo 8">
-                    </div>
-                    <p>Shisha time Anselmo Parte 1 💨</p>
-                </div>
-                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/TVmnSane_4c">
-                    <div class="card-media">
-                        <img src="https://img.youtube.com/vi/TVmnSane_4c/hqdefault.jpg" alt="Capa do vídeo 9">
-                    </div>
-                    <p>Morro do Tiuzão da Bike 🚵🏼‍♀️</p>
-                </div>
-                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/NCiTey-9OH4">
-                    <div class="card-media">
-                        <img src="https://img.youtube.com/vi/NCiTey-9OH4/hqdefault.jpg" alt="Capa do vídeo 10">
-                    </div>
-                    <p>Tradutor da Daniele 🧡🗣️ </p>
-                </div>
-                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/dGAP3zaOLaE">
-                    <div class="card-media">
-                        <img src="https://img.youtube.com/vi/dGAP3zaOLaE/hqdefault.jpg" alt="Capa do vídeo 11">
-                    </div>
-                    <p> Passeio no morro e camisas🧡</p>
-                </div>
-                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/H1yFz42qNrU">
-                    <div class="card-media">
-                        <img src="https://img.youtube.com/vi/H1yFz42qNrU/hqdefault.jpg" alt="Capa do vídeo 12">
-                    </div>
-                    <p>Ouvido Branco da Abelha Anselmo 🧡</p>
-                </div>	
-                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/PtFzUdtCHOU">
-                    <div class="card-media">
-                        <img src="https://img.youtube.com/vi/PtFzUdtCHOU/hqdefault.jpg" alt="Capa do vídeo 13">
-                    </div>
-                    <p>Aula de secador, vinada e adesivos 🧡</p>
-                </div>
-                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/qfIQlKRLc6M">
-                    <div class="card-media">
-                        <img src="https://img.youtube.com/vi/qfIQlKRLc6M/hqdefault.jpg" alt="Capa do vídeo 14">
-                    </div>
-                    <p>Porta fechada com espelho 🧡</p>
-                </div>
-                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/zbM4eLC6jMY">
-                    <div class="card-media">
-                        <img src="https://img.youtube.com/vi/zbM4eLC6jMY/hqdefault.jpg" alt="Capa do vídeo 15">
-                    </div>
-                    <p>Onibus sem cueca 🧡</p>
-                </div>
-                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/5CsiLtIDZvI">
-                    <div class="card-media">
-                        <img src="https://img.youtube.com/vi/5CsiLtIDZvI/hqdefault.jpg" alt="Capa do vídeo 16">
-                    </div>
-                    <p>Patriota não planejada 🇧🇷 🇧🇷 🇧🇷🧡</p>
-                </div>	
-                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/JtG-lyScBCI">
-                    <div class="card-media">
-                        <img src="https://img.youtube.com/vi/JtG-lyScBCI/hqdefault.jpg" alt="Capa do vídeo 17">
-                    </div>
-                    <p>🧡⭐⭐SHISHANDO COM DANI⭐⭐ - A SAGA DO ALUMINIO️🧡</p>
-                </div>
-                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/8w-gseHvtNY">
-                    <div class="card-media">
-                        <img src="https://img.youtube.com/vi/8w-gseHvtNY/hqdefault.jpg" alt="Capa do vídeo 18">
-                    </div>
-                    <p>o Primeiro - DOIS MALUCOS EM GRAMADO 🧡 </p>
-                </div>
-                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/YpwAFnzjD7g">
-                    <div class="card-media">
-                        <img src="https://img.youtube.com/vi/YpwAFnzjD7g/hqdefault.jpg" alt="Capa do vídeo 19">
-                    </div>
-                    <p>Dois Maluces em Gramado 2 🧡</p>
-                </div>
-                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/ibhyKgpeqxw">
-                    <div class="card-media">
-                        <img src="https://img.youtube.com/vi/ibhyKgpeqxw/hqdefault.jpg" alt="Capa do vídeo 2">
-                    </div>
-                    <p>Recebido Pago com Spoiler 🛏️🧡</p>
-                </div>
-                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/DEJ-R0SZgbc">
-                    <div class="card-media">
-                        <img src="https://img.youtube.com/vi/DEJ-R0SZgbc/hqdefault.jpg" alt="Capa do vídeo 2">
-                    </div>
-                    <p>Torresmo Maneiro 🧡</p>
-                </div>
-                <div class="card js-video-card" data-youtube="https://www.youtube.com/embed/tGsoPBXo4uI">
-                    <div class="card-media">
-                        <img src="https://img.youtube.com/vi/tGsoPBXo4uI/hqdefault.jpg" alt="Capa do vídeo 2">
-                    </div>
-                    <p>Recebido Pago da Dani 🛏️🧡</p>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="fade-in-section delay-2">
-            <h2 class="section-title">📸 Galeria de Retratos Favoritos</h2>
-            <div class="grid">
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto1.jpeg" data-local="Na frente da casa da Dani - Piraquara - PR" data-data="25 de Fevereiro 2026" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto22.jpeg" data-local="Pesque Pague lanchonete do Cachimbo - São José dos Pinhais - PR" data-data="3 de Abril 2026" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto2.jpeg" data-local="Feira do Largo da Ordem - Curitiba - PR" data-data="12 de Abril 2026" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto3.jpeg" data-local="Pista do Gaúcho - Curitiba - PR" data-data="21 de Abril 2026" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto23.jpeg" data-local="Teatro Positivo (Barbixas peça Improvável)  - Curitiba - PR" data-data="26 de Abril 2026" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto4.jpeg" data-local="Antes do Festival do Torresmos - Curitiba - PR" data-data="17 de Maio 2026" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto5.jpeg" data-local="Pizzaria Dell's - Piraquara - PR" data-data="13 de Maio 2026" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto6.jpeg" data-local="La Campesina Restaurante (finge que eu sou um bolo)  - Curitiba - PR" data-data="27 de Maio 2026" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto7.jpeg" data-local="Role pela Prudente de Morais (depois da janta)   - Curitiba - PR" data-data="27 de Maio 2026"  alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto77.jpeg" data-local="Habib's Pinhais - PR" data-data="21 de Maio de 2026" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto8.jpeg" data-local="Saindo da casa do Selmo indo para Joinville - Piraquara - PR" data-data="30 de Maio 2026" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto9.jpeg" data-local="Mirante da Serra Dona Francisca - Joinville - SC" data-data="30 de Maio 2026" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto10.jpeg" data-local="Role do Toretto - Joinville - SC" data-data="30 de Maio 2026" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto11.jpeg" data-local="Mirante de Joinville - Joinville - SC" data-data="31 de Maio 2026" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto12.jpeg" data-local="Trapiche da Vila da Glória - São Francisco do Sul - SC" data-data="31 de Maio 2026" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto13.jpeg" data-local="Ta vendo aquela lua que brilha lá no céu? - Itapoá - SC" data-data="31 de Maio 2026" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto14.jpeg" data-local="Pão com linguiça da sede da FÚRIA - Curitiba - PR" data-data="06 de Junho 2026" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto18.jpeg" data-local="Mika Dog - Pinhais - PR" data-data="14 de Junho 2026" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto15.jpeg" data-local="Casa do Selmo - Piraquara - PR" data-data="14 de Junho 2026" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto16.jpeg" data-local="Primeiro dia dos Namorados ♥ Porcini Trattoria - Curitiba - PR" data-data="12 de Junho 2026" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto17.jpeg" data-local="Primeiro dia dos Namorados ♥ Porcini Trattoria - Curitiba - PR" data-data="12 de Junho 2026" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto19.jpeg" data-local="Jantar no Madero Palladium - Curitiba - PR" data-data="16 de Junho 2026" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto20.jpeg" data-local="Dogão no Avião (pré viagem) - Curitiba - PR" data-data="20 de Junho 2026" alt="Nossos momentos"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto21.jpeg" data-local="Pastel no Parque das Águas - Pinhais - PR" data-data="21 de Junho 2026" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto24.jpeg" data-local="Em algum lugar de uma estrada Rural com Viadutos Maneiros (parece pista de pouso ou pista de corrida de cavalos)  - Piraquara - PR" data-data="28 de Junho 2026" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto25.jpeg" data-local="Passeio de domingo (capela abandonada ou sendo criada) - Piraquara - PR" data-data="28 de Junho 2026" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto26.jpeg" data-local="Portal do Itupava - Quatro Barras - PR" data-data="28 de Junho 2026" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto27.jpeg" data-local="Parque do Lago - Quatro Barras - PR" data-data="28 de Junho 2026" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto28.jpeg" data-local="Lonatto cucina - Curitiba - PR" data-data="30 de Junho 2026" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto29.jpeg" data-local="P.P.P. Dia de Pokemongos no Passeio Público - Curitiba - PR" data-data="12 de Julho 2026" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto30.jpeg" data-local="Janta no Cidadão do Mundo Agua Verde - Curitiba - PR" data-data="15 de Julho 2026" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto31.jpeg" data-local="Role Decathlon - Curitiba - PR" data-data="15 de Julho 2026" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto34.jpeg" data-local="Churrasco Ranço - Asepi - Pinhais - PR" data-data="17 de Julho 2026" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto32.jpeg" data-local="Araiá dos Martins - Asepi sede campestre - Pinhais - PR" data-data="18 de Julho 2026" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto33.jpeg" data-local="Café da manha casa da Dani - Piraquara - PR" data-data="20 de Julho 2026" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto35.jpeg" data-local="Aniversário do Selmo - Churrascaria Braseiro - Curitiba - PR" data-data="21 de Julho 2026" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto36.jpeg" data-local="Bossa Bar - Curitiba - PR" data-data="24 de Julho 2026" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto38.jpeg" data-local="Role no Parque das águas - Pinhais - PR" data-data="25 de Julho 2026" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto37.jpeg" data-local="Casa do Selmo - Piraquara - PR" data-data="26 de Julho 2026" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto39.jpeg" data-local="Shisha Lounge - São José dos Pinhais - PR" data-data="30 de Julho 2026" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto40.jpeg" data-local="Festa Junina ASEPI - Pinhais - PR" data-data="01 de Agosto 2026" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto41.jpeg" data-local="Festa Junina ASEPI - Pinhais - PR" data-data="01 de Agosto 2026" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto42.jpeg" data-local="Cinema Shopping Estação - Filme do Miranha - Curitiba - PR" data-data="04 de Agosto 2026" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto43.jpeg" data-local="Sede da ASEPI - Pinhais - PR" data-data="07 de Agosto 2026" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto44.jpeg" data-local="Shopping SJP - Evento de carros maneiros - São Jose dos Pinhais - PR" data-data="09 de Agosto 2026" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto45.jpeg" data-local="Praia Mansa de Caiobá - Caiobá - PR" data-data="15 de Agosto 2026" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto46.jpeg" data-local="Praia Mansa de Caiobá - Caiobá - PR" data-data="15 de Agosto 2026" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto47.jpeg" data-local="Praia Brava de Caiobá - Campeonato de Surf - Caiobá - PR" data-data="15 de Agosto 2026" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto49.jpeg" data-local="Saida dos pescadores de Caiobá - Caiobá - PR" data-data="15 de Agosto 2026" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto50.jpeg" data-local="Jantar de panquecas - Pinhais - PR" data-data="17 de Agosto 2026" alt="Nossos momentos"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/foto51.jpeg" data-local="O dia que a Dani bateu no carro do Selmo - Curitiba - PR" data-data="18 de Agosto 2026" alt="Nossos momentos"></div></div>
-				
-            </div>
-        </div>
-
-        <!-- SEÇÃO: FOTOS DA COPA DO MUNDO -->
-        <div class="fade-in-section delay-2">
-            <h2 class="section-title">⚽ o Brasil não ganhou o hexa :( mas quem ganhou esse ano foi a gente com companhia um do outro 💛💚</h2>
-            <div class="grid">
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa1.jpeg" data-local="CASA DO SELMO - Pré jogo" data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa2.jpeg" data-local="CASA DO SELMO - Pré jogo" data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa3.jpeg" data-local="Bastards Brewery (não fomos no melhor dia) " data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa4.jpeg" data-local="Fumaçônica Brewhouse" data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa5.jpeg" data-local="Fumaçônica Brewhouse" data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa6.jpeg" data-local="Fumaçônica Brewhouse" data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa7.jpeg" data-local="Fumaçônica Brewhouse" data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa8.jpeg" data-local="Fumaçônica Brewhouse" data-data="13/06/2026" alt="Jogos do Brasil"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa9.jpeg" data-local="CASA DO SELMO - com Tabua de frios e quentes" data-data="19/06/2026" alt="Jogos do Brasil"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa10.jpeg" data-local="CASA DO SELMO - com Tabua de frios e quentes" data-data="19/06/2026" alt="Jogos do Brasil"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa11.jpeg" data-local="CASA DO SELMO - com Tabua de frios e quentes" data-data="19/06/2026" alt="Jogos do Brasil"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa12.jpeg" data-local="CASA DO SELMO - com Tabua de frios e quentes" data-data="19/06/2026" alt="Jogos do Brasil"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa13.jpeg" data-local="Bar Guimarães - Pinhais - PR" data-data="24/06/2026" alt="Jogos do Brasil"></div></div>
-                <div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa14.jpeg" data-local="Bar Guimarães - Pinhais - PR" data-data="24/06/2026" alt="Jogos do Brasil"></div></div>
-				<div class="card photo-card js-photo-card"><div class="card-media"><img src="fotos/copa15.jpeg" data-local="CASA DO SELMO - No dia da eliminação :( - Piraquara - PR" data-data="05/07/2026" alt="Jogos do Brasil"></div></div>
-            </div>
-        </div>
-
-        <div class="mensagem fade-in-section delay-2">
-            <h2>💌 Para você, Daniele</h2>
-            <p>
-                ❤️ FELIZ DIA DOS NAMORADOS PRINCESA ❤️<br><br>
-                📤 Anselmo compartilhou seu vídeo<br><br>
-                💬 Anselmo comentou:<br>
-                <i>Feliz Dia dos Namorados, minha princesa. Obrigado por transformar momentos simples em memórias que EU NUNCA MAIS VOU ESQUECER. Por me fazer ser melhor a cada dia, peço que me desculpe por alguma coisa que um dia eu possa ter feito para te aborrecer ou decepcionar, quero fazer bem para você e sempre te fazer feliz. Obrigado pelas risadas, pelas conversas e suas histórias que amo escutar, pelos passeios que fizemos, pelos planos de viagens (que vamos fazer) e pelas coisas que fazemos que fazem a gente dar muita gargalhada. Você conseguiu ocupar um espaço muito especial na minha vida e eu sou grato por cada instante ao seu lado. Que a gente continue colecionando histórias, viagens, cafés da manhã pendentes em panificadoras e muitas outras aventuras. Te amo, princesa. </i> ❤️<br><br>
-                ⭐ Anselmo virou membro do canal e renovou a assinatura automaticamente<br><br>
-                🔔 Anselmo ativou o sininho para não perder nenhum sorriso seu<br><br>
-                ❤️ Anselmo curtiu 100% dos momentos ao seu lado<br><br>
-                📌 Anselmo adicionou aos favoritos: seu sorriso, seu abraço e a mulher incrível que você é<br><br>
-                😍 Anselmo reagiu com "amei" à nossa história<br><br>
-                😘 Anselmo deixou um beijo<br><br>
-                💬 Anselmo comentou novamente:<br>
-                E pode ter certeza que, independente da cor do seu catarro, se está sem voz, das ásias por glútem ou das enxaquecas, vou continuar SEMPRE aqui para cuidar de você. ❤️
-            </p>
-            <span class="te-amo">Feliz Dia dos Namorados! Te amo princesa ❤️</span>
-        </div>
-		
-		<!-- BOTÃO DA PLAYLIST -->
-		<div class="playlist-container">
-			<a href="https://open.spotify.com/playlist/2WrXseGy2D8kSDJDqrdUzk?si=88fbad524d6f4396" target="_blank" class="spotify-btn">
-				<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-					<path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.02 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141 C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
-				</svg>
-			Ouvir Nossa Playlist no Spotify
-			</a>
-		</div>
-		
-        <div class="cupons-section fade-in-section delay-2">
-            <h2> 🎁 Cupom presente para Dani 🎟️</h2>
-            <p class="sub">Retire um vale-mimo especial e aleatório válido com o Selmo!</p>
-            
-            <div class="roleta-box">
-                <button class="btn-sortear" id="jsSortearBtn">Resgatar Meu Cupom do Dia 🎫</button>
-                
-                <div class="ticket" id="jsTicketBox">
-                    <div class="ticket-header">Ticket Premiado</div>
-                    <div class="ticket-title" id="jsTicketTitle">Nome do Cupom</div>
-                    <div class="ticket-desc" id="jsTicketDesc">Descrição especial aqui...</div>
-                    <div class="ticket-footer">📸 Tire um print para cobrar o Selmo!</div>
-                </div>
-            </div>
-        </div>
-        <!-- SEÇÃO DE AVALIAÇÃO COM ESTRELAS -->
-        <div class="fade-in-section delay-2">
-            <div class="stars-rating-section">
-                <h3>⭐ Quantas estrelas nossa história merece? ⭐</h3>
-                <div class="stars-wrapper" id="jsStarsWrapper">
-                    <span class="star-item" data-value="1">★</span>
-                    <span class="star-item" data-value="2">★</span>
-                    <span class="star-item" data-value="3">★</span>
-                    <span class="star-item" data-value="4">★</span>
-                    <span class="star-item" data-value="5">★</span>
-                </div>
-                <div class="stars-feedback" id="jsStarsFeedback">Clique nas estrelas para avaliar!</div>
-            </div>
-        </div>
-        <!-- BOTÃO DA TARTARUGA SOZINHO -->
-        <div class="turtle-section fade-in-section delay-2">
-            <div class="turtle-btn" id="jsTurtleBtn" title="Apenas para quem sabe o segredo...">
-                <span class="turtle-emoji">🐢</span>
-                <span class="turtle-text">Segredo!</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL DE FOTOS -->
-    <div id="photoModal" class="modal">
-        <span class="modal-close" id="closeModal">&times;</span>
-        <div class="modal-content-wrapper">
-            <img id="modalImg" src="" alt="Zoom Premium">
-            <div id="modalCaption" class="modal-caption">📍 Local: <span>-</span> | 📅 Data: <span>-</span></div>
-        </div>
-    </div>
-
-    <!-- MODAL DE MENSAGENS -->
-    <div id="msgModal" class="modal">
-        <span class="modal-close" id="closeMsgModal">&times;</span>
-        <div class="password-box" style="max-width:450px;">
-            <h3>💌 Abra Quando...</h3>
-            <p id="modalMsgContent" style="color:#fff; font-size:1.1rem; line-height:1.6; margin-top:15px;"></p>
-        </div>
-    </div>
-
-    <div id="passwordModal" class="modal">
-        <span class="modal-close" id="closePasswordModal">&times;</span>
-        <div class="password-box">
-            <h3>🔒 Área Secreta</h3>
-            <p>Digite a senha para desbloquear a surpresa:</p>
-            <input type="password" id="secretPasswordInput" placeholder="••••••" maxlength="10">
-            <button id="submitPasswordBtn">Desbloquear</button>
-            <div class="error-message" id="passwordError">Senha incorreta! Tente de novo 🧡</div>
-        </div>
-    </div>
-
-    <footer>
-        <p>Desenvolvido com todo o amor do mundo por Selmo para Dani | &copy; 2026</p>
+    <!-- Rodapé -->
+    <footer class="w-full max-w-5xl mx-auto p-6 text-center text-xs text-orange-400/60 z-10">
+        <p>&copy; <span id="year"></span> Feito especialmente para a Daniele. Todos os sorrisos reservados! 🧡</p>
     </footer>
 
+    <!-- Script JavaScript para Efeito de Corações Flutuantes Laranjas -->
     <script>
-        // GERADOR DE ESTRELAS DE FUNDO
-        const starsContainer = document.getElementById('jsStarsContainer');
-        for (let i = 0; i < 35; i++) {
-            const star = document.createElement('div');
-            star.classList.add('star-particle');
-            const size = Math.random() * 3 + 1;
-            star.style.width = `${size}px`;
-            star.style.height = `${size}px`;
-            star.style.left = `${Math.random() * 100}%`;
-            star.style.animationDuration = `${Math.random() * 8 + 4}s`;
-            star.style.animationDelay = `${Math.random() * 5}s`;
-            starsContainer.appendChild(star);
-        }
+        // Atualiza o ano automaticamente
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-        // LÓGICA DAS ESTRELAS DE AVALIAÇÃO
-        const starItems = document.querySelectorAll('.star-item');
-        const starsFeedback = document.getElementById('jsStarsFeedback');
-        const feedbackTexts = [
-            "1 estrela? Impossível! Tente novamente! 😉",
-            "2 estrelas? Acho que você clicou errado! 😜",
-            "3 estrelas? Tá melhorando, mas nosso amor vale mais! ❤️",
-            "4 estrelas? Quase lá! Nosso amor merece topo máximo! 🌟",
-            "⭐⭐⭐⭐⭐ 5 ESTRELAS! O melhor amor do mundo inteirinho! 🥰✨"
-        ];
+        // Gerador de partículas de corações flutuantes laranjas
+        function createHeart() {
+            const container = document.getElementById('hearts-container');
+            if (!container) return;
 
-        starItems.forEach(star => {
-            star.addEventListener('click', () => {
-                const val = parseInt(star.getAttribute('data-value'));
-                starItems.forEach((s, idx) => {
-                    if (idx < val) {
-                        s.classList.add('active');
-                    } else {
-                        s.classList.remove('active');
-                    }
-                });
-                starsFeedback.innerText = feedbackTexts[val - 1];
-            });
-        });
-
-        // LÓGICA DOS BOTÕES "ABRA QUANDO..."
-        const openWhenBtns = document.querySelectorAll('.btn-open-when');
-        const msgModal = document.getElementById('msgModal');
-        const modalMsgContent = document.getElementById('modalMsgContent');
-        const closeMsgModal = document.getElementById('closeMsgModal');
-
-        openWhenBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const msg = btn.getAttribute('data-msg');
-                modalMsgContent.innerText = msg;
-                msgModal.classList.add('active');
-            });
-        });
-
-        function fecharModalMsg() {
-            msgModal.classList.remove('active');
-        }
-        closeMsgModal.addEventListener('click', fecharModalMsg);
-        msgModal.addEventListener('click', fecharModalMsg);
-
-        // Lista Completa de Opções de Cupons Cadastrados
-        const listaCupons = [
-            {
-                titulo: "💆🏼‍♀️ Vale 1 Massagem Relaxante",
-                desc: "Válido para as costas ou pés, com direito a música calma, ambiente tranquilo e zero reclamações ou pressa por parte do Selmo."
-            },
-            {
-                titulo: "👩🏼‍🍳 Vale Jantar Especial",
-                desc: "O Selmo cozinha ou pede a sua janta favorita no capricho hoje. Você não mexe um dedo, só senta, assiste e saboreia!"
-            },
-            {
-                titulo: "🍿 Vale Cinema com Pipoca",
-                desc: "Você escolhe o filme da noite (mesmo que seja o romance mais meloso do mundo). O Selmo paga a pipoca e promete não dormir no meio!"
-            },
-            {
-                titulo: "🥐 Vale Café da Manhã na Panificadora",
-                desc: "Aquele café da manhã pendente de panificadora finalmente vai sair! Totalmente por conta e pago pelo Selmo, com tudo que você tem direito."
-            },
-            {
-                titulo: "🍖 Vale Muita Fome",
-                desc: "Dia de rodada insana! Válido para uma janta com muita carne, lanches caprichados ou aquele torresmo maneiro para devorar sem culpa."
-            },
-			{
-				titulo: "🌞🚶 Vale Passeio de Domingo",
-				desc: "Este cupom garante um passeio especial na manhã de domingo! Dani escolhe o destino: parque, feira, café, praça ou qualquer lugar gostoso para caminhar. O importante é aproveitar o tempo juntinhos e criar mais uma lembrança especial."
-			},
-            {
-                titulo: "💨 Vale Sessão de Shisha Premium",
-                desc: "Uma sessão completa de arguile de altíssima qualidade montada pelo Anselmo, com a essência que você escolher e o alumínio perfeitamente esticado."
-            },
-            {
-                titulo: "🍫 Vale Doce na Madrugada",
-                desc: "Bateu aquela vontade incontrolável de comer um chocolate, doce ou guloseima fora de hora? Ative esse cupom e o Selmo dá um jeito de conseguir."
-            },
-            {
-                titulo: "🩹 Vale Anti-Enxaqueca & Azia",
-                desc: "Dia de mimo e proteção absoluta: massagem suave na cabeça, remédio na mão na hora certa, quarto escurinho e silêncio total garantido."
-            },
-            {
-                titulo: "🌳 Vale Tarde de Passeio sem Destino",
-                desc: "Um passeio bem gostoso para caminhar de mãos dadas, visitar um parque legal e curtir a companhia um do outro sem pressa de voltar."
-            },			
-            {
-                titulo: "💆🏼‍♀️ Vale Cafuné Sem Limite de Tempo",
-                desc: "Mimo ativado! Cafoffo e cafuné contínuos até o Selmo ficar com cãibra na mão ou você pegar no sono bem relaxada."
-            },
-            {
-                titulo: "🧩 Vale Montar Quebra-Cabeça a Dois",
-                desc: "Uma noite inteira separada para abrir um quebra-cabeça novo! O Selmo ajuda a separar as bordas, dividir as peças por cores e garante os petiscos e a música de fundo enquanto vocês se divertem juntos."
-            },
-            {
-                titulo: "🚫 ERRO 404: Cupom Não Encontrado",
-                desc: "Ops! Parece que o Selmo estava limpando a shisha ou jogando Pokemon na hora de cadastrar esse prêmio. Chame a atenção do Selmo para ele te dar atenção, tente a sorte novamente! 💤"
-            },
-            {
-                titulo: "🔄 Cupom Reverso: Faça um Cafuné no Selmo",
-                desc: "O jogo virou! Você deu o azar (ou sorte) de tirar o cupom invertido. Vá até o Selmo e faça 5 minutos de cafuné caprichado nele para liberar a roleta! 💆🏼‍♂️"
-            },
-            {
-                titulo: "🎬 Vale Vídeo de Reação Especial para o Canal",
-                desc: "O Selmo topa gravar um vídeo super divertido reagindo a algo que você escolher (suas fotos antigas, uma série ou um desafio) para movimentar o canal!"
-            },
-            {
-                titulo: "📈 Notificação de Juros: O Fiado Cobrou Seu Preço!",
-                desc: "Atenção! O Banco do Selmo aplicou a taxa Selic do amor sobre aquele seu 'vale CONFIANÇA'. Como juros acumulados da dívida, você agora DEVE um CHOPP 🍺 para ele. Pague o que deve! 💆🏼‍♂️💸"
-            },
-            {
-                titulo: "🔍 Vale 'Detetive de Peças Perdidas'",
-                desc: "Está travada naquela parte super difícil do quebra-cabeça onde tudo parece igual? Ative este cupom e o Selmo vira seu assistente focado em achar a peça exata que falta!"
-            },
-            {
-                titulo: "🧱 Vale Montar Bricks Sem Interrupção",
-                desc: "Um dia ou noite dedicada a montar seus Bricks favoritos. O Selmo ajuda a separar as peças por cor, abre os saquinhos e garante zero interrupções!"
-            },
-            {
-                titulo: "🥩 Vale Assistente de Churrasco",
-                desc: "Dia de comer carne boa! O Selmo cuida da brasa, prepara tudo e te serve os melhores pedaços na mesa com direito a zero trabalho para você."
-            },
-            {
-                titulo: "🐧 Vale Pinguim",
-                desc: "Você ganhou um abraço aleatório e obrigatório do Selmo no momento em que apresentar este cupom."
-            },
-            {
-                titulo: "🍓 Vale Sobremesa Especial",
-                desc: "Escolha qualquer sobremesa que estiver com vontade e o Selmo providencia."
-            },
-            {
-                titulo: "⚠️ reCAPTCHA: Verificação de dívida de Dívida / Vale Fiado",
-                desc: "Erro no sistema! O banco de dados do site encontrou um 'vale fiado' pendente na sua conta. Para quitar os juros a favor do Selmo, vá até ele e pague com um beijo estalado e um cafuné de 5 minutos. 📊"
-            },
-            {
-                titulo: "🥤 Vale Pastel com Caldo de Cana Caprichado",
-                desc: "Desejo ativado! Válido para ir comer aquele pastel de feira sequinho e gigante, acompanhado de um caldo de cana bem gelado. Tudo pago pelo Selmo!"
-            },
-            {
-                titulo: "💖 Vale 100 Beijos",
-                desc: "Cupom válido para uma carga imediata de carinho, beijos e abraços sem limite de validade."
-            },
-            {
-                titulo: "🧺 Vale Piquenique Romântico no Parque",
-                desc: "Dani e Selmo organizam a cesta de lanches, estende a toalha no parque e te leva para passar uma tarde incrível e relaxante ao ar livre."
-            },
-			{
-                titulo: "📱 Vale Chamego Remoto",
-                desc: "Dani e Selmo estão distantes um do outro nesse momento, o Selmo deve cantar uma musica ou fazer algo para alegrar mais ainda o dia da Princesa Dani."
-            },	
-			
-			{
-				titulo: "❤️🏆 Vale Nosso Hexa 🔰⚽",
-				desc: "O Brasil não levantou a taça, mas nós já temos a nossa maior conquista: um ao outro. Este cupom garante um beijo demorado, um abraço e um momento só nosso para comemorar o time que nunca perde: Dani & Selmo."
-			},			
-            {
-                titulo: "🏎️ Vale Rolê no Sandero Possante",
-                desc: "Um passeio especial de carro sem destino, ouvindo as músicas que você quiser e curtindo a companhia um do outro."
-            }
-        ];
-
-        // LÓGICA DO SORTEIO DOS CUPONS (ROLETA)
-        const btnSortear = document.getElementById('jsSortearBtn');
-        const ticketBox = document.getElementById('jsTicketBox');
-        const ticketTitle = document.getElementById('jsTicketTitle');
-        const ticketDesc = document.getElementById('jsTicketDesc');
-
-        btnSortear.addEventListener('click', () => {
-            btnSortear.disabled = true;
-            ticketBox.style.display = 'none';
-            btnSortear.innerText = "Sorteando seu prêmio... 🎰";
-
-            let cliques = 0;
-            const roletaInterval = setInterval(() => {
-                const cupomAleatorio = listaCupons[Math.floor(Math.random() * listaCupons.length)];
-                btnSortear.style.background = cliques % 2 === 0 ? '#ffd700' : '#ff6a00';
-                btnSortear.style.color = cliques % 2 === 0 ? '#000' : '#fff';
-                cliques++;
-
-                if (cliques > 12) {
-                    clearInterval(roletaInterval);
-                    
-                    const cupomFinal = listaCupons[Math.floor(Math.random() * listaCupons.length)];
-                    ticketTitle.innerText = cupomFinal.titulo;
-                    ticketDesc.innerText = cupomFinal.desc;
-                    
-                    btnSortear.style.background = 'linear-gradient(135deg, #ff6a00 0%, #d25500 100%)';
-                    btnSortear.style.color = 'white';
-                    btnSortear.innerText = "Pegar Outro Cupom 🎫";
-                    btnSortear.disabled = false;
-
-                    ticketBox.style.display = 'block';
-                }
-            }, 100);
-        });
-
-        // Controle Avançado do Player de Vídeo
-        const mainPlayer = document.getElementById('mainPlayer');
-        const videoCards = document.querySelectorAll('.js-video-card');
-
-        videoCards.forEach(card => {
-            card.addEventListener('click', () => {
-                const youtubeUrl = card.getAttribute('data-youtube');
-                if (youtubeUrl) {
-                    mainPlayer.src = `${youtubeUrl}?autoplay=1&mute=1&rel=0`;
-                    document.querySelector('.cinema-box').scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            });
-        });
-
-        // Lógica do Modal das Fotos
-        const photoModal = document.getElementById('photoModal');
-        const modalImg = document.getElementById('modalImg');
-        const modalCaption = document.getElementById('modalCaption');
-        const closeModal = document.getElementById('closeModal');
-        const photoCards = document.querySelectorAll('.js-photo-card img');
-
-        photoCards.forEach(img => {
-            img.addEventListener('click', (e) => {
-                e.stopPropagation();
-                modalImg.src = img.src;
-
-                const local = img.getAttribute('data-local') || "Não informado";
-                const data = img.getAttribute('data-data') || "Não informada";
-
-                modalCaption.innerHTML = `📍 Local: <span>${local}</span> | 📅 Data: <span>${data}</span>`;
-                photoModal.classList.add('active');
-            });
-        });
-
-        function fecharModalFotos() {
-            photoModal.classList.remove('active');
-        }
-        closeModal.addEventListener('click', fecharModalFotos);
-        photoModal.addEventListener('click', fecharModalFotos);
-
-        // LÓGICA DO MODAL DE SENHA DA TARTARUGA
-        const turtleBtn = document.getElementById('jsTurtleBtn');
-        const passwordModal = document.getElementById('passwordModal');
-        const closePasswordModal = document.getElementById('closePasswordModal');
-        const passwordInput = document.getElementById('secretPasswordInput');
-        const submitPasswordBtn = document.getElementById('submitPasswordBtn');
-        const passwordError = document.getElementById('passwordError');
-
-        turtleBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            passwordInput.value = '';
-            passwordError.style.display = 'none';
-            passwordModal.classList.add('active');
-            setTimeout(() => passwordInput.focus(), 100);
-        });
-
-        function fecharModalSenha() {
-            passwordModal.classList.remove('active');
-        }
-        closePasswordModal.addEventListener('click', fecharModalSenha);
-        passwordModal.addEventListener('click', fecharModalSenha);
-
-        document.querySelector('.password-box').addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
-
-        function verificarSenha() {
-            if (passwordInput.value === '100226') {
-                fecharModalSenha();
-                window.open('https://youtube.com/shorts/cs_fznYRSxI?feature=share', '_blank', 'noopener,noreferrer');
-            } else {
-                passwordError.style.display = 'block';
-                passwordInput.value = '';
-                passwordInput.focus();
-            }
-        }
-
-        submitPasswordBtn.addEventListener('click', verificarSenha);
-        passwordInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') verificarSenha();
-        });
-
-        // Atalho Geral: Fecha qualquer modal aberto ao apertar "ESC"
-        window.addEventListener('keydown', (e) => {
-            if (e.key === "Escape") {
-                fecharModalFotos();
-                fecharModalSenha();
-                fecharModalMsg();
-            }
-        });
-
-        // EFEITO DE CLIQUE EM CORAÇÕES LARANJAS
-        document.addEventListener('click', (e) => {
-            if(e.target.tagName === 'IFRAME' || 
-               e.target.closest('.modal-close') || 
-               e.target.closest('#jsTurtleBtn') || 
-               e.target.closest('#jsSortearBtn') ||
-               e.target.closest('.ticket') ||
-               e.target.closest('.password-box') ||
-               e.target.closest('.modal-caption')) return;
-
-            const heart = document.createElement('div');
-            heart.classList.add('click-heart');
-            heart.innerHTML = '🧡';
-            heart.style.left = `${e.pageX}px`;
-            heart.style.top = `${e.pageY}px`;
+            const heart = document.createElement('i');
+            heart.classList.add('fa-solid', 'fa-heart', 'heart-particle');
             
-            document.body.appendChild(heart);
+            // Posição horizontal aleatória
+            const startLeft = Math.random() * 100;
+            heart.style.left = startLeft + 'vw';
+            
+            // Tamanho aleatório
+            const size = Math.random() * 18 + 10; // entre 10px e 28px
+            heart.style.fontSize = size + 'px';
+            
+            // Duração da animação aleatória
+            const duration = Math.random() * 6 + 6; // entre 6s e 12s
+            heart.style.animationDuration = duration + 's';
+            
+            // Opacidade com leve variação
+            heart.style.opacity = (Math.random() * 0.5 + 0.25).toString();
 
+            container.appendChild(heart);
+
+            // Remover o coração após o término da animação
             setTimeout(() => {
                 heart.remove();
-            }, 1000);
-        });
-		
-        // LÓGICA DA CONTAGEM REGRESSIVA PARA GRAMADO
-        const dataViagem = new Date('August 31, 2026 00:00:00').getTime();
+            }, duration * 1000);
+        }
 
-        const atualizarTimer = setInterval(() => {
-            const agora = new Date().getTime();
-            const diferenca = dataViagem - agora;
+        // Criar corações periodicamente
+        setInterval(createHeart, 500);
 
-            const calculoDias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
-            const calculoHoras = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const calculoMinutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
-            const calculoSegundos = Math.floor((diferenca % (1000 * 60)) / 1000);
-
-            document.getElementById('days').innerText = calculoDias < 10 ? '0' + calculoDias : calculoDias;
-            document.getElementById('hours').innerText = calculoHoras < 10 ? '0' + calculoHoras : calculoHoras;
-            document.getElementById('minutes').innerText = calculoMinutos < 10 ? '0' + calculoMinutos : calculoMinutos;
-            document.getElementById('seconds').innerText = calculoSegundos < 10 ? '0' + calculoSegundos : calculoSegundos;
-
-            if (diferenca < 0) {
-                clearInterval(atualizarTimer);
-                document.querySelector('.countdown-container').innerHTML = "<h3>🧳 PARTIU GRAMADO! A viagem começou! ✈️</h3>";
-            }
-        }, 1000);
+        // Criar alguns corações no início
+        for (let i = 0; i < 8; i++) {
+            setTimeout(createHeart, i * 250);
+        }
     </script>
 </body>
 </html>
